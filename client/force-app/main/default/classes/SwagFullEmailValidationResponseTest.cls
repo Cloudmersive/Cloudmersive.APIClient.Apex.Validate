@@ -84,5 +84,10 @@ private class SwagFullEmailValidationResponseTest {
         Map<String, String> propertyMappings = fullEmailValidationResponse.getPropertyMappings();
         System.assertEquals('validAddress', propertyMappings.get('ValidAddress'));
         System.assertEquals('mailServerUsedForValidation', propertyMappings.get('MailServerUsedForValidation'));
+        System.assertEquals('validSyntax', propertyMappings.get('Valid_Syntax'));
+        System.assertEquals('validDomain', propertyMappings.get('Valid_Domain'));
+        System.assertEquals('validSMTP', propertyMappings.get('Valid_SMTP'));
+        System.assertEquals('isCatchallDomain', propertyMappings.get('IsCatchallDomain'));
+        System.assertEquals('domain', propertyMappings.get('Domain'));
     }
 }

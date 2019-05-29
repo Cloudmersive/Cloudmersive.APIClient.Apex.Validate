@@ -15,7 +15,7 @@
  */
 public class SwagFullEmailValidationResponse implements Swagger.MappedProperties {
     /**
-     * True if the email address is valid, false otherwise
+     * True if the email address is valid overall, false otherwise
      * @return validAddress
      */
     public Boolean validAddress { get; set; }
@@ -26,9 +26,44 @@ public class SwagFullEmailValidationResponse implements Swagger.MappedProperties
      */
     public String mailServerUsedForValidation { get; set; }
 
+    /**
+     * True if the syntax of the email address is valid, false otherwise.  This is one component of ValidAddress, but not the only one.
+     * @return validSyntax
+     */
+    public Boolean validSyntax { get; set; }
+
+    /**
+     * True if the domain name of the email address is valid, false otherwise.  This is one component of ValidAddress, but not the only one.
+     * @return validDomain
+     */
+    public Boolean validDomain { get; set; }
+
+    /**
+     * True if the email address was verified by the remote server, false otherwise.  This is one component of ValidAddress, but not the only one.
+     * @return validSMTP
+     */
+    public Boolean validSMTP { get; set; }
+
+    /**
+     * True if the domain is a catch-all domain name, false otherwise.  Catch-all domain names, while rare, always accept inbound email to ensure they do not lose any potentially useful emails.  Catch-all domain names can occassionally be configured to first accept and store all inbound email, but then later send a bounce email back to the sender after a delayed period of time.
+     * @return isCatchallDomain
+     */
+    public Boolean isCatchallDomain { get; set; }
+
+    /**
+     * Domain name of the email address
+     * @return domain
+     */
+    public String domain { get; set; }
+
     private static final Map<String, String> propertyMappings = new Map<String, String>{
         'ValidAddress' => 'validAddress',
-        'MailServerUsedForValidation' => 'mailServerUsedForValidation'
+        'MailServerUsedForValidation' => 'mailServerUsedForValidation',
+        'Valid_Syntax' => 'validSyntax',
+        'Valid_Domain' => 'validDomain',
+        'Valid_SMTP' => 'validSMTP',
+        'IsCatchallDomain' => 'isCatchallDomain',
+        'Domain' => 'domain'
     };
 
     public Map<String, String> getPropertyMappings() {
@@ -39,6 +74,11 @@ public class SwagFullEmailValidationResponse implements Swagger.MappedProperties
         SwagFullEmailValidationResponse fullEmailValidationResponse = new SwagFullEmailValidationResponse();
         fullEmailValidationResponse.validAddress = true;
         fullEmailValidationResponse.mailServerUsedForValidation = 'aeiou';
+        fullEmailValidationResponse.validSyntax = true;
+        fullEmailValidationResponse.validDomain = true;
+        fullEmailValidationResponse.validSMTP = true;
+        fullEmailValidationResponse.isCatchallDomain = true;
+        fullEmailValidationResponse.domain = 'aeiou';
         return fullEmailValidationResponse;
     }
 
@@ -46,7 +86,12 @@ public class SwagFullEmailValidationResponse implements Swagger.MappedProperties
         if (obj instanceof SwagFullEmailValidationResponse) {
             SwagFullEmailValidationResponse fullEmailValidationResponse = (SwagFullEmailValidationResponse) obj;
             return this.validAddress == fullEmailValidationResponse.validAddress
-                && this.mailServerUsedForValidation == fullEmailValidationResponse.mailServerUsedForValidation;
+                && this.mailServerUsedForValidation == fullEmailValidationResponse.mailServerUsedForValidation
+                && this.validSyntax == fullEmailValidationResponse.validSyntax
+                && this.validDomain == fullEmailValidationResponse.validDomain
+                && this.validSMTP == fullEmailValidationResponse.validSMTP
+                && this.isCatchallDomain == fullEmailValidationResponse.isCatchallDomain
+                && this.domain == fullEmailValidationResponse.domain;
         }
         return false;
     }
@@ -55,6 +100,11 @@ public class SwagFullEmailValidationResponse implements Swagger.MappedProperties
         Integer hashCode = 43;
         hashCode = (17 * hashCode) + (validAddress == null ? 0 : System.hashCode(validAddress));
         hashCode = (17 * hashCode) + (mailServerUsedForValidation == null ? 0 : System.hashCode(mailServerUsedForValidation));
+        hashCode = (17 * hashCode) + (validSyntax == null ? 0 : System.hashCode(validSyntax));
+        hashCode = (17 * hashCode) + (validDomain == null ? 0 : System.hashCode(validDomain));
+        hashCode = (17 * hashCode) + (validSMTP == null ? 0 : System.hashCode(validSMTP));
+        hashCode = (17 * hashCode) + (isCatchallDomain == null ? 0 : System.hashCode(isCatchallDomain));
+        hashCode = (17 * hashCode) + (domain == null ? 0 : System.hashCode(domain));
         return hashCode;
     }
 }
