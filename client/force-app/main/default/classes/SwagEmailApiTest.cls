@@ -60,7 +60,7 @@ private class SwagEmailApiTest {
             client.setApiKey('foo-bar-api-key');
 
         res.setHeader('Content-Type', 'application/json');
-        res.setBody('{\r\n  "ValidAddress" : true,\r\n  "MailServerUsedForValidation" : "MailServerUsedForValidation",\r\n  "Valid_Syntax" : true,\r\n  "IsCatchallDomain" : true,\r\n  "Valid_SMTP" : true,\r\n  "Valid_Domain" : true,\r\n  "Domain" : "Domain"\r\n}');
+        res.setBody('{\r\n  "ValidAddress" : true,\r\n  "MailServerUsedForValidation" : "MailServerUsedForValidation",\r\n  "Valid_Syntax" : true,\r\n  "IsCatchallDomain" : true,\r\n  "Valid_SMTP" : true,\r\n  "Valid_Domain" : true,\r\n  "IsFreeEmailProvider" : true,\r\n  "Domain" : "Domain",\r\n  "IsDisposable" : true\r\n}');
         expectedResponse = SwagFullEmailValidationResponse.getExample();
         response = (SwagFullEmailValidationResponse) api.emailFullValidation(params);
         System.assertEquals(expectedResponse, response);

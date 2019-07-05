@@ -89,5 +89,7 @@ private class SwagFullEmailValidationResponseTest {
         System.assertEquals('validSMTP', propertyMappings.get('Valid_SMTP'));
         System.assertEquals('isCatchallDomain', propertyMappings.get('IsCatchallDomain'));
         System.assertEquals('domain', propertyMappings.get('Domain'));
+        System.assertEquals('isFreeEmailProvider', propertyMappings.get('IsFreeEmailProvider'));
+        System.assertEquals('isDisposable', propertyMappings.get('IsDisposable'));
     }
 }

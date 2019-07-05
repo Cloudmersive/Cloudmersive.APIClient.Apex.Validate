@@ -56,6 +56,18 @@ public class SwagFullEmailValidationResponse implements Swagger.MappedProperties
      */
     public String domain { get; set; }
 
+    /**
+     * True if the email domain name is a free provider (typically a free to sign up web email provider for consumers / personal use), false otherwise.
+     * @return isFreeEmailProvider
+     */
+    public Boolean isFreeEmailProvider { get; set; }
+
+    /**
+     * True if the email address is a disposable email address, false otherwise; these disposable providers are not typically used to receive email and so will have a low likelihood of opening mail sent there.
+     * @return isDisposable
+     */
+    public Boolean isDisposable { get; set; }
+
     private static final Map<String, String> propertyMappings = new Map<String, String>{
         'ValidAddress' => 'validAddress',
         'MailServerUsedForValidation' => 'mailServerUsedForValidation',
@@ -63,7 +75,9 @@ public class SwagFullEmailValidationResponse implements Swagger.MappedProperties
         'Valid_Domain' => 'validDomain',
         'Valid_SMTP' => 'validSMTP',
         'IsCatchallDomain' => 'isCatchallDomain',
-        'Domain' => 'domain'
+        'Domain' => 'domain',
+        'IsFreeEmailProvider' => 'isFreeEmailProvider',
+        'IsDisposable' => 'isDisposable'
     };
 
     public Map<String, String> getPropertyMappings() {
@@ -79,6 +93,8 @@ public class SwagFullEmailValidationResponse implements Swagger.MappedProperties
         fullEmailValidationResponse.validSMTP = true;
         fullEmailValidationResponse.isCatchallDomain = true;
         fullEmailValidationResponse.domain = 'aeiou';
+        fullEmailValidationResponse.isFreeEmailProvider = true;
+        fullEmailValidationResponse.isDisposable = true;
         return fullEmailValidationResponse;
     }
 
@@ -91,7 +107,9 @@ public class SwagFullEmailValidationResponse implements Swagger.MappedProperties
                 && this.validDomain == fullEmailValidationResponse.validDomain
                 && this.validSMTP == fullEmailValidationResponse.validSMTP
                 && this.isCatchallDomain == fullEmailValidationResponse.isCatchallDomain
-                && this.domain == fullEmailValidationResponse.domain;
+                && this.domain == fullEmailValidationResponse.domain
+                && this.isFreeEmailProvider == fullEmailValidationResponse.isFreeEmailProvider
+                && this.isDisposable == fullEmailValidationResponse.isDisposable;
         }
         return false;
     }
@@ -105,6 +123,8 @@ public class SwagFullEmailValidationResponse implements Swagger.MappedProperties
         hashCode = (17 * hashCode) + (validSMTP == null ? 0 : System.hashCode(validSMTP));
         hashCode = (17 * hashCode) + (isCatchallDomain == null ? 0 : System.hashCode(isCatchallDomain));
         hashCode = (17 * hashCode) + (domain == null ? 0 : System.hashCode(domain));
+        hashCode = (17 * hashCode) + (isFreeEmailProvider == null ? 0 : System.hashCode(isFreeEmailProvider));
+        hashCode = (17 * hashCode) + (isDisposable == null ? 0 : System.hashCode(isDisposable));
         return hashCode;
     }
 }
