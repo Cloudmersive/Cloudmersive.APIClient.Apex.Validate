@@ -42,17 +42,17 @@ If everything is set correctly:
 Please follow the [installation](#installation) instruction and execute the following Apex code:
 
 ```java
-SwagDomainApi api = new SwagDomainApi();
+SwagAddressApi api = new SwagAddressApi();
 SwagClient client = api.getClient();
 
 
 Map<String, Object> params = new Map<String, Object>{
-    'domain' => 'domain_example'
+    'input' => SwagParseAddressRequest.getExample()
 };
 
 try {
     // cross your fingers
-    SwagCheckResponse result = api.domainCheck(params);
+    SwagParseAddressResponse result = api.addressParseString(params);
     System.debug(result);
 } catch (Swagger.ApiException e) {
     // ...handle your exceptions
@@ -65,6 +65,7 @@ All URIs are relative to *https://api.cloudmersive.com*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
+*SwagAddressApi* | [**addressParseString**](docs/SwagAddressApi.md#addressParseString) | **POST** /validate/address/parse | Parse an unstructured input text string into an international, formatted address
 *SwagDomainApi* | [**domainCheck**](docs/SwagDomainApi.md#domainCheck) | **POST** /validate/domain/check | Validate a domain name
 *SwagDomainApi* | [**domainPost**](docs/SwagDomainApi.md#domainPost) | **POST** /validate/domain/whois | Get WHOIS information for a domain
 *SwagEmailApi* | [**emailAddressGetServers**](docs/SwagEmailApi.md#emailAddressGetServers) | **POST** /validate/email/address/servers | Partially check whether an email address is valid
@@ -94,6 +95,8 @@ Class | Method | HTTP request | Description
  - [SwagGetGenderResponse](docs/SwagGetGenderResponse.md)
  - [SwagLastNameValidationRequest](docs/SwagLastNameValidationRequest.md)
  - [SwagLastNameValidationResponse](docs/SwagLastNameValidationResponse.md)
+ - [SwagParseAddressRequest](docs/SwagParseAddressRequest.md)
+ - [SwagParseAddressResponse](docs/SwagParseAddressResponse.md)
  - [SwagPhoneNumberValidateRequest](docs/SwagPhoneNumberValidateRequest.md)
  - [SwagPhoneNumberValidationResponse](docs/SwagPhoneNumberValidationResponse.md)
  - [SwagVatLookupRequest](docs/SwagVatLookupRequest.md)
