@@ -15,7 +15,7 @@
  */
 public class SwagVatLookupRequest implements Swagger.MappedProperties {
     /**
-     * Get vatCode
+     * VAT code to lookup; example "CZ25123891"
      * @return vatCode
      */
     public String vatCode { get; set; }

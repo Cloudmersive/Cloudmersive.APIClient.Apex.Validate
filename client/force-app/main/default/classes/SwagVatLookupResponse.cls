@@ -15,31 +15,31 @@
  */
 public class SwagVatLookupResponse implements Swagger.MappedProperties {
     /**
-     * Get countryCode
+     * Two-letter country code
      * @return countryCode
      */
     public String countryCode { get; set; }
 
     /**
-     * Get vatNumber
+     * VAT number
      * @return vatNumber
      */
     public String vatNumber { get; set; }
 
     /**
-     * Get isValid
+     * True if the VAT code is valid, false otherwise
      * @return isValid
      */
     public Boolean isValid { get; set; }
 
     /**
-     * Get businessName
+     * Name of the business
      * @return businessName
      */
     public String businessName { get; set; }
 
     /**
-     * Get businessAddress
+     * Business address
      * @return businessAddress
      */
     public String businessAddress { get; set; }

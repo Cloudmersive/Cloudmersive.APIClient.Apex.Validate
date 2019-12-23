@@ -6,6 +6,8 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**domainCheck**](SwagDomainApi.md#domainCheck) | **POST** /validate/domain/check | Validate a domain name
 [**domainPost**](SwagDomainApi.md#domainPost) | **POST** /validate/domain/whois | Get WHOIS information for a domain
+[**domainUrlFull**](SwagDomainApi.md#domainUrlFull) | **POST** /validate/domain/url/full | Validate a URL fully
+[**domainUrlSyntaxOnly**](SwagDomainApi.md#domainUrlSyntaxOnly) | **POST** /validate/domain/url/syntax-only | Validate a URL syntactically
 
 
 <a name="domainCheck"></a>
@@ -96,6 +98,104 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**SwagWhoisResponse**](SwagWhoisResponse.md)
+
+### Authorization
+
+[Apikey](../README.md#Apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a name="domainUrlFull"></a>
+# **domainUrlFull**
+> SwagValidateUrlResponseFull domainUrlFull(request)
+
+Validate a URL fully
+
+Validate whether a URL is syntactically valid (does not check endpoint for validity), whether it exists, and whether the endpoint is up and passes virus scan checks.  Accepts various types of input and produces a well-formed URL as output.
+
+### Example
+```java
+SwagDomainApi api = new SwagDomainApi();
+SwagClient client = api.getClient();
+
+// Configure API key authorization: Apikey
+ApiKeyAuth Apikey = (ApiKeyAuth) client.getAuthentication('Apikey');
+Apikey.setApiKey('YOUR API KEY');
+
+Map<String, Object> params = new Map<String, Object>{
+    'request' => SwagValidateUrlRequestFull.getExample()
+};
+
+try {
+    // cross your fingers
+    SwagValidateUrlResponseFull result = api.domainUrlFull(params);
+    System.debug(result);
+} catch (Swagger.ApiException e) {
+    // ...handle your exceptions
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **request** | [**SwagValidateUrlRequestFull**](SwagValidateUrlRequestFull.md)| Input URL request |
+
+### Return type
+
+[**SwagValidateUrlResponseFull**](SwagValidateUrlResponseFull.md)
+
+### Authorization
+
+[Apikey](../README.md#Apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a name="domainUrlSyntaxOnly"></a>
+# **domainUrlSyntaxOnly**
+> SwagValidateUrlResponseSyntaxOnly domainUrlSyntaxOnly(request)
+
+Validate a URL syntactically
+
+Validate whether a URL is syntactically valid (does not check endpoint for validity).  Accepts various types of input and produces a well-formed URL as output.
+
+### Example
+```java
+SwagDomainApi api = new SwagDomainApi();
+SwagClient client = api.getClient();
+
+// Configure API key authorization: Apikey
+ApiKeyAuth Apikey = (ApiKeyAuth) client.getAuthentication('Apikey');
+Apikey.setApiKey('YOUR API KEY');
+
+Map<String, Object> params = new Map<String, Object>{
+    'request' => SwagValidateUrlRequestSyntaxOnly.getExample()
+};
+
+try {
+    // cross your fingers
+    SwagValidateUrlResponseSyntaxOnly result = api.domainUrlSyntaxOnly(params);
+    System.debug(result);
+} catch (Swagger.ApiException e) {
+    // ...handle your exceptions
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **request** | [**SwagValidateUrlRequestSyntaxOnly**](SwagValidateUrlRequestSyntaxOnly.md)| Input URL information |
+
+### Return type
+
+[**SwagValidateUrlResponseSyntaxOnly**](SwagValidateUrlResponseSyntaxOnly.md)
 
 ### Authorization
 

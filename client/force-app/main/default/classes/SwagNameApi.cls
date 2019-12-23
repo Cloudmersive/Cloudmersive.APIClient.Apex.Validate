@@ -50,6 +50,30 @@ public class SwagNameApi {
         );
     }
     /**
+     * Validate a code identifier
+     * Determines if the input name is a valid technical / code identifier.  Configure input rules such as whether whitespace, hyphens, underscores, etc. are allowed.  For example, a valid identifier might be &quot;helloWorld&quot; but not &quot;hello*World&quot;.
+     * @param input Identifier validation request information (required)
+     * @return SwagValidateIdentifierResponse
+     * @throws Swagger.ApiException if fails to make API call
+     */
+    public SwagValidateIdentifierResponse nameIdentifier(Map<String, Object> params) {
+        client.assertNotNull(params.get('input'), 'input');
+        List<Swagger.Param> query = new List<Swagger.Param>();
+        List<Swagger.Param> form = new List<Swagger.Param>();
+
+        return (SwagValidateIdentifierResponse) client.invoke(
+            'POST', '/validate/name/identifier',
+            (SwagValidateIdentifierRequest) params.get('input'),
+            query, form,
+            new Map<String, Object>(),
+            new Map<String, Object>(),
+            new List<String>{ 'application/json' },
+            new List<String>{ 'application/json' },
+            new List<String> { 'Apikey' },
+            SwagValidateIdentifierResponse.class
+        );
+    }
+    /**
      * Validate a first name
      * Determines if a string is a valid first name (given name)
      * @param input Validation request information (required)

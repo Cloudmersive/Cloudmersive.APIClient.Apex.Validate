@@ -83,5 +83,8 @@ private class SwagAddressVerifySyntaxOnlyResponseTest {
         SwagAddressVerifySyntaxOnlyResponse addressVerifySyntaxOnlyResponse = new SwagAddressVerifySyntaxOnlyResponse();
         Map<String, String> propertyMappings = addressVerifySyntaxOnlyResponse.getPropertyMappings();
         System.assertEquals('validAddress', propertyMappings.get('ValidAddress'));
+        System.assertEquals('domain', propertyMappings.get('Domain'));
+        System.assertEquals('isFreeEmailProvider', propertyMappings.get('IsFreeEmailProvider'));
+        System.assertEquals('isDisposable', propertyMappings.get('IsDisposable'));
     }
 }

@@ -68,15 +68,20 @@ Class | Method | HTTP request | Description
 *SwagAddressApi* | [**addressParseString**](docs/SwagAddressApi.md#addressParseString) | **POST** /validate/address/parse | Parse an unstructured input text string into an international, formatted address
 *SwagDomainApi* | [**domainCheck**](docs/SwagDomainApi.md#domainCheck) | **POST** /validate/domain/check | Validate a domain name
 *SwagDomainApi* | [**domainPost**](docs/SwagDomainApi.md#domainPost) | **POST** /validate/domain/whois | Get WHOIS information for a domain
+*SwagDomainApi* | [**domainUrlFull**](docs/SwagDomainApi.md#domainUrlFull) | **POST** /validate/domain/url/full | Validate a URL fully
+*SwagDomainApi* | [**domainUrlSyntaxOnly**](docs/SwagDomainApi.md#domainUrlSyntaxOnly) | **POST** /validate/domain/url/syntax-only | Validate a URL syntactically
 *SwagEmailApi* | [**emailAddressGetServers**](docs/SwagEmailApi.md#emailAddressGetServers) | **POST** /validate/email/address/servers | Partially check whether an email address is valid
 *SwagEmailApi* | [**emailFullValidation**](docs/SwagEmailApi.md#emailFullValidation) | **POST** /validate/email/address/full | Fully validate an email address
 *SwagEmailApi* | [**emailPost**](docs/SwagEmailApi.md#emailPost) | **POST** /validate/email/address/syntaxOnly | Validate email adddress for syntactic correctness only
 *SwagIpAddressApi* | [**iPAddressPost**](docs/SwagIpAddressApi.md#iPAddressPost) | **POST** /validate/ip/geolocate | Geolocate an IP address
+*SwagLeadEnrichmentApi* | [**leadEnrichmentEnrichLead**](docs/SwagLeadEnrichmentApi.md#leadEnrichmentEnrichLead) | **POST** /validate/lead-enrichment/lead/enrich | Enrich an input lead with additional fields of data
 *SwagNameApi* | [**nameGetGender**](docs/SwagNameApi.md#nameGetGender) | **POST** /validate/name/get-gender | Get the gender of a first name
+*SwagNameApi* | [**nameIdentifier**](docs/SwagNameApi.md#nameIdentifier) | **POST** /validate/name/identifier | Validate a code identifier
 *SwagNameApi* | [**nameValidateFirstName**](docs/SwagNameApi.md#nameValidateFirstName) | **POST** /validate/name/first | Validate a first name
 *SwagNameApi* | [**nameValidateFullName**](docs/SwagNameApi.md#nameValidateFullName) | **POST** /validate/name/full-name | Parse and validate a full name
 *SwagNameApi* | [**nameValidateLastName**](docs/SwagNameApi.md#nameValidateLastName) | **POST** /validate/name/last | Validate a last name
 *SwagPhoneNumberApi* | [**phoneNumberSyntaxOnly**](docs/SwagPhoneNumberApi.md#phoneNumberSyntaxOnly) | **POST** /validate/phonenumber/basic | Validate phone number (basic)
+*SwagUserAgentApi* | [**userAgentParse**](docs/SwagUserAgentApi.md#userAgentParse) | **POST** /validate/useragent/parse | Parse an HTTP User-Agent string, identify robots
 *SwagVatApi* | [**vatVatLookup**](docs/SwagVatApi.md#vatVatLookup) | **POST** /validate/vat/lookup | Lookup a VAT code
 
 
@@ -95,10 +100,20 @@ Class | Method | HTTP request | Description
  - [SwagGetGenderResponse](docs/SwagGetGenderResponse.md)
  - [SwagLastNameValidationRequest](docs/SwagLastNameValidationRequest.md)
  - [SwagLastNameValidationResponse](docs/SwagLastNameValidationResponse.md)
+ - [SwagLeadEnrichmentRequest](docs/SwagLeadEnrichmentRequest.md)
+ - [SwagLeadEnrichmentResponse](docs/SwagLeadEnrichmentResponse.md)
  - [SwagParseAddressRequest](docs/SwagParseAddressRequest.md)
  - [SwagParseAddressResponse](docs/SwagParseAddressResponse.md)
  - [SwagPhoneNumberValidateRequest](docs/SwagPhoneNumberValidateRequest.md)
  - [SwagPhoneNumberValidationResponse](docs/SwagPhoneNumberValidationResponse.md)
+ - [SwagUserAgentValidateRequest](docs/SwagUserAgentValidateRequest.md)
+ - [SwagUserAgentValidateResponse](docs/SwagUserAgentValidateResponse.md)
+ - [SwagValidateIdentifierRequest](docs/SwagValidateIdentifierRequest.md)
+ - [SwagValidateIdentifierResponse](docs/SwagValidateIdentifierResponse.md)
+ - [SwagValidateUrlRequestFull](docs/SwagValidateUrlRequestFull.md)
+ - [SwagValidateUrlRequestSyntaxOnly](docs/SwagValidateUrlRequestSyntaxOnly.md)
+ - [SwagValidateUrlResponseFull](docs/SwagValidateUrlResponseFull.md)
+ - [SwagValidateUrlResponseSyntaxOnly](docs/SwagValidateUrlResponseSyntaxOnly.md)
  - [SwagVatLookupRequest](docs/SwagVatLookupRequest.md)
  - [SwagVatLookupResponse](docs/SwagVatLookupResponse.md)
  - [SwagWhoisResponse](docs/SwagWhoisResponse.md)

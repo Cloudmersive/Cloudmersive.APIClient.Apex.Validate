@@ -20,8 +20,29 @@ public class SwagAddressVerifySyntaxOnlyResponse implements Swagger.MappedProper
      */
     public Boolean validAddress { get; set; }
 
+    /**
+     * Domain name of the email address
+     * @return domain
+     */
+    public String domain { get; set; }
+
+    /**
+     * True if the email domain name is a free provider (typically a free to sign up web email provider for consumers / personal use), false otherwise.
+     * @return isFreeEmailProvider
+     */
+    public Boolean isFreeEmailProvider { get; set; }
+
+    /**
+     * True if the email address is a disposable email address, false otherwise; these disposable providers are not typically used to receive email and so will have a low likelihood of opening mail sent there.
+     * @return isDisposable
+     */
+    public Boolean isDisposable { get; set; }
+
     private static final Map<String, String> propertyMappings = new Map<String, String>{
-        'ValidAddress' => 'validAddress'
+        'ValidAddress' => 'validAddress',
+        'Domain' => 'domain',
+        'IsFreeEmailProvider' => 'isFreeEmailProvider',
+        'IsDisposable' => 'isDisposable'
     };
 
     public Map<String, String> getPropertyMappings() {
@@ -31,13 +52,19 @@ public class SwagAddressVerifySyntaxOnlyResponse implements Swagger.MappedProper
     public static SwagAddressVerifySyntaxOnlyResponse getExample() {
         SwagAddressVerifySyntaxOnlyResponse addressVerifySyntaxOnlyResponse = new SwagAddressVerifySyntaxOnlyResponse();
         addressVerifySyntaxOnlyResponse.validAddress = true;
+        addressVerifySyntaxOnlyResponse.domain = 'aeiou';
+        addressVerifySyntaxOnlyResponse.isFreeEmailProvider = true;
+        addressVerifySyntaxOnlyResponse.isDisposable = true;
         return addressVerifySyntaxOnlyResponse;
     }
 
     public Boolean equals(Object obj) {
         if (obj instanceof SwagAddressVerifySyntaxOnlyResponse) {
             SwagAddressVerifySyntaxOnlyResponse addressVerifySyntaxOnlyResponse = (SwagAddressVerifySyntaxOnlyResponse) obj;
-            return this.validAddress == addressVerifySyntaxOnlyResponse.validAddress;
+            return this.validAddress == addressVerifySyntaxOnlyResponse.validAddress
+                && this.domain == addressVerifySyntaxOnlyResponse.domain
+                && this.isFreeEmailProvider == addressVerifySyntaxOnlyResponse.isFreeEmailProvider
+                && this.isDisposable == addressVerifySyntaxOnlyResponse.isDisposable;
         }
         return false;
     }
@@ -45,6 +72,9 @@ public class SwagAddressVerifySyntaxOnlyResponse implements Swagger.MappedProper
     public Integer hashCode() {
         Integer hashCode = 43;
         hashCode = (17 * hashCode) + (validAddress == null ? 0 : System.hashCode(validAddress));
+        hashCode = (17 * hashCode) + (domain == null ? 0 : System.hashCode(domain));
+        hashCode = (17 * hashCode) + (isFreeEmailProvider == null ? 0 : System.hashCode(isFreeEmailProvider));
+        hashCode = (17 * hashCode) + (isDisposable == null ? 0 : System.hashCode(isDisposable));
         return hashCode;
     }
 }

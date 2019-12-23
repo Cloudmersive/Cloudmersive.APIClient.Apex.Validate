@@ -93,7 +93,7 @@ private class SwagEmailApiTest {
             client.setApiKey('foo-bar-api-key');
 
         res.setHeader('Content-Type', 'application/json');
-        res.setBody('{\r\n  "ValidAddress" : true\r\n}');
+        res.setBody('{\r\n  "ValidAddress" : true,\r\n  "IsFreeEmailProvider" : true,\r\n  "Domain" : "Domain",\r\n  "IsDisposable" : true\r\n}');
         expectedResponse = SwagAddressVerifySyntaxOnlyResponse.getExample();
         response = (SwagAddressVerifySyntaxOnlyResponse) api.emailPost(params);
         System.assertEquals(expectedResponse, response);

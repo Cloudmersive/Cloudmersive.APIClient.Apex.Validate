@@ -34,6 +34,39 @@ private class SwagNameApiTest {
     }
 
     /**
+     * Validate a code identifier
+     *
+     * Determines if the input name is a valid technical / code identifier.  Configure input rules such as whether whitespace, hyphens, underscores, etc. are allowed.  For example, a valid identifier might be &quot;helloWorld&quot; but not &quot;hello*World&quot;.
+     */
+    @isTest
+    private static void nameIdentifierTest() {
+        HttpResponse res = new HttpResponse();
+        res.setStatusCode(200);
+        res.setStatus('OK');
+        Test.setMock(HttpCalloutMock.class, new SwaggerResponseMock(res));
+
+        Map<String, Object> params = new Map<String, Object>{
+            'input' => SwagValidateIdentifierRequest.getExample()
+        };
+
+        SwagClient client;
+        SwagNameApi api;
+        SwagValidateIdentifierResponse response;
+        SwagValidateIdentifierResponse expectedResponse;
+
+        client = new SwagClient();
+        api = new SwagNameApi(client);
+        ((Swagger.ApiKeyAuth) client.getAuthentication('Apikey');
+            client.setApiKey('foo-bar-api-key');
+
+        res.setHeader('Content-Type', 'application/json');
+        res.setBody('{\r\n  "ValidIdentifier" : true,\r\n  "Error" : "Error"\r\n}');
+        expectedResponse = SwagValidateIdentifierResponse.getExample();
+        response = (SwagValidateIdentifierResponse) api.nameIdentifier(params);
+        System.assertEquals(expectedResponse, response);
+    }
+
+    /**
      * Validate a first name
      *
      * Determines if a string is a valid first name (given name)

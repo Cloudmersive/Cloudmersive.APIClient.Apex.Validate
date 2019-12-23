@@ -73,4 +73,52 @@ public class SwagDomainApi {
             SwagWhoisResponse.class
         );
     }
+    /**
+     * Validate a URL fully
+     * Validate whether a URL is syntactically valid (does not check endpoint for validity), whether it exists, and whether the endpoint is up and passes virus scan checks.  Accepts various types of input and produces a well-formed URL as output.
+     * @param request Input URL request (required)
+     * @return SwagValidateUrlResponseFull
+     * @throws Swagger.ApiException if fails to make API call
+     */
+    public SwagValidateUrlResponseFull domainUrlFull(Map<String, Object> params) {
+        client.assertNotNull(params.get('request'), 'request');
+        List<Swagger.Param> query = new List<Swagger.Param>();
+        List<Swagger.Param> form = new List<Swagger.Param>();
+
+        return (SwagValidateUrlResponseFull) client.invoke(
+            'POST', '/validate/domain/url/full',
+            (SwagValidateUrlRequestFull) params.get('request'),
+            query, form,
+            new Map<String, Object>(),
+            new Map<String, Object>(),
+            new List<String>{ 'application/json' },
+            new List<String>{ 'application/json' },
+            new List<String> { 'Apikey' },
+            SwagValidateUrlResponseFull.class
+        );
+    }
+    /**
+     * Validate a URL syntactically
+     * Validate whether a URL is syntactically valid (does not check endpoint for validity).  Accepts various types of input and produces a well-formed URL as output.
+     * @param request Input URL information (required)
+     * @return SwagValidateUrlResponseSyntaxOnly
+     * @throws Swagger.ApiException if fails to make API call
+     */
+    public SwagValidateUrlResponseSyntaxOnly domainUrlSyntaxOnly(Map<String, Object> params) {
+        client.assertNotNull(params.get('request'), 'request');
+        List<Swagger.Param> query = new List<Swagger.Param>();
+        List<Swagger.Param> form = new List<Swagger.Param>();
+
+        return (SwagValidateUrlResponseSyntaxOnly) client.invoke(
+            'POST', '/validate/domain/url/syntax-only',
+            (SwagValidateUrlRequestSyntaxOnly) params.get('request'),
+            query, form,
+            new Map<String, Object>(),
+            new Map<String, Object>(),
+            new List<String>{ 'application/json' },
+            new List<String>{ 'application/json' },
+            new List<String> { 'Apikey' },
+            SwagValidateUrlResponseSyntaxOnly.class
+        );
+    }
 }

@@ -5,6 +5,7 @@ All URIs are relative to *https://api.cloudmersive.com*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**nameGetGender**](SwagNameApi.md#nameGetGender) | **POST** /validate/name/get-gender | Get the gender of a first name
+[**nameIdentifier**](SwagNameApi.md#nameIdentifier) | **POST** /validate/name/identifier | Validate a code identifier
 [**nameValidateFirstName**](SwagNameApi.md#nameValidateFirstName) | **POST** /validate/name/first | Validate a first name
 [**nameValidateFullName**](SwagNameApi.md#nameValidateFullName) | **POST** /validate/name/full-name | Parse and validate a full name
 [**nameValidateLastName**](SwagNameApi.md#nameValidateLastName) | **POST** /validate/name/last | Validate a last name
@@ -49,6 +50,55 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**SwagGetGenderResponse**](SwagGetGenderResponse.md)
+
+### Authorization
+
+[Apikey](../README.md#Apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a name="nameIdentifier"></a>
+# **nameIdentifier**
+> SwagValidateIdentifierResponse nameIdentifier(input)
+
+Validate a code identifier
+
+Determines if the input name is a valid technical / code identifier.  Configure input rules such as whether whitespace, hyphens, underscores, etc. are allowed.  For example, a valid identifier might be &quot;helloWorld&quot; but not &quot;hello*World&quot;.
+
+### Example
+```java
+SwagNameApi api = new SwagNameApi();
+SwagClient client = api.getClient();
+
+// Configure API key authorization: Apikey
+ApiKeyAuth Apikey = (ApiKeyAuth) client.getAuthentication('Apikey');
+Apikey.setApiKey('YOUR API KEY');
+
+Map<String, Object> params = new Map<String, Object>{
+    'input' => SwagValidateIdentifierRequest.getExample()
+};
+
+try {
+    // cross your fingers
+    SwagValidateIdentifierResponse result = api.nameIdentifier(params);
+    System.debug(result);
+} catch (Swagger.ApiException e) {
+    // ...handle your exceptions
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **input** | [**SwagValidateIdentifierRequest**](SwagValidateIdentifierRequest.md)| Identifier validation request information |
+
+### Return type
+
+[**SwagValidateIdentifierResponse**](SwagValidateIdentifierResponse.md)
 
 ### Authorization
 

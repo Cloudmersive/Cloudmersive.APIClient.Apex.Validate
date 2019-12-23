@@ -83,6 +83,17 @@ private class SwagWhoisResponseTest {
         SwagWhoisResponse whoisResponse = new SwagWhoisResponse();
         Map<String, String> propertyMappings = whoisResponse.getPropertyMappings();
         System.assertEquals('validDomain', propertyMappings.get('ValidDomain'));
+        System.assertEquals('registrantName', propertyMappings.get('RegistrantName'));
+        System.assertEquals('registrantOrganization', propertyMappings.get('RegistrantOrganization'));
+        System.assertEquals('registrantEmail', propertyMappings.get('RegistrantEmail'));
+        System.assertEquals('registrantStreetNumber', propertyMappings.get('RegistrantStreetNumber'));
+        System.assertEquals('registrantStreet', propertyMappings.get('RegistrantStreet'));
+        System.assertEquals('registrantCity', propertyMappings.get('RegistrantCity'));
+        System.assertEquals('registrantStateOrProvince', propertyMappings.get('RegistrantStateOrProvince'));
+        System.assertEquals('registrantPostalCode', propertyMappings.get('RegistrantPostalCode'));
+        System.assertEquals('registrantCountry', propertyMappings.get('RegistrantCountry'));
+        System.assertEquals('registrantRawAddress', propertyMappings.get('RegistrantRawAddress'));
+        System.assertEquals('registrantTelephone', propertyMappings.get('RegistrantTelephone'));
         System.assertEquals('whoisServer', propertyMappings.get('WhoisServer'));
         System.assertEquals('rawTextRecord', propertyMappings.get('RawTextRecord'));
         System.assertEquals('createdDt', propertyMappings.get('CreatedDt'));

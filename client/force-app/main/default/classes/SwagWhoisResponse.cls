@@ -21,6 +21,72 @@ public class SwagWhoisResponse implements Swagger.MappedProperties {
     public Boolean validDomain { get; set; }
 
     /**
+     * Name of the domain registrant
+     * @return registrantName
+     */
+    public String registrantName { get; set; }
+
+    /**
+     * Organization name of the domain registrant
+     * @return registrantOrganization
+     */
+    public String registrantOrganization { get; set; }
+
+    /**
+     * Email address of the domain registrant
+     * @return registrantEmail
+     */
+    public String registrantEmail { get; set; }
+
+    /**
+     * Street number of the address of the domain registrant, if available
+     * @return registrantStreetNumber
+     */
+    public String registrantStreetNumber { get; set; }
+
+    /**
+     * Street name of the address of the domain registrant, if available
+     * @return registrantStreet
+     */
+    public String registrantStreet { get; set; }
+
+    /**
+     * City of the domain registrant, if available
+     * @return registrantCity
+     */
+    public String registrantCity { get; set; }
+
+    /**
+     * State or Province of the address of the domain registrant, if available
+     * @return registrantStateOrProvince
+     */
+    public String registrantStateOrProvince { get; set; }
+
+    /**
+     * Postal code of the address of the domain registrant, if available
+     * @return registrantPostalCode
+     */
+    public String registrantPostalCode { get; set; }
+
+    /**
+     * Country of the address of the domain registrant, if available
+     * @return registrantCountry
+     */
+    public String registrantCountry { get; set; }
+
+    /**
+     * Raw address string of the domain registrant, if available
+     * @return registrantRawAddress
+     */
+    public String registrantRawAddress { get; set; }
+
+    /**
+     * Telephone number of the address of the domain registrant
+     * @return registrantTelephone
+     */
+    public String registrantTelephone { get; set; }
+
+    /**
      * Server used to lookup WHOIS information (may change based on lookup).
      * @return whoisServer
      */
@@ -40,6 +106,17 @@ public class SwagWhoisResponse implements Swagger.MappedProperties {
 
     private static final Map<String, String> propertyMappings = new Map<String, String>{
         'ValidDomain' => 'validDomain',
+        'RegistrantName' => 'registrantName',
+        'RegistrantOrganization' => 'registrantOrganization',
+        'RegistrantEmail' => 'registrantEmail',
+        'RegistrantStreetNumber' => 'registrantStreetNumber',
+        'RegistrantStreet' => 'registrantStreet',
+        'RegistrantCity' => 'registrantCity',
+        'RegistrantStateOrProvince' => 'registrantStateOrProvince',
+        'RegistrantPostalCode' => 'registrantPostalCode',
+        'RegistrantCountry' => 'registrantCountry',
+        'RegistrantRawAddress' => 'registrantRawAddress',
+        'RegistrantTelephone' => 'registrantTelephone',
         'WhoisServer' => 'whoisServer',
         'RawTextRecord' => 'rawTextRecord',
         'CreatedDt' => 'createdDt'
@@ -52,6 +129,17 @@ public class SwagWhoisResponse implements Swagger.MappedProperties {
     public static SwagWhoisResponse getExample() {
         SwagWhoisResponse whoisResponse = new SwagWhoisResponse();
         whoisResponse.validDomain = true;
+        whoisResponse.registrantName = 'aeiou';
+        whoisResponse.registrantOrganization = 'aeiou';
+        whoisResponse.registrantEmail = 'aeiou';
+        whoisResponse.registrantStreetNumber = 'aeiou';
+        whoisResponse.registrantStreet = 'aeiou';
+        whoisResponse.registrantCity = 'aeiou';
+        whoisResponse.registrantStateOrProvince = 'aeiou';
+        whoisResponse.registrantPostalCode = 'aeiou';
+        whoisResponse.registrantCountry = 'aeiou';
+        whoisResponse.registrantRawAddress = 'aeiou';
+        whoisResponse.registrantTelephone = 'aeiou';
         whoisResponse.whoisServer = 'aeiou';
         whoisResponse.rawTextRecord = 'aeiou';
         whoisResponse.createdDt = Datetime.newInstanceGmt(2000, 1, 23, 4, 56, 7);
@@ -62,6 +150,17 @@ public class SwagWhoisResponse implements Swagger.MappedProperties {
         if (obj instanceof SwagWhoisResponse) {
             SwagWhoisResponse whoisResponse = (SwagWhoisResponse) obj;
             return this.validDomain == whoisResponse.validDomain
+                && this.registrantName == whoisResponse.registrantName
+                && this.registrantOrganization == whoisResponse.registrantOrganization
+                && this.registrantEmail == whoisResponse.registrantEmail
+                && this.registrantStreetNumber == whoisResponse.registrantStreetNumber
+                && this.registrantStreet == whoisResponse.registrantStreet
+                && this.registrantCity == whoisResponse.registrantCity
+                && this.registrantStateOrProvince == whoisResponse.registrantStateOrProvince
+                && this.registrantPostalCode == whoisResponse.registrantPostalCode
+                && this.registrantCountry == whoisResponse.registrantCountry
+                && this.registrantRawAddress == whoisResponse.registrantRawAddress
+                && this.registrantTelephone == whoisResponse.registrantTelephone
                 && this.whoisServer == whoisResponse.whoisServer
                 && this.rawTextRecord == whoisResponse.rawTextRecord
                 && this.createdDt == whoisResponse.createdDt;
@@ -72,6 +171,17 @@ public class SwagWhoisResponse implements Swagger.MappedProperties {
     public Integer hashCode() {
         Integer hashCode = 43;
         hashCode = (17 * hashCode) + (validDomain == null ? 0 : System.hashCode(validDomain));
+        hashCode = (17 * hashCode) + (registrantName == null ? 0 : System.hashCode(registrantName));
+        hashCode = (17 * hashCode) + (registrantOrganization == null ? 0 : System.hashCode(registrantOrganization));
+        hashCode = (17 * hashCode) + (registrantEmail == null ? 0 : System.hashCode(registrantEmail));
+        hashCode = (17 * hashCode) + (registrantStreetNumber == null ? 0 : System.hashCode(registrantStreetNumber));
+        hashCode = (17 * hashCode) + (registrantStreet == null ? 0 : System.hashCode(registrantStreet));
+        hashCode = (17 * hashCode) + (registrantCity == null ? 0 : System.hashCode(registrantCity));
+        hashCode = (17 * hashCode) + (registrantStateOrProvince == null ? 0 : System.hashCode(registrantStateOrProvince));
+        hashCode = (17 * hashCode) + (registrantPostalCode == null ? 0 : System.hashCode(registrantPostalCode));
+        hashCode = (17 * hashCode) + (registrantCountry == null ? 0 : System.hashCode(registrantCountry));
+        hashCode = (17 * hashCode) + (registrantRawAddress == null ? 0 : System.hashCode(registrantRawAddress));
+        hashCode = (17 * hashCode) + (registrantTelephone == null ? 0 : System.hashCode(registrantTelephone));
         hashCode = (17 * hashCode) + (whoisServer == null ? 0 : System.hashCode(whoisServer));
         hashCode = (17 * hashCode) + (rawTextRecord == null ? 0 : System.hashCode(rawTextRecord));
         hashCode = (17 * hashCode) + (createdDt == null ? 0 : System.hashCode(createdDt));

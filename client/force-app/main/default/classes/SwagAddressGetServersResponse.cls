@@ -15,13 +15,13 @@
  */
 public class SwagAddressGetServersResponse implements Swagger.MappedProperties {
     /**
-     * Get success
+     * True if partial address validation was successufl, false otherwise
      * @return success
      */
     public Boolean success { get; set; }
 
     /**
-     * Get servers
+     * Email servers for this email address
      * @return servers
      */
     public List<String> servers { get; set; }
