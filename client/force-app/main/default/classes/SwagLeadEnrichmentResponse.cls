@@ -21,10 +21,34 @@ public class SwagLeadEnrichmentResponse implements Swagger.MappedProperties {
     public Boolean successful { get; set; }
 
     /**
+     * The type of the lead; possible types are Junk (a single individual using a disposable/throwaway email address); Individual (a single individual, typically a consumer, not purchasing on behalf of a business); SmallBusiness (a small business, typically with fewer than 100 employees); MediumBusiness (a medium business, larger than 100 employees but fewer than 1000 employees); Enterprise (a large business with greater than 1000 employees); Business (a business customer of unknown size)
+     * @return leadType
+     */
+    public String leadType { get; set; }
+
+    /**
      * The person\'s business email address for the lead
      * @return contactBusinessEmail
      */
     public String contactBusinessEmail { get; set; }
+
+    /**
+     * The person\'s first name for the lead
+     * @return contactFirstName
+     */
+    public String contactFirstName { get; set; }
+
+    /**
+     * The person\'s last name for the lead
+     * @return contactLastName
+     */
+    public String contactLastName { get; set; }
+
+    /**
+     * Gender for contact name; possible values are Male, Female, and Neutral (can be applied to Male or Female).  Requires ContactFirstName.
+     * @return contactGender
+     */
+    public String contactGender { get; set; }
 
     /**
      * Name of the company for the lead
@@ -69,10 +93,22 @@ public class SwagLeadEnrichmentResponse implements Swagger.MappedProperties {
     public String companyPostalCode { get; set; }
 
     /**
-     * Country of the address of the company for the lead
+     * Country Name of the address of the company for the lead
      * @return companyCountry
      */
     public String companyCountry { get; set; }
+
+    /**
+     * Country Code (2-letter ISO 3166-1) of the address of the company for the lead
+     * @return companyCountryCode
+     */
+    public String companyCountryCode { get; set; }
+
+    /**
+     * Telephone of the company office for the lead
+     * @return companyTelephone
+     */
+    public String companyTelephone { get; set; }
 
     /**
      * VAT number of the company for the lead
@@ -88,7 +124,11 @@ public class SwagLeadEnrichmentResponse implements Swagger.MappedProperties {
 
     private static final Map<String, String> propertyMappings = new Map<String, String>{
         'Successful' => 'successful',
+        'LeadType' => 'leadType',
         'ContactBusinessEmail' => 'contactBusinessEmail',
+        'ContactFirstName' => 'contactFirstName',
+        'ContactLastName' => 'contactLastName',
+        'ContactGender' => 'contactGender',
         'CompanyName' => 'companyName',
         'CompanyDomainName' => 'companyDomainName',
         'CompanyHouseNumber' => 'companyHouseNumber',
@@ -97,6 +137,8 @@ public class SwagLeadEnrichmentResponse implements Swagger.MappedProperties {
         'CompanyStateOrProvince' => 'companyStateOrProvince',
         'CompanyPostalCode' => 'companyPostalCode',
         'CompanyCountry' => 'companyCountry',
+        'CompanyCountryCode' => 'companyCountryCode',
+        'CompanyTelephone' => 'companyTelephone',
         'CompanyVATNumber' => 'companyVATNumber',
         'EmployeeCount' => 'employeeCount'
     };
@@ -108,7 +150,11 @@ public class SwagLeadEnrichmentResponse implements Swagger.MappedProperties {
     public static SwagLeadEnrichmentResponse getExample() {
         SwagLeadEnrichmentResponse leadEnrichmentResponse = new SwagLeadEnrichmentResponse();
         leadEnrichmentResponse.successful = true;
+        leadEnrichmentResponse.leadType = 'aeiou';
         leadEnrichmentResponse.contactBusinessEmail = 'aeiou';
+        leadEnrichmentResponse.contactFirstName = 'aeiou';
+        leadEnrichmentResponse.contactLastName = 'aeiou';
+        leadEnrichmentResponse.contactGender = 'aeiou';
         leadEnrichmentResponse.companyName = 'aeiou';
         leadEnrichmentResponse.companyDomainName = 'aeiou';
         leadEnrichmentResponse.companyHouseNumber = 'aeiou';
@@ -117,6 +163,8 @@ public class SwagLeadEnrichmentResponse implements Swagger.MappedProperties {
         leadEnrichmentResponse.companyStateOrProvince = 'aeiou';
         leadEnrichmentResponse.companyPostalCode = 'aeiou';
         leadEnrichmentResponse.companyCountry = 'aeiou';
+        leadEnrichmentResponse.companyCountryCode = 'aeiou';
+        leadEnrichmentResponse.companyTelephone = 'aeiou';
         leadEnrichmentResponse.companyVATNumber = 'aeiou';
         leadEnrichmentResponse.employeeCount = 123;
         return leadEnrichmentResponse;
@@ -126,7 +174,11 @@ public class SwagLeadEnrichmentResponse implements Swagger.MappedProperties {
         if (obj instanceof SwagLeadEnrichmentResponse) {
             SwagLeadEnrichmentResponse leadEnrichmentResponse = (SwagLeadEnrichmentResponse) obj;
             return this.successful == leadEnrichmentResponse.successful
+                && this.leadType == leadEnrichmentResponse.leadType
                 && this.contactBusinessEmail == leadEnrichmentResponse.contactBusinessEmail
+                && this.contactFirstName == leadEnrichmentResponse.contactFirstName
+                && this.contactLastName == leadEnrichmentResponse.contactLastName
+                && this.contactGender == leadEnrichmentResponse.contactGender
                 && this.companyName == leadEnrichmentResponse.companyName
                 && this.companyDomainName == leadEnrichmentResponse.companyDomainName
                 && this.companyHouseNumber == leadEnrichmentResponse.companyHouseNumber
@@ -135,6 +187,8 @@ public class SwagLeadEnrichmentResponse implements Swagger.MappedProperties {
                 && this.companyStateOrProvince == leadEnrichmentResponse.companyStateOrProvince
                 && this.companyPostalCode == leadEnrichmentResponse.companyPostalCode
                 && this.companyCountry == leadEnrichmentResponse.companyCountry
+                && this.companyCountryCode == leadEnrichmentResponse.companyCountryCode
+                && this.companyTelephone == leadEnrichmentResponse.companyTelephone
                 && this.companyVATNumber == leadEnrichmentResponse.companyVATNumber
                 && this.employeeCount == leadEnrichmentResponse.employeeCount;
         }
@@ -144,7 +198,11 @@ public class SwagLeadEnrichmentResponse implements Swagger.MappedProperties {
     public Integer hashCode() {
         Integer hashCode = 43;
         hashCode = (17 * hashCode) + (successful == null ? 0 : System.hashCode(successful));
+        hashCode = (17 * hashCode) + (leadType == null ? 0 : System.hashCode(leadType));
         hashCode = (17 * hashCode) + (contactBusinessEmail == null ? 0 : System.hashCode(contactBusinessEmail));
+        hashCode = (17 * hashCode) + (contactFirstName == null ? 0 : System.hashCode(contactFirstName));
+        hashCode = (17 * hashCode) + (contactLastName == null ? 0 : System.hashCode(contactLastName));
+        hashCode = (17 * hashCode) + (contactGender == null ? 0 : System.hashCode(contactGender));
         hashCode = (17 * hashCode) + (companyName == null ? 0 : System.hashCode(companyName));
         hashCode = (17 * hashCode) + (companyDomainName == null ? 0 : System.hashCode(companyDomainName));
         hashCode = (17 * hashCode) + (companyHouseNumber == null ? 0 : System.hashCode(companyHouseNumber));
@@ -153,6 +211,8 @@ public class SwagLeadEnrichmentResponse implements Swagger.MappedProperties {
         hashCode = (17 * hashCode) + (companyStateOrProvince == null ? 0 : System.hashCode(companyStateOrProvince));
         hashCode = (17 * hashCode) + (companyPostalCode == null ? 0 : System.hashCode(companyPostalCode));
         hashCode = (17 * hashCode) + (companyCountry == null ? 0 : System.hashCode(companyCountry));
+        hashCode = (17 * hashCode) + (companyCountryCode == null ? 0 : System.hashCode(companyCountryCode));
+        hashCode = (17 * hashCode) + (companyTelephone == null ? 0 : System.hashCode(companyTelephone));
         hashCode = (17 * hashCode) + (companyVATNumber == null ? 0 : System.hashCode(companyVATNumber));
         hashCode = (17 * hashCode) + (employeeCount == null ? 0 : System.hashCode(employeeCount));
         return hashCode;

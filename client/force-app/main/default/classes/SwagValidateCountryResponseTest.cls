@@ -1,0 +1,91 @@
+@isTest
+private class SwagValidateCountryResponseTest {
+    @isTest
+    private static void equalsSameInstance() {
+        SwagValidateCountryResponse validateCountryResponse1 = SwagValidateCountryResponse.getExample();
+        SwagValidateCountryResponse validateCountryResponse2 = validateCountryResponse1;
+        SwagValidateCountryResponse validateCountryResponse3 = new SwagValidateCountryResponse();
+        SwagValidateCountryResponse validateCountryResponse4 = validateCountryResponse3;
+
+        System.assert(validateCountryResponse1.equals(validateCountryResponse2));
+        System.assert(validateCountryResponse2.equals(validateCountryResponse1));
+        System.assert(validateCountryResponse1.equals(validateCountryResponse1));
+        System.assert(validateCountryResponse3.equals(validateCountryResponse4));
+        System.assert(validateCountryResponse4.equals(validateCountryResponse3));
+        System.assert(validateCountryResponse3.equals(validateCountryResponse3));
+    }
+
+    @isTest
+    private static void equalsIdenticalInstance() {
+        SwagValidateCountryResponse validateCountryResponse1 = SwagValidateCountryResponse.getExample();
+        SwagValidateCountryResponse validateCountryResponse2 = SwagValidateCountryResponse.getExample();
+        SwagValidateCountryResponse validateCountryResponse3 = new SwagValidateCountryResponse();
+        SwagValidateCountryResponse validateCountryResponse4 = new SwagValidateCountryResponse();
+
+        System.assert(validateCountryResponse1.equals(validateCountryResponse2));
+        System.assert(validateCountryResponse2.equals(validateCountryResponse1));
+        System.assert(validateCountryResponse3.equals(validateCountryResponse4));
+        System.assert(validateCountryResponse4.equals(validateCountryResponse3));
+    }
+
+    @isTest
+    private static void notEqualsUnlikeInstance() {
+        SwagValidateCountryResponse validateCountryResponse1 = SwagValidateCountryResponse.getExample();
+        SwagValidateCountryResponse validateCountryResponse2 = new SwagValidateCountryResponse();
+
+        System.assertEquals(false, validateCountryResponse1.equals(validateCountryResponse2));
+        System.assertEquals(false, validateCountryResponse2.equals(validateCountryResponse1));
+    }
+
+    @isTest
+    private static void notEqualsDifferentType() {
+        SwagValidateCountryResponse validateCountryResponse1 = SwagValidateCountryResponse.getExample();
+        SwagValidateCountryResponse validateCountryResponse2 = new SwagValidateCountryResponse();
+
+        System.assertEquals(false, validateCountryResponse1.equals('foo'));
+        System.assertEquals(false, validateCountryResponse2.equals('foo'));
+    }
+
+    @isTest
+    private static void notEqualsNull() {
+        SwagValidateCountryResponse validateCountryResponse1 = SwagValidateCountryResponse.getExample();
+        SwagValidateCountryResponse validateCountryResponse2 = new SwagValidateCountryResponse();
+        SwagValidateCountryResponse validateCountryResponse3;
+
+        System.assertEquals(false, validateCountryResponse1.equals(validateCountryResponse3));
+        System.assertEquals(false, validateCountryResponse2.equals(validateCountryResponse3));
+    }
+
+    @isTest
+    private static void consistentHashCodeValue() {
+        SwagValidateCountryResponse validateCountryResponse1 = SwagValidateCountryResponse.getExample();
+        SwagValidateCountryResponse validateCountryResponse2 = new SwagValidateCountryResponse();
+
+        System.assertEquals(validateCountryResponse1.hashCode(), validateCountryResponse1.hashCode());
+        System.assertEquals(validateCountryResponse2.hashCode(), validateCountryResponse2.hashCode());
+    }
+
+    @isTest
+    private static void equalInstancesHaveSameHashCode() {
+        SwagValidateCountryResponse validateCountryResponse1 = SwagValidateCountryResponse.getExample();
+        SwagValidateCountryResponse validateCountryResponse2 = SwagValidateCountryResponse.getExample();
+        SwagValidateCountryResponse validateCountryResponse3 = new SwagValidateCountryResponse();
+        SwagValidateCountryResponse validateCountryResponse4 = new SwagValidateCountryResponse();
+
+        System.assert(validateCountryResponse1.equals(validateCountryResponse2));
+        System.assert(validateCountryResponse3.equals(validateCountryResponse4));
+        System.assertEquals(validateCountryResponse1.hashCode(), validateCountryResponse2.hashCode());
+        System.assertEquals(validateCountryResponse3.hashCode(), validateCountryResponse4.hashCode());
+    }
+
+    @isTest
+    private static void maintainRenamedProperties() {
+        SwagValidateCountryResponse validateCountryResponse = new SwagValidateCountryResponse();
+        Map<String, String> propertyMappings = validateCountryResponse.getPropertyMappings();
+        System.assertEquals('successful', propertyMappings.get('Successful'));
+        System.assertEquals('countryFullName', propertyMappings.get('CountryFullName'));
+        System.assertEquals('isOTwoLetterCode', propertyMappings.get('ISOTwoLetterCode'));
+        System.assertEquals('fiPSTwoLetterCode', propertyMappings.get('FIPSTwoLetterCode'));
+        System.assertEquals('threeLetterCode', propertyMappings.get('ThreeLetterCode'));
+    }
+}

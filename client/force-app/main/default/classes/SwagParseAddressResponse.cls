@@ -58,9 +58,15 @@ public class SwagParseAddressResponse implements Swagger.MappedProperties {
 
     /**
      * Country of the address, if present in the address.  If not included in the address it will be null.
-     * @return country
+     * @return countryFullName
      */
-    public String country { get; set; }
+    public String countryFullName { get; set; }
+
+    /**
+     * Two-letter ISO 3166-1 country code
+     * @return isOTwoLetterCode
+     */
+    public String isOTwoLetterCode { get; set; }
 
     private static final Map<String, String> propertyMappings = new Map<String, String>{
         'Successful' => 'successful',
@@ -70,7 +76,8 @@ public class SwagParseAddressResponse implements Swagger.MappedProperties {
         'City' => 'city',
         'StateOrProvince' => 'stateOrProvince',
         'PostalCode' => 'postalCode',
-        'Country' => 'country'
+        'CountryFullName' => 'countryFullName',
+        'ISOTwoLetterCode' => 'isOTwoLetterCode'
     };
 
     public Map<String, String> getPropertyMappings() {
@@ -86,7 +93,8 @@ public class SwagParseAddressResponse implements Swagger.MappedProperties {
         parseAddressResponse.city = 'aeiou';
         parseAddressResponse.stateOrProvince = 'aeiou';
         parseAddressResponse.postalCode = 'aeiou';
-        parseAddressResponse.country = 'aeiou';
+        parseAddressResponse.countryFullName = 'aeiou';
+        parseAddressResponse.isOTwoLetterCode = 'aeiou';
         return parseAddressResponse;
     }
 
@@ -100,7 +108,8 @@ public class SwagParseAddressResponse implements Swagger.MappedProperties {
                 && this.city == parseAddressResponse.city
                 && this.stateOrProvince == parseAddressResponse.stateOrProvince
                 && this.postalCode == parseAddressResponse.postalCode
-                && this.country == parseAddressResponse.country;
+                && this.countryFullName == parseAddressResponse.countryFullName
+                && this.isOTwoLetterCode == parseAddressResponse.isOTwoLetterCode;
         }
         return false;
     }
@@ -114,7 +123,8 @@ public class SwagParseAddressResponse implements Swagger.MappedProperties {
         hashCode = (17 * hashCode) + (city == null ? 0 : System.hashCode(city));
         hashCode = (17 * hashCode) + (stateOrProvince == null ? 0 : System.hashCode(stateOrProvince));
         hashCode = (17 * hashCode) + (postalCode == null ? 0 : System.hashCode(postalCode));
-        hashCode = (17 * hashCode) + (country == null ? 0 : System.hashCode(country));
+        hashCode = (17 * hashCode) + (countryFullName == null ? 0 : System.hashCode(countryFullName));
+        hashCode = (17 * hashCode) + (isOTwoLetterCode == null ? 0 : System.hashCode(isOTwoLetterCode));
         return hashCode;
     }
 }

@@ -87,5 +87,12 @@ private class SwagVatLookupResponseTest {
         System.assertEquals('isValid', propertyMappings.get('IsValid'));
         System.assertEquals('businessName', propertyMappings.get('BusinessName'));
         System.assertEquals('businessAddress', propertyMappings.get('BusinessAddress'));
+        System.assertEquals('businessBuilding', propertyMappings.get('BusinessBuilding'));
+        System.assertEquals('businessStreetNumber', propertyMappings.get('BusinessStreetNumber'));
+        System.assertEquals('businessStreet', propertyMappings.get('BusinessStreet'));
+        System.assertEquals('businessCity', propertyMappings.get('BusinessCity'));
+        System.assertEquals('businessStateOrProvince', propertyMappings.get('BusinessStateOrProvince'));
+        System.assertEquals('businessPostalCode', propertyMappings.get('BusinessPostalCode'));
+        System.assertEquals('businessCountry', propertyMappings.get('BusinessCountry'));
     }
 }

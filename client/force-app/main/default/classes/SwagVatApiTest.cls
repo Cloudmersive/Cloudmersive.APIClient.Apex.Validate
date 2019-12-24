@@ -27,7 +27,7 @@ private class SwagVatApiTest {
             client.setApiKey('foo-bar-api-key');
 
         res.setHeader('Content-Type', 'application/json');
-        res.setBody('{\r\n  "BusinessName" : "BusinessName",\r\n  "CountryCode" : "CountryCode",\r\n  "VatNumber" : "VatNumber",\r\n  "BusinessAddress" : "BusinessAddress",\r\n  "IsValid" : true\r\n}');
+        res.setBody('{\r\n  "BusinessStreetNumber" : "BusinessStreetNumber",\r\n  "BusinessCity" : "BusinessCity",\r\n  "BusinessName" : "BusinessName",\r\n  "BusinessBuilding" : "BusinessBuilding",\r\n  "BusinessStreet" : "BusinessStreet",\r\n  "BusinessPostalCode" : "BusinessPostalCode",\r\n  "BusinessStateOrProvince" : "BusinessStateOrProvince",\r\n  "CountryCode" : "CountryCode",\r\n  "BusinessCountry" : "BusinessCountry",\r\n  "VatNumber" : "VatNumber",\r\n  "BusinessAddress" : "BusinessAddress",\r\n  "IsValid" : true\r\n}');
         expectedResponse = SwagVatLookupResponse.getExample();
         response = (SwagVatLookupResponse) api.vatVatLookup(params);
         System.assertEquals(expectedResponse, response);

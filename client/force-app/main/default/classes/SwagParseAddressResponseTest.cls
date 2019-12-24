@@ -89,6 +89,7 @@ private class SwagParseAddressResponseTest {
         System.assertEquals('city', propertyMappings.get('City'));
         System.assertEquals('stateOrProvince', propertyMappings.get('StateOrProvince'));
         System.assertEquals('postalCode', propertyMappings.get('PostalCode'));
-        System.assertEquals('country', propertyMappings.get('Country'));
+        System.assertEquals('countryFullName', propertyMappings.get('CountryFullName'));
+        System.assertEquals('isOTwoLetterCode', propertyMappings.get('ISOTwoLetterCode'));
     }
 }

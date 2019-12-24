@@ -26,6 +26,30 @@ public class SwagAddressApi {
     }
 
     /**
+     * Validate and normalize country information, return ISO 3166-1 country codes and country name
+     * Validates and normalizes country information, and returns key information about a country.
+     * @param input Input request (required)
+     * @return SwagValidateCountryResponse
+     * @throws Swagger.ApiException if fails to make API call
+     */
+    public SwagValidateCountryResponse addressCountry(Map<String, Object> params) {
+        client.assertNotNull(params.get('input'), 'input');
+        List<Swagger.Param> query = new List<Swagger.Param>();
+        List<Swagger.Param> form = new List<Swagger.Param>();
+
+        return (SwagValidateCountryResponse) client.invoke(
+            'POST', '/validate/address/country',
+            (SwagValidateCountryRequest) params.get('input'),
+            query, form,
+            new Map<String, Object>(),
+            new Map<String, Object>(),
+            new List<String>{ 'application/json' },
+            new List<String>{ 'application/json' },
+            new List<String> { 'Apikey' },
+            SwagValidateCountryResponse.class
+        );
+    }
+    /**
      * Parse an unstructured input text string into an international, formatted address
      * Uses machine learning and Natural Language Processing (NLP) to handle a wide array of cases, including non-standard and unstructured address strings across a wide array of countries and address formatting norms.
      * @param input Input parse request (required)

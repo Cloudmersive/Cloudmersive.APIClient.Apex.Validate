@@ -83,7 +83,11 @@ private class SwagLeadEnrichmentResponseTest {
         SwagLeadEnrichmentResponse leadEnrichmentResponse = new SwagLeadEnrichmentResponse();
         Map<String, String> propertyMappings = leadEnrichmentResponse.getPropertyMappings();
         System.assertEquals('successful', propertyMappings.get('Successful'));
+        System.assertEquals('leadType', propertyMappings.get('LeadType'));
         System.assertEquals('contactBusinessEmail', propertyMappings.get('ContactBusinessEmail'));
+        System.assertEquals('contactFirstName', propertyMappings.get('ContactFirstName'));
+        System.assertEquals('contactLastName', propertyMappings.get('ContactLastName'));
+        System.assertEquals('contactGender', propertyMappings.get('ContactGender'));
         System.assertEquals('companyName', propertyMappings.get('CompanyName'));
         System.assertEquals('companyDomainName', propertyMappings.get('CompanyDomainName'));
         System.assertEquals('companyHouseNumber', propertyMappings.get('CompanyHouseNumber'));
@@ -92,6 +96,8 @@ private class SwagLeadEnrichmentResponseTest {
         System.assertEquals('companyStateOrProvince', propertyMappings.get('CompanyStateOrProvince'));
         System.assertEquals('companyPostalCode', propertyMappings.get('CompanyPostalCode'));
         System.assertEquals('companyCountry', propertyMappings.get('CompanyCountry'));
+        System.assertEquals('companyCountryCode', propertyMappings.get('CompanyCountryCode'));
+        System.assertEquals('companyTelephone', propertyMappings.get('CompanyTelephone'));
         System.assertEquals('companyVATNumber', propertyMappings.get('CompanyVATNumber'));
         System.assertEquals('employeeCount', propertyMappings.get('EmployeeCount'));
     }

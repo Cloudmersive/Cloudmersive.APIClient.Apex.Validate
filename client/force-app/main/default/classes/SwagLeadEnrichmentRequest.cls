@@ -21,6 +21,18 @@ public class SwagLeadEnrichmentRequest implements Swagger.MappedProperties {
     public String contactBusinessEmail { get; set; }
 
     /**
+     * The person\'s first name for the lead
+     * @return contactFirstName
+     */
+    public String contactFirstName { get; set; }
+
+    /**
+     * The person\'s last name for the lead
+     * @return contactLastName
+     */
+    public String contactLastName { get; set; }
+
+    /**
      * Name of the company for the lead
      * @return companyName
      */
@@ -69,6 +81,18 @@ public class SwagLeadEnrichmentRequest implements Swagger.MappedProperties {
     public String companyCountry { get; set; }
 
     /**
+     * Country Code (2-letter ISO 3166-1) of the address of the company for the lead
+     * @return companyCountryCode
+     */
+    public String companyCountryCode { get; set; }
+
+    /**
+     * Telephone of the company office for the lead
+     * @return companyTelephone
+     */
+    public String companyTelephone { get; set; }
+
+    /**
      * VAT number of the company for the lead
      * @return companyVATNumber
      */
@@ -76,6 +100,8 @@ public class SwagLeadEnrichmentRequest implements Swagger.MappedProperties {
 
     private static final Map<String, String> propertyMappings = new Map<String, String>{
         'ContactBusinessEmail' => 'contactBusinessEmail',
+        'ContactFirstName' => 'contactFirstName',
+        'ContactLastName' => 'contactLastName',
         'CompanyName' => 'companyName',
         'CompanyDomainName' => 'companyDomainName',
         'CompanyHouseNumber' => 'companyHouseNumber',
@@ -84,6 +110,8 @@ public class SwagLeadEnrichmentRequest implements Swagger.MappedProperties {
         'CompanyStateOrProvince' => 'companyStateOrProvince',
         'CompanyPostalCode' => 'companyPostalCode',
         'CompanyCountry' => 'companyCountry',
+        'CompanyCountryCode' => 'companyCountryCode',
+        'CompanyTelephone' => 'companyTelephone',
         'CompanyVATNumber' => 'companyVATNumber'
     };
 
@@ -94,6 +122,8 @@ public class SwagLeadEnrichmentRequest implements Swagger.MappedProperties {
     public static SwagLeadEnrichmentRequest getExample() {
         SwagLeadEnrichmentRequest leadEnrichmentRequest = new SwagLeadEnrichmentRequest();
         leadEnrichmentRequest.contactBusinessEmail = 'aeiou';
+        leadEnrichmentRequest.contactFirstName = 'aeiou';
+        leadEnrichmentRequest.contactLastName = 'aeiou';
         leadEnrichmentRequest.companyName = 'aeiou';
         leadEnrichmentRequest.companyDomainName = 'aeiou';
         leadEnrichmentRequest.companyHouseNumber = 'aeiou';
@@ -102,6 +132,8 @@ public class SwagLeadEnrichmentRequest implements Swagger.MappedProperties {
         leadEnrichmentRequest.companyStateOrProvince = 'aeiou';
         leadEnrichmentRequest.companyPostalCode = 'aeiou';
         leadEnrichmentRequest.companyCountry = 'aeiou';
+        leadEnrichmentRequest.companyCountryCode = 'aeiou';
+        leadEnrichmentRequest.companyTelephone = 'aeiou';
         leadEnrichmentRequest.companyVATNumber = 'aeiou';
         return leadEnrichmentRequest;
     }
@@ -110,6 +142,8 @@ public class SwagLeadEnrichmentRequest implements Swagger.MappedProperties {
         if (obj instanceof SwagLeadEnrichmentRequest) {
             SwagLeadEnrichmentRequest leadEnrichmentRequest = (SwagLeadEnrichmentRequest) obj;
             return this.contactBusinessEmail == leadEnrichmentRequest.contactBusinessEmail
+                && this.contactFirstName == leadEnrichmentRequest.contactFirstName
+                && this.contactLastName == leadEnrichmentRequest.contactLastName
                 && this.companyName == leadEnrichmentRequest.companyName
                 && this.companyDomainName == leadEnrichmentRequest.companyDomainName
                 && this.companyHouseNumber == leadEnrichmentRequest.companyHouseNumber
@@ -118,6 +152,8 @@ public class SwagLeadEnrichmentRequest implements Swagger.MappedProperties {
                 && this.companyStateOrProvince == leadEnrichmentRequest.companyStateOrProvince
                 && this.companyPostalCode == leadEnrichmentRequest.companyPostalCode
                 && this.companyCountry == leadEnrichmentRequest.companyCountry
+                && this.companyCountryCode == leadEnrichmentRequest.companyCountryCode
+                && this.companyTelephone == leadEnrichmentRequest.companyTelephone
                 && this.companyVATNumber == leadEnrichmentRequest.companyVATNumber;
         }
         return false;
@@ -126,6 +162,8 @@ public class SwagLeadEnrichmentRequest implements Swagger.MappedProperties {
     public Integer hashCode() {
         Integer hashCode = 43;
         hashCode = (17 * hashCode) + (contactBusinessEmail == null ? 0 : System.hashCode(contactBusinessEmail));
+        hashCode = (17 * hashCode) + (contactFirstName == null ? 0 : System.hashCode(contactFirstName));
+        hashCode = (17 * hashCode) + (contactLastName == null ? 0 : System.hashCode(contactLastName));
         hashCode = (17 * hashCode) + (companyName == null ? 0 : System.hashCode(companyName));
         hashCode = (17 * hashCode) + (companyDomainName == null ? 0 : System.hashCode(companyDomainName));
         hashCode = (17 * hashCode) + (companyHouseNumber == null ? 0 : System.hashCode(companyHouseNumber));
@@ -134,6 +172,8 @@ public class SwagLeadEnrichmentRequest implements Swagger.MappedProperties {
         hashCode = (17 * hashCode) + (companyStateOrProvince == null ? 0 : System.hashCode(companyStateOrProvince));
         hashCode = (17 * hashCode) + (companyPostalCode == null ? 0 : System.hashCode(companyPostalCode));
         hashCode = (17 * hashCode) + (companyCountry == null ? 0 : System.hashCode(companyCountry));
+        hashCode = (17 * hashCode) + (companyCountryCode == null ? 0 : System.hashCode(companyCountryCode));
+        hashCode = (17 * hashCode) + (companyTelephone == null ? 0 : System.hashCode(companyTelephone));
         hashCode = (17 * hashCode) + (companyVATNumber == null ? 0 : System.hashCode(companyVATNumber));
         return hashCode;
     }

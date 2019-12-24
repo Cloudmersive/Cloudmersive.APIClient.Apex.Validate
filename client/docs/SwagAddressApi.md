@@ -4,8 +4,58 @@ All URIs are relative to *https://api.cloudmersive.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**addressCountry**](SwagAddressApi.md#addressCountry) | **POST** /validate/address/country | Validate and normalize country information, return ISO 3166-1 country codes and country name
 [**addressParseString**](SwagAddressApi.md#addressParseString) | **POST** /validate/address/parse | Parse an unstructured input text string into an international, formatted address
 
+
+<a name="addressCountry"></a>
+# **addressCountry**
+> SwagValidateCountryResponse addressCountry(input)
+
+Validate and normalize country information, return ISO 3166-1 country codes and country name
+
+Validates and normalizes country information, and returns key information about a country.
+
+### Example
+```java
+SwagAddressApi api = new SwagAddressApi();
+SwagClient client = api.getClient();
+
+// Configure API key authorization: Apikey
+ApiKeyAuth Apikey = (ApiKeyAuth) client.getAuthentication('Apikey');
+Apikey.setApiKey('YOUR API KEY');
+
+Map<String, Object> params = new Map<String, Object>{
+    'input' => SwagValidateCountryRequest.getExample()
+};
+
+try {
+    // cross your fingers
+    SwagValidateCountryResponse result = api.addressCountry(params);
+    System.debug(result);
+} catch (Swagger.ApiException e) {
+    // ...handle your exceptions
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **input** | [**SwagValidateCountryRequest**](SwagValidateCountryRequest.md)| Input request |
+
+### Return type
+
+[**SwagValidateCountryResponse**](SwagValidateCountryResponse.md)
+
+### Authorization
+
+[Apikey](../README.md#Apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
 
 <a name="addressParseString"></a>
 # **addressParseString**

@@ -39,17 +39,66 @@ public class SwagVatLookupResponse implements Swagger.MappedProperties {
     public String businessName { get; set; }
 
     /**
-     * Business address
+     * Business address as a single string
      * @return businessAddress
      */
     public String businessAddress { get; set; }
+
+    /**
+     * For the business address, the name of the building, house or structure if applicable, such as "Cloudmersive Building 2".  This will often by null.
+     * @return businessBuilding
+     */
+    public String businessBuilding { get; set; }
+
+    /**
+     * For the business address, the street number or house number of the address.  For example, in the address "1600 Pennsylvania Avenue NW" the street number would be "1600".  This value will typically be populated for most addresses.
+     * @return businessStreetNumber
+     */
+    public String businessStreetNumber { get; set; }
+
+    /**
+     * For the business address, the name of the street or road of the address.  For example, in the address "1600 Pennsylvania Avenue NW" the street number would be "Pennsylvania Avenue NW".
+     * @return businessStreet
+     */
+    public String businessStreet { get; set; }
+
+    /**
+     * For the business address, the city of the address.
+     * @return businessCity
+     */
+    public String businessCity { get; set; }
+
+    /**
+     * For the business address, the state or province of the address.
+     * @return businessStateOrProvince
+     */
+    public String businessStateOrProvince { get; set; }
+
+    /**
+     * For the business address, the postal code or zip code of the address.
+     * @return businessPostalCode
+     */
+    public String businessPostalCode { get; set; }
+
+    /**
+     * For the business address, country of the address, if present in the address.  If not included in the address it will be null.
+     * @return businessCountry
+     */
+    public String businessCountry { get; set; }
 
     private static final Map<String, String> propertyMappings = new Map<String, String>{
         'CountryCode' => 'countryCode',
         'VatNumber' => 'vatNumber',
         'IsValid' => 'isValid',
         'BusinessName' => 'businessName',
-        'BusinessAddress' => 'businessAddress'
+        'BusinessAddress' => 'businessAddress',
+        'BusinessBuilding' => 'businessBuilding',
+        'BusinessStreetNumber' => 'businessStreetNumber',
+        'BusinessStreet' => 'businessStreet',
+        'BusinessCity' => 'businessCity',
+        'BusinessStateOrProvince' => 'businessStateOrProvince',
+        'BusinessPostalCode' => 'businessPostalCode',
+        'BusinessCountry' => 'businessCountry'
     };
 
     public Map<String, String> getPropertyMappings() {
@@ -63,6 +112,13 @@ public class SwagVatLookupResponse implements Swagger.MappedProperties {
         vatLookupResponse.isValid = true;
         vatLookupResponse.businessName = 'aeiou';
         vatLookupResponse.businessAddress = 'aeiou';
+        vatLookupResponse.businessBuilding = 'aeiou';
+        vatLookupResponse.businessStreetNumber = 'aeiou';
+        vatLookupResponse.businessStreet = 'aeiou';
+        vatLookupResponse.businessCity = 'aeiou';
+        vatLookupResponse.businessStateOrProvince = 'aeiou';
+        vatLookupResponse.businessPostalCode = 'aeiou';
+        vatLookupResponse.businessCountry = 'aeiou';
         return vatLookupResponse;
     }
 
@@ -73,7 +129,14 @@ public class SwagVatLookupResponse implements Swagger.MappedProperties {
                 && this.vatNumber == vatLookupResponse.vatNumber
                 && this.isValid == vatLookupResponse.isValid
                 && this.businessName == vatLookupResponse.businessName
-                && this.businessAddress == vatLookupResponse.businessAddress;
+                && this.businessAddress == vatLookupResponse.businessAddress
+                && this.businessBuilding == vatLookupResponse.businessBuilding
+                && this.businessStreetNumber == vatLookupResponse.businessStreetNumber
+                && this.businessStreet == vatLookupResponse.businessStreet
+                && this.businessCity == vatLookupResponse.businessCity
+                && this.businessStateOrProvince == vatLookupResponse.businessStateOrProvince
+                && this.businessPostalCode == vatLookupResponse.businessPostalCode
+                && this.businessCountry == vatLookupResponse.businessCountry;
         }
         return false;
     }
@@ -85,6 +148,13 @@ public class SwagVatLookupResponse implements Swagger.MappedProperties {
         hashCode = (17 * hashCode) + (isValid == null ? 0 : System.hashCode(isValid));
         hashCode = (17 * hashCode) + (businessName == null ? 0 : System.hashCode(businessName));
         hashCode = (17 * hashCode) + (businessAddress == null ? 0 : System.hashCode(businessAddress));
+        hashCode = (17 * hashCode) + (businessBuilding == null ? 0 : System.hashCode(businessBuilding));
+        hashCode = (17 * hashCode) + (businessStreetNumber == null ? 0 : System.hashCode(businessStreetNumber));
+        hashCode = (17 * hashCode) + (businessStreet == null ? 0 : System.hashCode(businessStreet));
+        hashCode = (17 * hashCode) + (businessCity == null ? 0 : System.hashCode(businessCity));
+        hashCode = (17 * hashCode) + (businessStateOrProvince == null ? 0 : System.hashCode(businessStateOrProvince));
+        hashCode = (17 * hashCode) + (businessPostalCode == null ? 0 : System.hashCode(businessPostalCode));
+        hashCode = (17 * hashCode) + (businessCountry == null ? 0 : System.hashCode(businessCountry));
         return hashCode;
     }
 }

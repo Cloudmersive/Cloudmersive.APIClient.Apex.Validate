@@ -47,12 +47,12 @@ SwagClient client = api.getClient();
 
 
 Map<String, Object> params = new Map<String, Object>{
-    'input' => SwagParseAddressRequest.getExample()
+    'input' => SwagValidateCountryRequest.getExample()
 };
 
 try {
     // cross your fingers
-    SwagParseAddressResponse result = api.addressParseString(params);
+    SwagValidateCountryResponse result = api.addressCountry(params);
     System.debug(result);
 } catch (Swagger.ApiException e) {
     // ...handle your exceptions
@@ -65,6 +65,7 @@ All URIs are relative to *https://api.cloudmersive.com*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
+*SwagAddressApi* | [**addressCountry**](docs/SwagAddressApi.md#addressCountry) | **POST** /validate/address/country | Validate and normalize country information, return ISO 3166-1 country codes and country name
 *SwagAddressApi* | [**addressParseString**](docs/SwagAddressApi.md#addressParseString) | **POST** /validate/address/parse | Parse an unstructured input text string into an international, formatted address
 *SwagDomainApi* | [**domainCheck**](docs/SwagDomainApi.md#domainCheck) | **POST** /validate/domain/check | Validate a domain name
 *SwagDomainApi* | [**domainPost**](docs/SwagDomainApi.md#domainPost) | **POST** /validate/domain/whois | Get WHOIS information for a domain
@@ -108,6 +109,8 @@ Class | Method | HTTP request | Description
  - [SwagPhoneNumberValidationResponse](docs/SwagPhoneNumberValidationResponse.md)
  - [SwagUserAgentValidateRequest](docs/SwagUserAgentValidateRequest.md)
  - [SwagUserAgentValidateResponse](docs/SwagUserAgentValidateResponse.md)
+ - [SwagValidateCountryRequest](docs/SwagValidateCountryRequest.md)
+ - [SwagValidateCountryResponse](docs/SwagValidateCountryResponse.md)
  - [SwagValidateIdentifierRequest](docs/SwagValidateIdentifierRequest.md)
  - [SwagValidateIdentifierResponse](docs/SwagValidateIdentifierResponse.md)
  - [SwagValidateUrlRequestFull](docs/SwagValidateUrlRequestFull.md)
