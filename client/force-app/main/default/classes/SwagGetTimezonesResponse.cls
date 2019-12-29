@@ -11,9 +11,9 @@
  */
 
 /**
- * Result of performing a country validation operation
+ * Result of performing a get time zones operation
  */
-public class SwagValidateCountryResponse implements Swagger.MappedProperties {
+public class SwagGetTimezonesResponse implements Swagger.MappedProperties {
     /**
      * True if successful, false otherwise
      * @return successful
@@ -63,30 +63,30 @@ public class SwagValidateCountryResponse implements Swagger.MappedProperties {
         return propertyMappings;
     }
 
-    public SwagValidateCountryResponse() {
+    public SwagGetTimezonesResponse() {
         timezones = new List<SwagTimezone>();
     }
 
-    public static SwagValidateCountryResponse getExample() {
-        SwagValidateCountryResponse validateCountryResponse = new SwagValidateCountryResponse();
-        validateCountryResponse.successful = true;
-        validateCountryResponse.countryFullName = 'aeiou';
-        validateCountryResponse.isOTwoLetterCode = 'aeiou';
-        validateCountryResponse.fiPSTwoLetterCode = 'aeiou';
-        validateCountryResponse.threeLetterCode = 'aeiou';
-        validateCountryResponse.timezones = new List<SwagTimezone>{SwagTimezone.getExample()};
-        return validateCountryResponse;
+    public static SwagGetTimezonesResponse getExample() {
+        SwagGetTimezonesResponse getTimezonesResponse = new SwagGetTimezonesResponse();
+        getTimezonesResponse.successful = true;
+        getTimezonesResponse.countryFullName = 'aeiou';
+        getTimezonesResponse.isOTwoLetterCode = 'aeiou';
+        getTimezonesResponse.fiPSTwoLetterCode = 'aeiou';
+        getTimezonesResponse.threeLetterCode = 'aeiou';
+        getTimezonesResponse.timezones = new List<SwagTimezone>{SwagTimezone.getExample()};
+        return getTimezonesResponse;
     }
 
     public Boolean equals(Object obj) {
-        if (obj instanceof SwagValidateCountryResponse) {
-            SwagValidateCountryResponse validateCountryResponse = (SwagValidateCountryResponse) obj;
-            return this.successful == validateCountryResponse.successful
-                && this.countryFullName == validateCountryResponse.countryFullName
-                && this.isOTwoLetterCode == validateCountryResponse.isOTwoLetterCode
-                && this.fiPSTwoLetterCode == validateCountryResponse.fiPSTwoLetterCode
-                && this.threeLetterCode == validateCountryResponse.threeLetterCode
-                && this.timezones == validateCountryResponse.timezones;
+        if (obj instanceof SwagGetTimezonesResponse) {
+            SwagGetTimezonesResponse getTimezonesResponse = (SwagGetTimezonesResponse) obj;
+            return this.successful == getTimezonesResponse.successful
+                && this.countryFullName == getTimezonesResponse.countryFullName
+                && this.isOTwoLetterCode == getTimezonesResponse.isOTwoLetterCode
+                && this.fiPSTwoLetterCode == getTimezonesResponse.fiPSTwoLetterCode
+                && this.threeLetterCode == getTimezonesResponse.threeLetterCode
+                && this.timezones == getTimezonesResponse.timezones;
         }
         return false;
     }

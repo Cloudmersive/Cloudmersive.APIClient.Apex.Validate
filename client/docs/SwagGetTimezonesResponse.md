@@ -1,5 +1,5 @@
 
-# SwagValidateCountryResponse
+# SwagGetTimezonesResponse
 
 ## Properties
 Name | Type | Description | Notes

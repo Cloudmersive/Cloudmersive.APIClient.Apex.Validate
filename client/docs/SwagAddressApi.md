@@ -5,6 +5,7 @@ All URIs are relative to *https://api.cloudmersive.com*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**addressCountry**](SwagAddressApi.md#addressCountry) | **POST** /validate/address/country | Validate and normalize country information, return ISO 3166-1 country codes and country name
+[**addressGetTimezone**](SwagAddressApi.md#addressGetTimezone) | **POST** /validate/address/country/get-timezones | Gets IANA/Olsen time zones for a country
 [**addressParseString**](SwagAddressApi.md#addressParseString) | **POST** /validate/address/parse | Parse an unstructured input text string into an international, formatted address
 
 
@@ -14,7 +15,7 @@ Method | HTTP request | Description
 
 Validate and normalize country information, return ISO 3166-1 country codes and country name
 
-Validates and normalizes country information, and returns key information about a country.
+Validates and normalizes country information, and returns key information about a country.  Also returns distinct time zones in the country.
 
 ### Example
 ```java
@@ -47,6 +48,55 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**SwagValidateCountryResponse**](SwagValidateCountryResponse.md)
+
+### Authorization
+
+[Apikey](../README.md#Apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a name="addressGetTimezone"></a>
+# **addressGetTimezone**
+> SwagGetTimezonesResponse addressGetTimezone(input)
+
+Gets IANA/Olsen time zones for a country
+
+Gets the IANA/Olsen time zones for a country.
+
+### Example
+```java
+SwagAddressApi api = new SwagAddressApi();
+SwagClient client = api.getClient();
+
+// Configure API key authorization: Apikey
+ApiKeyAuth Apikey = (ApiKeyAuth) client.getAuthentication('Apikey');
+Apikey.setApiKey('YOUR API KEY');
+
+Map<String, Object> params = new Map<String, Object>{
+    'input' => SwagGetTimezonesRequest.getExample()
+};
+
+try {
+    // cross your fingers
+    SwagGetTimezonesResponse result = api.addressGetTimezone(params);
+    System.debug(result);
+} catch (Swagger.ApiException e) {
+    // ...handle your exceptions
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **input** | [**SwagGetTimezonesRequest**](SwagGetTimezonesRequest.md)| Input request |
+
+### Return type
+
+[**SwagGetTimezonesResponse**](SwagGetTimezonesResponse.md)
 
 ### Authorization
 

@@ -66,6 +66,7 @@ All URIs are relative to *https://api.cloudmersive.com*
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
 *SwagAddressApi* | [**addressCountry**](docs/SwagAddressApi.md#addressCountry) | **POST** /validate/address/country | Validate and normalize country information, return ISO 3166-1 country codes and country name
+*SwagAddressApi* | [**addressGetTimezone**](docs/SwagAddressApi.md#addressGetTimezone) | **POST** /validate/address/country/get-timezones | Gets IANA/Olsen time zones for a country
 *SwagAddressApi* | [**addressParseString**](docs/SwagAddressApi.md#addressParseString) | **POST** /validate/address/parse | Parse an unstructured input text string into an international, formatted address
 *SwagDomainApi* | [**domainCheck**](docs/SwagDomainApi.md#domainCheck) | **POST** /validate/domain/check | Validate a domain name
 *SwagDomainApi* | [**domainPost**](docs/SwagDomainApi.md#domainPost) | **POST** /validate/domain/whois | Get WHOIS information for a domain
@@ -99,6 +100,8 @@ Class | Method | HTTP request | Description
  - [SwagGeolocateResponse](docs/SwagGeolocateResponse.md)
  - [SwagGetGenderRequest](docs/SwagGetGenderRequest.md)
  - [SwagGetGenderResponse](docs/SwagGetGenderResponse.md)
+ - [SwagGetTimezonesRequest](docs/SwagGetTimezonesRequest.md)
+ - [SwagGetTimezonesResponse](docs/SwagGetTimezonesResponse.md)
  - [SwagLastNameValidationRequest](docs/SwagLastNameValidationRequest.md)
  - [SwagLastNameValidationResponse](docs/SwagLastNameValidationResponse.md)
  - [SwagLeadEnrichmentRequest](docs/SwagLeadEnrichmentRequest.md)
@@ -107,6 +110,7 @@ Class | Method | HTTP request | Description
  - [SwagParseAddressResponse](docs/SwagParseAddressResponse.md)
  - [SwagPhoneNumberValidateRequest](docs/SwagPhoneNumberValidateRequest.md)
  - [SwagPhoneNumberValidationResponse](docs/SwagPhoneNumberValidationResponse.md)
+ - [SwagTimezone](docs/SwagTimezone.md)
  - [SwagUserAgentValidateRequest](docs/SwagUserAgentValidateRequest.md)
  - [SwagUserAgentValidateResponse](docs/SwagUserAgentValidateResponse.md)
  - [SwagValidateCountryRequest](docs/SwagValidateCountryRequest.md)

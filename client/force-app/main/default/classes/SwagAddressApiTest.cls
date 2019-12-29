@@ -3,7 +3,7 @@ private class SwagAddressApiTest {
     /**
      * Validate and normalize country information, return ISO 3166-1 country codes and country name
      *
-     * Validates and normalizes country information, and returns key information about a country.
+     * Validates and normalizes country information, and returns key information about a country.  Also returns distinct time zones in the country.
      */
     @isTest
     private static void addressCountryTest() {
@@ -27,9 +27,42 @@ private class SwagAddressApiTest {
             client.setApiKey('foo-bar-api-key');
 
         res.setHeader('Content-Type', 'application/json');
-        res.setBody('{\r\n  "FIPSTwoLetterCode" : "FIPSTwoLetterCode",\r\n  "CountryFullName" : "CountryFullName",\r\n  "ThreeLetterCode" : "ThreeLetterCode",\r\n  "ISOTwoLetterCode" : "ISOTwoLetterCode",\r\n  "Successful" : true\r\n}');
+        res.setBody('{\r\n  "FIPSTwoLetterCode" : "FIPSTwoLetterCode",\r\n  "Timezones" : [ {\r\n    "BaseUTCOffset" : "BaseUTCOffset",\r\n    "Name" : "Name"\r\n  }, {\r\n    "BaseUTCOffset" : "BaseUTCOffset",\r\n    "Name" : "Name"\r\n  } ],\r\n  "CountryFullName" : "CountryFullName",\r\n  "ThreeLetterCode" : "ThreeLetterCode",\r\n  "ISOTwoLetterCode" : "ISOTwoLetterCode",\r\n  "Successful" : true\r\n}');
         expectedResponse = SwagValidateCountryResponse.getExample();
         response = (SwagValidateCountryResponse) api.addressCountry(params);
+        System.assertEquals(expectedResponse, response);
+    }
+
+    /**
+     * Gets IANA/Olsen time zones for a country
+     *
+     * Gets the IANA/Olsen time zones for a country.
+     */
+    @isTest
+    private static void addressGetTimezoneTest() {
+        HttpResponse res = new HttpResponse();
+        res.setStatusCode(200);
+        res.setStatus('OK');
+        Test.setMock(HttpCalloutMock.class, new SwaggerResponseMock(res));
+
+        Map<String, Object> params = new Map<String, Object>{
+            'input' => SwagGetTimezonesRequest.getExample()
+        };
+
+        SwagClient client;
+        SwagAddressApi api;
+        SwagGetTimezonesResponse response;
+        SwagGetTimezonesResponse expectedResponse;
+
+        client = new SwagClient();
+        api = new SwagAddressApi(client);
+        ((Swagger.ApiKeyAuth) client.getAuthentication('Apikey');
+            client.setApiKey('foo-bar-api-key');
+
+        res.setHeader('Content-Type', 'application/json');
+        res.setBody('{\r\n  "FIPSTwoLetterCode" : "FIPSTwoLetterCode",\r\n  "Timezones" : [ {\r\n    "BaseUTCOffset" : "BaseUTCOffset",\r\n    "Name" : "Name"\r\n  }, {\r\n    "BaseUTCOffset" : "BaseUTCOffset",\r\n    "Name" : "Name"\r\n  } ],\r\n  "CountryFullName" : "CountryFullName",\r\n  "ThreeLetterCode" : "ThreeLetterCode",\r\n  "ISOTwoLetterCode" : "ISOTwoLetterCode",\r\n  "Successful" : true\r\n}');
+        expectedResponse = SwagGetTimezonesResponse.getExample();
+        response = (SwagGetTimezonesResponse) api.addressGetTimezone(params);
         System.assertEquals(expectedResponse, response);
     }
 

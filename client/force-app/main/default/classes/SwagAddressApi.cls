@@ -27,7 +27,7 @@ public class SwagAddressApi {
 
     /**
      * Validate and normalize country information, return ISO 3166-1 country codes and country name
-     * Validates and normalizes country information, and returns key information about a country.
+     * Validates and normalizes country information, and returns key information about a country.  Also returns distinct time zones in the country.
      * @param input Input request (required)
      * @return SwagValidateCountryResponse
      * @throws Swagger.ApiException if fails to make API call
@@ -47,6 +47,30 @@ public class SwagAddressApi {
             new List<String>{ 'application/json' },
             new List<String> { 'Apikey' },
             SwagValidateCountryResponse.class
+        );
+    }
+    /**
+     * Gets IANA/Olsen time zones for a country
+     * Gets the IANA/Olsen time zones for a country.
+     * @param input Input request (required)
+     * @return SwagGetTimezonesResponse
+     * @throws Swagger.ApiException if fails to make API call
+     */
+    public SwagGetTimezonesResponse addressGetTimezone(Map<String, Object> params) {
+        client.assertNotNull(params.get('input'), 'input');
+        List<Swagger.Param> query = new List<Swagger.Param>();
+        List<Swagger.Param> form = new List<Swagger.Param>();
+
+        return (SwagGetTimezonesResponse) client.invoke(
+            'POST', '/validate/address/country/get-timezones',
+            (SwagGetTimezonesRequest) params.get('input'),
+            query, form,
+            new Map<String, Object>(),
+            new Map<String, Object>(),
+            new List<String>{ 'application/json' },
+            new List<String>{ 'application/json' },
+            new List<String> { 'Apikey' },
+            SwagGetTimezonesResponse.class
         );
     }
     /**

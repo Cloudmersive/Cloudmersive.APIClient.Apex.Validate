@@ -87,5 +87,17 @@ private class SwagValidateCountryResponseTest {
         System.assertEquals('isOTwoLetterCode', propertyMappings.get('ISOTwoLetterCode'));
         System.assertEquals('fiPSTwoLetterCode', propertyMappings.get('FIPSTwoLetterCode'));
         System.assertEquals('threeLetterCode', propertyMappings.get('ThreeLetterCode'));
+        System.assertEquals('timezones', propertyMappings.get('Timezones'));
+    }
+
+    @isTest
+    private static void defaultValuesPopulated() {
+        SwagValidateCountryResponse validateCountryResponse = new SwagValidateCountryResponse();
+        System.assertEquals(new List<SwagTimezone>(), validateCountryResponse.timezones);
+        System.assertEquals(null, validateCountryResponse.successful);
+        System.assertEquals(null, validateCountryResponse.countryFullName);
+        System.assertEquals(null, validateCountryResponse.isOTwoLetterCode);
+        System.assertEquals(null, validateCountryResponse.fiPSTwoLetterCode);
+        System.assertEquals(null, validateCountryResponse.threeLetterCode);
     }
 }
