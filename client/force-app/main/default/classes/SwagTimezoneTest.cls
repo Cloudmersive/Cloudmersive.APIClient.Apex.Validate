@@ -84,5 +84,6 @@ private class SwagTimezoneTest {
         Map<String, String> propertyMappings = timezone.getPropertyMappings();
         System.assertEquals('name', propertyMappings.get('Name'));
         System.assertEquals('baseUTCOffset', propertyMappings.get('BaseUTCOffset'));
+        System.assertEquals('now', propertyMappings.get('Now'));
     }
 }

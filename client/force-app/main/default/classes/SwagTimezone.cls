@@ -26,9 +26,16 @@ public class SwagTimezone implements Swagger.MappedProperties {
      */
     public String baseUTCOffset { get; set; }
 
+    /**
+     * The current time (Now) in this time zone
+     * @return now
+     */
+    public Datetime now { get; set; }
+
     private static final Map<String, String> propertyMappings = new Map<String, String>{
         'Name' => 'name',
-        'BaseUTCOffset' => 'baseUTCOffset'
+        'BaseUTCOffset' => 'baseUTCOffset',
+        'Now' => 'now'
     };
 
     public Map<String, String> getPropertyMappings() {
@@ -39,6 +46,7 @@ public class SwagTimezone implements Swagger.MappedProperties {
         SwagTimezone timezone = new SwagTimezone();
         timezone.name = 'aeiou';
         timezone.baseUTCOffset = 'aeiou';
+        timezone.now = Datetime.newInstanceGmt(2000, 1, 23, 4, 56, 7);
         return timezone;
     }
 
@@ -46,7 +54,8 @@ public class SwagTimezone implements Swagger.MappedProperties {
         if (obj instanceof SwagTimezone) {
             SwagTimezone timezone = (SwagTimezone) obj;
             return this.name == timezone.name
-                && this.baseUTCOffset == timezone.baseUTCOffset;
+                && this.baseUTCOffset == timezone.baseUTCOffset
+                && this.now == timezone.now;
         }
         return false;
     }
@@ -55,6 +64,7 @@ public class SwagTimezone implements Swagger.MappedProperties {
         Integer hashCode = 43;
         hashCode = (17 * hashCode) + (name == null ? 0 : System.hashCode(name));
         hashCode = (17 * hashCode) + (baseUTCOffset == null ? 0 : System.hashCode(baseUTCOffset));
+        hashCode = (17 * hashCode) + (now == null ? 0 : System.hashCode(now));
         return hashCode;
     }
 }

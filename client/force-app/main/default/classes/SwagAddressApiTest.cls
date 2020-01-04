@@ -27,7 +27,7 @@ private class SwagAddressApiTest {
             client.setApiKey('foo-bar-api-key');
 
         res.setHeader('Content-Type', 'application/json');
-        res.setBody('{\r\n  "FIPSTwoLetterCode" : "FIPSTwoLetterCode",\r\n  "Timezones" : [ {\r\n    "BaseUTCOffset" : "BaseUTCOffset",\r\n    "Name" : "Name"\r\n  }, {\r\n    "BaseUTCOffset" : "BaseUTCOffset",\r\n    "Name" : "Name"\r\n  } ],\r\n  "CountryFullName" : "CountryFullName",\r\n  "ThreeLetterCode" : "ThreeLetterCode",\r\n  "ISOTwoLetterCode" : "ISOTwoLetterCode",\r\n  "Successful" : true\r\n}');
+        res.setBody('{\r\n  "FIPSTwoLetterCode" : "FIPSTwoLetterCode",\r\n  "Timezones" : [ {\r\n    "BaseUTCOffset" : "BaseUTCOffset",\r\n    "Now" : "2000-01-23T04:56:07.000+00:00",\r\n    "Name" : "Name"\r\n  }, {\r\n    "BaseUTCOffset" : "BaseUTCOffset",\r\n    "Now" : "2000-01-23T04:56:07.000+00:00",\r\n    "Name" : "Name"\r\n  } ],\r\n  "CountryFullName" : "CountryFullName",\r\n  "ThreeLetterCode" : "ThreeLetterCode",\r\n  "ISOTwoLetterCode" : "ISOTwoLetterCode",\r\n  "Successful" : true\r\n}');
         expectedResponse = SwagValidateCountryResponse.getExample();
         response = (SwagValidateCountryResponse) api.addressCountry(params);
         System.assertEquals(expectedResponse, response);
@@ -60,7 +60,7 @@ private class SwagAddressApiTest {
             client.setApiKey('foo-bar-api-key');
 
         res.setHeader('Content-Type', 'application/json');
-        res.setBody('{\r\n  "FIPSTwoLetterCode" : "FIPSTwoLetterCode",\r\n  "Timezones" : [ {\r\n    "BaseUTCOffset" : "BaseUTCOffset",\r\n    "Name" : "Name"\r\n  }, {\r\n    "BaseUTCOffset" : "BaseUTCOffset",\r\n    "Name" : "Name"\r\n  } ],\r\n  "CountryFullName" : "CountryFullName",\r\n  "ThreeLetterCode" : "ThreeLetterCode",\r\n  "ISOTwoLetterCode" : "ISOTwoLetterCode",\r\n  "Successful" : true\r\n}');
+        res.setBody('{\r\n  "FIPSTwoLetterCode" : "FIPSTwoLetterCode",\r\n  "Timezones" : [ {\r\n    "BaseUTCOffset" : "BaseUTCOffset",\r\n    "Now" : "2000-01-23T04:56:07.000+00:00",\r\n    "Name" : "Name"\r\n  }, {\r\n    "BaseUTCOffset" : "BaseUTCOffset",\r\n    "Now" : "2000-01-23T04:56:07.000+00:00",\r\n    "Name" : "Name"\r\n  } ],\r\n  "CountryFullName" : "CountryFullName",\r\n  "ThreeLetterCode" : "ThreeLetterCode",\r\n  "ISOTwoLetterCode" : "ISOTwoLetterCode",\r\n  "Successful" : true\r\n}');
         expectedResponse = SwagGetTimezonesResponse.getExample();
         response = (SwagGetTimezonesResponse) api.addressGetTimezone(params);
         System.assertEquals(expectedResponse, response);
