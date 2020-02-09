@@ -7,6 +7,7 @@ Method | HTTP request | Description
 [**addressCountry**](SwagAddressApi.md#addressCountry) | **POST** /validate/address/country | Validate and normalize country information, return ISO 3166-1 country codes and country name
 [**addressGetTimezone**](SwagAddressApi.md#addressGetTimezone) | **POST** /validate/address/country/get-timezones | Gets IANA/Olsen time zones for a country
 [**addressParseString**](SwagAddressApi.md#addressParseString) | **POST** /validate/address/parse | Parse an unstructured input text string into an international, formatted address
+[**addressValidateAddress**](SwagAddressApi.md#addressValidateAddress) | **POST** /validate/address/street-address | Validate a street address
 
 
 <a name="addressCountry"></a>
@@ -146,6 +147,55 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**SwagParseAddressResponse**](SwagParseAddressResponse.md)
+
+### Authorization
+
+[Apikey](../README.md#Apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a name="addressValidateAddress"></a>
+# **addressValidateAddress**
+> SwagValidateAddressResponse addressValidateAddress(input)
+
+Validate a street address
+
+Determines if an input structured street address is valid or invalid.  If the address is valid, also returns the latitude and longitude of the address.
+
+### Example
+```java
+SwagAddressApi api = new SwagAddressApi();
+SwagClient client = api.getClient();
+
+// Configure API key authorization: Apikey
+ApiKeyAuth Apikey = (ApiKeyAuth) client.getAuthentication('Apikey');
+Apikey.setApiKey('YOUR API KEY');
+
+Map<String, Object> params = new Map<String, Object>{
+    'input' => SwagValidateAddressRequest.getExample()
+};
+
+try {
+    // cross your fingers
+    SwagValidateAddressResponse result = api.addressValidateAddress(params);
+    System.debug(result);
+} catch (Swagger.ApiException e) {
+    // ...handle your exceptions
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **input** | [**SwagValidateAddressRequest**](SwagValidateAddressRequest.md)| Input parse request |
+
+### Return type
+
+[**SwagValidateAddressResponse**](SwagValidateAddressResponse.md)
 
 ### Authorization
 

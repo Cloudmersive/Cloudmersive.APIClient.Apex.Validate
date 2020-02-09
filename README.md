@@ -68,6 +68,7 @@ Class | Method | HTTP request | Description
 *SwagAddressApi* | [**addressCountry**](docs/SwagAddressApi.md#addressCountry) | **POST** /validate/address/country | Validate and normalize country information, return ISO 3166-1 country codes and country name
 *SwagAddressApi* | [**addressGetTimezone**](docs/SwagAddressApi.md#addressGetTimezone) | **POST** /validate/address/country/get-timezones | Gets IANA/Olsen time zones for a country
 *SwagAddressApi* | [**addressParseString**](docs/SwagAddressApi.md#addressParseString) | **POST** /validate/address/parse | Parse an unstructured input text string into an international, formatted address
+*SwagAddressApi* | [**addressValidateAddress**](docs/SwagAddressApi.md#addressValidateAddress) | **POST** /validate/address/street-address | Validate a street address
 *SwagDomainApi* | [**domainCheck**](docs/SwagDomainApi.md#domainCheck) | **POST** /validate/domain/check | Validate a domain name
 *SwagDomainApi* | [**domainPost**](docs/SwagDomainApi.md#domainPost) | **POST** /validate/domain/whois | Get WHOIS information for a domain
 *SwagDomainApi* | [**domainUrlFull**](docs/SwagDomainApi.md#domainUrlFull) | **POST** /validate/domain/url/full | Validate a URL fully
@@ -84,7 +85,7 @@ Class | Method | HTTP request | Description
 *SwagNameApi* | [**nameValidateLastName**](docs/SwagNameApi.md#nameValidateLastName) | **POST** /validate/name/last | Validate a last name
 *SwagPhoneNumberApi* | [**phoneNumberSyntaxOnly**](docs/SwagPhoneNumberApi.md#phoneNumberSyntaxOnly) | **POST** /validate/phonenumber/basic | Validate phone number (basic)
 *SwagUserAgentApi* | [**userAgentParse**](docs/SwagUserAgentApi.md#userAgentParse) | **POST** /validate/useragent/parse | Parse an HTTP User-Agent string, identify robots
-*SwagVatApi* | [**vatVatLookup**](docs/SwagVatApi.md#vatVatLookup) | **POST** /validate/vat/lookup | Lookup a VAT code
+*SwagVatApi* | [**vatVatLookup**](docs/SwagVatApi.md#vatVatLookup) | **POST** /validate/vat/lookup | Validate a VAT number
 
 
 ## Documentation for Models
@@ -113,6 +114,8 @@ Class | Method | HTTP request | Description
  - [SwagTimezone](docs/SwagTimezone.md)
  - [SwagUserAgentValidateRequest](docs/SwagUserAgentValidateRequest.md)
  - [SwagUserAgentValidateResponse](docs/SwagUserAgentValidateResponse.md)
+ - [SwagValidateAddressRequest](docs/SwagValidateAddressRequest.md)
+ - [SwagValidateAddressResponse](docs/SwagValidateAddressResponse.md)
  - [SwagValidateCountryRequest](docs/SwagValidateCountryRequest.md)
  - [SwagValidateCountryResponse](docs/SwagValidateCountryResponse.md)
  - [SwagValidateIdentifierRequest](docs/SwagValidateIdentifierRequest.md)

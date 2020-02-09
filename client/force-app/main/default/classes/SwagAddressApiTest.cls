@@ -98,4 +98,37 @@ private class SwagAddressApiTest {
         response = (SwagParseAddressResponse) api.addressParseString(params);
         System.assertEquals(expectedResponse, response);
     }
+
+    /**
+     * Validate a street address
+     *
+     * Determines if an input structured street address is valid or invalid.  If the address is valid, also returns the latitude and longitude of the address.
+     */
+    @isTest
+    private static void addressValidateAddressTest() {
+        HttpResponse res = new HttpResponse();
+        res.setStatusCode(200);
+        res.setStatus('OK');
+        Test.setMock(HttpCalloutMock.class, new SwaggerResponseMock(res));
+
+        Map<String, Object> params = new Map<String, Object>{
+            'input' => SwagValidateAddressRequest.getExample()
+        };
+
+        SwagClient client;
+        SwagAddressApi api;
+        SwagValidateAddressResponse response;
+        SwagValidateAddressResponse expectedResponse;
+
+        client = new SwagClient();
+        api = new SwagAddressApi(client);
+        ((Swagger.ApiKeyAuth) client.getAuthentication('Apikey');
+            client.setApiKey('foo-bar-api-key');
+
+        res.setHeader('Content-Type', 'application/json');
+        res.setBody('{\r\n  "ValidAddress" : true,\r\n  "Latitude" : 0.8008281904610115,\r\n  "Longitude" : 6.027456183070403\r\n}');
+        expectedResponse = SwagValidateAddressResponse.getExample();
+        response = (SwagValidateAddressResponse) api.addressValidateAddress(params);
+        System.assertEquals(expectedResponse, response);
+    }
 }

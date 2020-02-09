@@ -97,4 +97,28 @@ public class SwagAddressApi {
             SwagParseAddressResponse.class
         );
     }
+    /**
+     * Validate a street address
+     * Determines if an input structured street address is valid or invalid.  If the address is valid, also returns the latitude and longitude of the address.
+     * @param input Input parse request (required)
+     * @return SwagValidateAddressResponse
+     * @throws Swagger.ApiException if fails to make API call
+     */
+    public SwagValidateAddressResponse addressValidateAddress(Map<String, Object> params) {
+        client.assertNotNull(params.get('input'), 'input');
+        List<Swagger.Param> query = new List<Swagger.Param>();
+        List<Swagger.Param> form = new List<Swagger.Param>();
+
+        return (SwagValidateAddressResponse) client.invoke(
+            'POST', '/validate/address/street-address',
+            (SwagValidateAddressRequest) params.get('input'),
+            query, form,
+            new Map<String, Object>(),
+            new Map<String, Object>(),
+            new List<String>{ 'application/json' },
+            new List<String>{ 'application/json' },
+            new List<String> { 'Apikey' },
+            SwagValidateAddressResponse.class
+        );
+    }
 }
