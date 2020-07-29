@@ -52,7 +52,7 @@ Map<String, Object> params = new Map<String, Object>{
 
 try {
     // cross your fingers
-    SwagValidateCountryResponse result = api.addressCountry(params);
+    SwagValidateCountryResponse result = api.addressCheckEUMembership(params);
     System.debug(result);
 } catch (Swagger.ApiException e) {
     // ...handle your exceptions
@@ -65,10 +65,12 @@ All URIs are relative to *https://api.cloudmersive.com*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
+*SwagAddressApi* | [**addressCheckEUMembership**](docs/SwagAddressApi.md#addressCheckEUMembership) | **POST** /validate/address/country/check-eu-membership | Check if a country is a member of the European Union (EU)
 *SwagAddressApi* | [**addressCountry**](docs/SwagAddressApi.md#addressCountry) | **POST** /validate/address/country | Validate and normalize country information, return ISO 3166-1 country codes and country name
 *SwagAddressApi* | [**addressGetTimezone**](docs/SwagAddressApi.md#addressGetTimezone) | **POST** /validate/address/country/get-timezones | Gets IANA/Olsen time zones for a country
 *SwagAddressApi* | [**addressParseString**](docs/SwagAddressApi.md#addressParseString) | **POST** /validate/address/parse | Parse an unstructured input text string into an international, formatted address
 *SwagAddressApi* | [**addressValidateAddress**](docs/SwagAddressApi.md#addressValidateAddress) | **POST** /validate/address/street-address | Validate a street address
+*SwagAddressApi* | [**addressValidatePostalCode**](docs/SwagAddressApi.md#addressValidatePostalCode) | **POST** /validate/address/postal-code | Validate a postal code, get location information about it
 *SwagDomainApi* | [**domainCheck**](docs/SwagDomainApi.md#domainCheck) | **POST** /validate/domain/check | Validate a domain name
 *SwagDomainApi* | [**domainPost**](docs/SwagDomainApi.md#domainPost) | **POST** /validate/domain/whois | Get WHOIS information for a domain
 *SwagDomainApi* | [**domainUrlFull**](docs/SwagDomainApi.md#domainUrlFull) | **POST** /validate/domain/url/full | Validate a URL fully
@@ -120,6 +122,8 @@ Class | Method | HTTP request | Description
  - [SwagValidateCountryResponse](docs/SwagValidateCountryResponse.md)
  - [SwagValidateIdentifierRequest](docs/SwagValidateIdentifierRequest.md)
  - [SwagValidateIdentifierResponse](docs/SwagValidateIdentifierResponse.md)
+ - [SwagValidatePostalCodeRequest](docs/SwagValidatePostalCodeRequest.md)
+ - [SwagValidatePostalCodeResponse](docs/SwagValidatePostalCodeResponse.md)
  - [SwagValidateUrlRequestFull](docs/SwagValidateUrlRequestFull.md)
  - [SwagValidateUrlRequestSyntaxOnly](docs/SwagValidateUrlRequestSyntaxOnly.md)
  - [SwagValidateUrlResponseFull](docs/SwagValidateUrlResponseFull.md)

@@ -4,11 +4,62 @@ All URIs are relative to *https://api.cloudmersive.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**addressCheckEUMembership**](SwagAddressApi.md#addressCheckEUMembership) | **POST** /validate/address/country/check-eu-membership | Check if a country is a member of the European Union (EU)
 [**addressCountry**](SwagAddressApi.md#addressCountry) | **POST** /validate/address/country | Validate and normalize country information, return ISO 3166-1 country codes and country name
 [**addressGetTimezone**](SwagAddressApi.md#addressGetTimezone) | **POST** /validate/address/country/get-timezones | Gets IANA/Olsen time zones for a country
 [**addressParseString**](SwagAddressApi.md#addressParseString) | **POST** /validate/address/parse | Parse an unstructured input text string into an international, formatted address
 [**addressValidateAddress**](SwagAddressApi.md#addressValidateAddress) | **POST** /validate/address/street-address | Validate a street address
+[**addressValidatePostalCode**](SwagAddressApi.md#addressValidatePostalCode) | **POST** /validate/address/postal-code | Validate a postal code, get location information about it
 
+
+<a name="addressCheckEUMembership"></a>
+# **addressCheckEUMembership**
+> SwagValidateCountryResponse addressCheckEUMembership(input)
+
+Check if a country is a member of the European Union (EU)
+
+Checks if the input country is a member of the European Union or not.
+
+### Example
+```java
+SwagAddressApi api = new SwagAddressApi();
+SwagClient client = api.getClient();
+
+// Configure API key authorization: Apikey
+ApiKeyAuth Apikey = (ApiKeyAuth) client.getAuthentication('Apikey');
+Apikey.setApiKey('YOUR API KEY');
+
+Map<String, Object> params = new Map<String, Object>{
+    'input' => SwagValidateCountryRequest.getExample()
+};
+
+try {
+    // cross your fingers
+    SwagValidateCountryResponse result = api.addressCheckEUMembership(params);
+    System.debug(result);
+} catch (Swagger.ApiException e) {
+    // ...handle your exceptions
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **input** | [**SwagValidateCountryRequest**](SwagValidateCountryRequest.md)| Input request |
+
+### Return type
+
+[**SwagValidateCountryResponse**](SwagValidateCountryResponse.md)
+
+### Authorization
+
+[Apikey](../README.md#Apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
 
 <a name="addressCountry"></a>
 # **addressCountry**
@@ -16,7 +67,7 @@ Method | HTTP request | Description
 
 Validate and normalize country information, return ISO 3166-1 country codes and country name
 
-Validates and normalizes country information, and returns key information about a country.  Also returns distinct time zones in the country.
+Validates and normalizes country information, and returns key information about a country, as well as whether it is a member of the European Union.  Also returns distinct time zones in the country.
 
 ### Example
 ```java
@@ -196,6 +247,55 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**SwagValidateAddressResponse**](SwagValidateAddressResponse.md)
+
+### Authorization
+
+[Apikey](../README.md#Apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a name="addressValidatePostalCode"></a>
+# **addressValidatePostalCode**
+> SwagValidatePostalCodeResponse addressValidatePostalCode(input)
+
+Validate a postal code, get location information about it
+
+Checks if the input postal code is valid, and returns information about it such as City, State and more.
+
+### Example
+```java
+SwagAddressApi api = new SwagAddressApi();
+SwagClient client = api.getClient();
+
+// Configure API key authorization: Apikey
+ApiKeyAuth Apikey = (ApiKeyAuth) client.getAuthentication('Apikey');
+Apikey.setApiKey('YOUR API KEY');
+
+Map<String, Object> params = new Map<String, Object>{
+    'input' => SwagValidatePostalCodeRequest.getExample()
+};
+
+try {
+    // cross your fingers
+    SwagValidatePostalCodeResponse result = api.addressValidatePostalCode(params);
+    System.debug(result);
+} catch (Swagger.ApiException e) {
+    // ...handle your exceptions
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **input** | [**SwagValidatePostalCodeRequest**](SwagValidatePostalCodeRequest.md)| Input parse request |
+
+### Return type
+
+[**SwagValidatePostalCodeResponse**](SwagValidatePostalCodeResponse.md)
 
 ### Authorization
 

@@ -45,6 +45,12 @@ public class SwagValidateCountryResponse implements Swagger.MappedProperties {
     public String threeLetterCode { get; set; }
 
     /**
+     * True if this country is currently a member of the European Union (EU), false otherwise
+     * @return isEuropeanUnionMember
+     */
+    public Boolean isEuropeanUnionMember { get; set; }
+
+    /**
      * Time zones (IANA/Olsen) in the country
      * @return timezones
      */
@@ -56,6 +62,7 @@ public class SwagValidateCountryResponse implements Swagger.MappedProperties {
         'ISOTwoLetterCode' => 'isOTwoLetterCode',
         'FIPSTwoLetterCode' => 'fiPSTwoLetterCode',
         'ThreeLetterCode' => 'threeLetterCode',
+        'IsEuropeanUnionMember' => 'isEuropeanUnionMember',
         'Timezones' => 'timezones'
     };
 
@@ -74,6 +81,7 @@ public class SwagValidateCountryResponse implements Swagger.MappedProperties {
         validateCountryResponse.isOTwoLetterCode = 'aeiou';
         validateCountryResponse.fiPSTwoLetterCode = 'aeiou';
         validateCountryResponse.threeLetterCode = 'aeiou';
+        validateCountryResponse.isEuropeanUnionMember = true;
         validateCountryResponse.timezones = new List<SwagTimezone>{SwagTimezone.getExample()};
         return validateCountryResponse;
     }
@@ -86,6 +94,7 @@ public class SwagValidateCountryResponse implements Swagger.MappedProperties {
                 && this.isOTwoLetterCode == validateCountryResponse.isOTwoLetterCode
                 && this.fiPSTwoLetterCode == validateCountryResponse.fiPSTwoLetterCode
                 && this.threeLetterCode == validateCountryResponse.threeLetterCode
+                && this.isEuropeanUnionMember == validateCountryResponse.isEuropeanUnionMember
                 && this.timezones == validateCountryResponse.timezones;
         }
         return false;
@@ -98,6 +107,7 @@ public class SwagValidateCountryResponse implements Swagger.MappedProperties {
         hashCode = (17 * hashCode) + (isOTwoLetterCode == null ? 0 : System.hashCode(isOTwoLetterCode));
         hashCode = (17 * hashCode) + (fiPSTwoLetterCode == null ? 0 : System.hashCode(fiPSTwoLetterCode));
         hashCode = (17 * hashCode) + (threeLetterCode == null ? 0 : System.hashCode(threeLetterCode));
+        hashCode = (17 * hashCode) + (isEuropeanUnionMember == null ? 0 : System.hashCode(isEuropeanUnionMember));
         hashCode = (17 * hashCode) + (timezones == null ? 0 : System.hashCode(timezones));
         return hashCode;
     }

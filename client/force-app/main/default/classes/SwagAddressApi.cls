@@ -26,8 +26,32 @@ public class SwagAddressApi {
     }
 
     /**
+     * Check if a country is a member of the European Union (EU)
+     * Checks if the input country is a member of the European Union or not.
+     * @param input Input request (required)
+     * @return SwagValidateCountryResponse
+     * @throws Swagger.ApiException if fails to make API call
+     */
+    public SwagValidateCountryResponse addressCheckEUMembership(Map<String, Object> params) {
+        client.assertNotNull(params.get('input'), 'input');
+        List<Swagger.Param> query = new List<Swagger.Param>();
+        List<Swagger.Param> form = new List<Swagger.Param>();
+
+        return (SwagValidateCountryResponse) client.invoke(
+            'POST', '/validate/address/country/check-eu-membership',
+            (SwagValidateCountryRequest) params.get('input'),
+            query, form,
+            new Map<String, Object>(),
+            new Map<String, Object>(),
+            new List<String>{ 'application/json' },
+            new List<String>{ 'application/json' },
+            new List<String> { 'Apikey' },
+            SwagValidateCountryResponse.class
+        );
+    }
+    /**
      * Validate and normalize country information, return ISO 3166-1 country codes and country name
-     * Validates and normalizes country information, and returns key information about a country.  Also returns distinct time zones in the country.
+     * Validates and normalizes country information, and returns key information about a country, as well as whether it is a member of the European Union.  Also returns distinct time zones in the country.
      * @param input Input request (required)
      * @return SwagValidateCountryResponse
      * @throws Swagger.ApiException if fails to make API call
@@ -119,6 +143,30 @@ public class SwagAddressApi {
             new List<String>{ 'application/json' },
             new List<String> { 'Apikey' },
             SwagValidateAddressResponse.class
+        );
+    }
+    /**
+     * Validate a postal code, get location information about it
+     * Checks if the input postal code is valid, and returns information about it such as City, State and more.
+     * @param input Input parse request (required)
+     * @return SwagValidatePostalCodeResponse
+     * @throws Swagger.ApiException if fails to make API call
+     */
+    public SwagValidatePostalCodeResponse addressValidatePostalCode(Map<String, Object> params) {
+        client.assertNotNull(params.get('input'), 'input');
+        List<Swagger.Param> query = new List<Swagger.Param>();
+        List<Swagger.Param> form = new List<Swagger.Param>();
+
+        return (SwagValidatePostalCodeResponse) client.invoke(
+            'POST', '/validate/address/postal-code',
+            (SwagValidatePostalCodeRequest) params.get('input'),
+            query, form,
+            new Map<String, Object>(),
+            new Map<String, Object>(),
+            new List<String>{ 'application/json' },
+            new List<String>{ 'application/json' },
+            new List<String> { 'Apikey' },
+            SwagValidatePostalCodeResponse.class
         );
     }
 }
