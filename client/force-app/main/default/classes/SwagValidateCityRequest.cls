@@ -11,14 +11,20 @@
  */
 
 /**
- * Request to Validate a Postal Code
+ * Request to Validate a City and State or Province in a country
  */
-public class SwagValidatePostalCodeRequest implements Swagger.MappedProperties {
+public class SwagValidateCityRequest implements Swagger.MappedProperties {
     /**
-     * Required: Zip code or postal code of the address to validate, such as \'94597\'
-     * @return postalCode
+     * Required: City of the address to validate, such as \'San Francisco\' or \'London\'
+     * @return city
      */
-    public String postalCode { get; set; }
+    public String city { get; set; }
+
+    /**
+     * Required: State or province of the address to validate, such as \'California\' or \'CA\'
+     * @return stateOrProvince
+     */
+    public String stateOrProvince { get; set; }
 
     /**
      * Optional (recommended); Name of the country, such as \'United States\'.  If left blank, and CountryCode is also left blank, will default to United States.  Global countries are supported.
@@ -33,7 +39,8 @@ public class SwagValidatePostalCodeRequest implements Swagger.MappedProperties {
     public String countryCode { get; set; }
 
     private static final Map<String, String> propertyMappings = new Map<String, String>{
-        'PostalCode' => 'postalCode',
+        'City' => 'city',
+        'StateOrProvince' => 'stateOrProvince',
         'CountryFullName' => 'countryFullName',
         'CountryCode' => 'countryCode'
     };
@@ -42,27 +49,30 @@ public class SwagValidatePostalCodeRequest implements Swagger.MappedProperties {
         return propertyMappings;
     }
 
-    public static SwagValidatePostalCodeRequest getExample() {
-        SwagValidatePostalCodeRequest validatePostalCodeRequest = new SwagValidatePostalCodeRequest();
-        validatePostalCodeRequest.postalCode = 'aeiou';
-        validatePostalCodeRequest.countryFullName = 'aeiou';
-        validatePostalCodeRequest.countryCode = 'aeiou';
-        return validatePostalCodeRequest;
+    public static SwagValidateCityRequest getExample() {
+        SwagValidateCityRequest validateCityRequest = new SwagValidateCityRequest();
+        validateCityRequest.city = 'aeiou';
+        validateCityRequest.stateOrProvince = 'aeiou';
+        validateCityRequest.countryFullName = 'aeiou';
+        validateCityRequest.countryCode = 'aeiou';
+        return validateCityRequest;
     }
 
     public Boolean equals(Object obj) {
-        if (obj instanceof SwagValidatePostalCodeRequest) {
-            SwagValidatePostalCodeRequest validatePostalCodeRequest = (SwagValidatePostalCodeRequest) obj;
-            return this.postalCode == validatePostalCodeRequest.postalCode
-                && this.countryFullName == validatePostalCodeRequest.countryFullName
-                && this.countryCode == validatePostalCodeRequest.countryCode;
+        if (obj instanceof SwagValidateCityRequest) {
+            SwagValidateCityRequest validateCityRequest = (SwagValidateCityRequest) obj;
+            return this.city == validateCityRequest.city
+                && this.stateOrProvince == validateCityRequest.stateOrProvince
+                && this.countryFullName == validateCityRequest.countryFullName
+                && this.countryCode == validateCityRequest.countryCode;
         }
         return false;
     }
 
     public Integer hashCode() {
         Integer hashCode = 43;
-        hashCode = (17 * hashCode) + (postalCode == null ? 0 : System.hashCode(postalCode));
+        hashCode = (17 * hashCode) + (city == null ? 0 : System.hashCode(city));
+        hashCode = (17 * hashCode) + (stateOrProvince == null ? 0 : System.hashCode(stateOrProvince));
         hashCode = (17 * hashCode) + (countryFullName == null ? 0 : System.hashCode(countryFullName));
         hashCode = (17 * hashCode) + (countryCode == null ? 0 : System.hashCode(countryCode));
         return hashCode;

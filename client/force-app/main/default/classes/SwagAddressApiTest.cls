@@ -67,6 +67,35 @@ private class SwagAddressApiTest {
     }
 
     /**
+     * Get a list of ISO 3166-1 countries
+     *
+     * Enumerates the list of ISO 3166-1 countries, including name, country codes, and more.
+     */
+    @isTest
+    private static void addressCountryListTest() {
+        HttpResponse res = new HttpResponse();
+        res.setStatusCode(200);
+        res.setStatus('OK');
+        Test.setMock(HttpCalloutMock.class, new SwaggerResponseMock(res));
+
+        SwagClient client;
+        SwagAddressApi api;
+        SwagCountryListResult response;
+        SwagCountryListResult expectedResponse;
+
+        client = new SwagClient();
+        api = new SwagAddressApi(client);
+        ((Swagger.ApiKeyAuth) client.getAuthentication('Apikey');
+            client.setApiKey('foo-bar-api-key');
+
+        res.setHeader('Content-Type', 'application/json');
+        res.setBody('{\r\n  "Countries" : [ {\r\n    "CountryName" : "CountryName",\r\n    "ThreeLetterCode" : "ThreeLetterCode",\r\n    "ISOTwoLetterCode" : "ISOTwoLetterCode",\r\n    "IsEuropeanUnionMember" : true\r\n  }, {\r\n    "CountryName" : "CountryName",\r\n    "ThreeLetterCode" : "ThreeLetterCode",\r\n    "ISOTwoLetterCode" : "ISOTwoLetterCode",\r\n    "IsEuropeanUnionMember" : true\r\n  } ],\r\n  "Successful" : true\r\n}');
+        expectedResponse = SwagCountryListResult.getExample();
+        response = (SwagCountryListResult) api.addressCountryList();
+        System.assertEquals(expectedResponse, response);
+    }
+
+    /**
      * Gets IANA/Olsen time zones for a country
      *
      * Gets the IANA/Olsen time zones for a country.
@@ -166,6 +195,39 @@ private class SwagAddressApiTest {
     }
 
     /**
+     * Validate a City and State/Province combination, get location information about it
+     *
+     * Checks if the input city and state name or code is valid, and returns information about it such as normalized City name, State name and more.
+     */
+    @isTest
+    private static void addressValidateCityTest() {
+        HttpResponse res = new HttpResponse();
+        res.setStatusCode(200);
+        res.setStatus('OK');
+        Test.setMock(HttpCalloutMock.class, new SwaggerResponseMock(res));
+
+        Map<String, Object> params = new Map<String, Object>{
+            'input' => SwagValidateCityRequest.getExample()
+        };
+
+        SwagClient client;
+        SwagAddressApi api;
+        SwagValidateCityResponse response;
+        SwagValidateCityResponse expectedResponse;
+
+        client = new SwagClient();
+        api = new SwagAddressApi(client);
+        ((Swagger.ApiKeyAuth) client.getAuthentication('Apikey');
+            client.setApiKey('foo-bar-api-key');
+
+        res.setHeader('Content-Type', 'application/json');
+        res.setBody('{\r\n  "StateOrProvince" : "StateOrProvince",\r\n  "ValidCity" : true,\r\n  "Latitude" : 0.8008281904610115,\r\n  "City" : "City",\r\n  "Longitude" : 6.027456183070403\r\n}');
+        expectedResponse = SwagValidateCityResponse.getExample();
+        response = (SwagValidateCityResponse) api.addressValidateCity(params);
+        System.assertEquals(expectedResponse, response);
+    }
+
+    /**
      * Validate a postal code, get location information about it
      *
      * Checks if the input postal code is valid, and returns information about it such as City, State and more.
@@ -195,6 +257,39 @@ private class SwagAddressApiTest {
         res.setBody('{\r\n  "StateOrProvince" : "StateOrProvince",\r\n  "Latitude" : 0.8008281904610115,\r\n  "City" : "City",\r\n  "Longitude" : 6.027456183070403,\r\n  "ValidPostalCode" : true\r\n}');
         expectedResponse = SwagValidatePostalCodeResponse.getExample();
         response = (SwagValidatePostalCodeResponse) api.addressValidatePostalCode(params);
+        System.assertEquals(expectedResponse, response);
+    }
+
+    /**
+     * Validate a state or province, name or abbreviation, get location information about it
+     *
+     * Checks if the input state name or code is valid, and returns information about it such as normalized State name and more.
+     */
+    @isTest
+    private static void addressValidateStateTest() {
+        HttpResponse res = new HttpResponse();
+        res.setStatusCode(200);
+        res.setStatus('OK');
+        Test.setMock(HttpCalloutMock.class, new SwaggerResponseMock(res));
+
+        Map<String, Object> params = new Map<String, Object>{
+            'input' => SwagValidateStateRequest.getExample()
+        };
+
+        SwagClient client;
+        SwagAddressApi api;
+        SwagValidateStateResponse response;
+        SwagValidateStateResponse expectedResponse;
+
+        client = new SwagClient();
+        api = new SwagAddressApi(client);
+        ((Swagger.ApiKeyAuth) client.getAuthentication('Apikey');
+            client.setApiKey('foo-bar-api-key');
+
+        res.setHeader('Content-Type', 'application/json');
+        res.setBody('{\r\n  "ValidState" : true,\r\n  "StateOrProvince" : "StateOrProvince",\r\n  "Latitude" : 0.8008281904610115,\r\n  "Longitude" : 6.027456183070403\r\n}');
+        expectedResponse = SwagValidateStateResponse.getExample();
+        response = (SwagValidateStateResponse) api.addressValidateState(params);
         System.assertEquals(expectedResponse, response);
     }
 }

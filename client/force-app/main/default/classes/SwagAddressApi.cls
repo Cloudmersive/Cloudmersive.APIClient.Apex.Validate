@@ -74,6 +74,27 @@ public class SwagAddressApi {
         );
     }
     /**
+     * Get a list of ISO 3166-1 countries
+     * Enumerates the list of ISO 3166-1 countries, including name, country codes, and more.
+     * @return SwagCountryListResult
+     * @throws Swagger.ApiException if fails to make API call
+     */
+    public SwagCountryListResult addressCountryList() {
+        List<Swagger.Param> query = new List<Swagger.Param>();
+        List<Swagger.Param> form = new List<Swagger.Param>();
+
+        return (SwagCountryListResult) client.invoke(
+            'POST', '/validate/address/country/list', '',
+            query, form,
+            new Map<String, Object>(),
+            new Map<String, Object>(),
+            new List<String>{ 'application/json' },
+            new List<String>{ 'application/json' },
+            new List<String> { 'Apikey' },
+            SwagCountryListResult.class
+        );
+    }
+    /**
      * Gets IANA/Olsen time zones for a country
      * Gets the IANA/Olsen time zones for a country.
      * @param input Input request (required)
@@ -146,6 +167,30 @@ public class SwagAddressApi {
         );
     }
     /**
+     * Validate a City and State/Province combination, get location information about it
+     * Checks if the input city and state name or code is valid, and returns information about it such as normalized City name, State name and more.
+     * @param input Input parse request (required)
+     * @return SwagValidateCityResponse
+     * @throws Swagger.ApiException if fails to make API call
+     */
+    public SwagValidateCityResponse addressValidateCity(Map<String, Object> params) {
+        client.assertNotNull(params.get('input'), 'input');
+        List<Swagger.Param> query = new List<Swagger.Param>();
+        List<Swagger.Param> form = new List<Swagger.Param>();
+
+        return (SwagValidateCityResponse) client.invoke(
+            'POST', '/validate/address/city',
+            (SwagValidateCityRequest) params.get('input'),
+            query, form,
+            new Map<String, Object>(),
+            new Map<String, Object>(),
+            new List<String>{ 'application/json' },
+            new List<String>{ 'application/json' },
+            new List<String> { 'Apikey' },
+            SwagValidateCityResponse.class
+        );
+    }
+    /**
      * Validate a postal code, get location information about it
      * Checks if the input postal code is valid, and returns information about it such as City, State and more.
      * @param input Input parse request (required)
@@ -167,6 +212,30 @@ public class SwagAddressApi {
             new List<String>{ 'application/json' },
             new List<String> { 'Apikey' },
             SwagValidatePostalCodeResponse.class
+        );
+    }
+    /**
+     * Validate a state or province, name or abbreviation, get location information about it
+     * Checks if the input state name or code is valid, and returns information about it such as normalized State name and more.
+     * @param input Input parse request (required)
+     * @return SwagValidateStateResponse
+     * @throws Swagger.ApiException if fails to make API call
+     */
+    public SwagValidateStateResponse addressValidateState(Map<String, Object> params) {
+        client.assertNotNull(params.get('input'), 'input');
+        List<Swagger.Param> query = new List<Swagger.Param>();
+        List<Swagger.Param> form = new List<Swagger.Param>();
+
+        return (SwagValidateStateResponse) client.invoke(
+            'POST', '/validate/address/state',
+            (SwagValidateStateRequest) params.get('input'),
+            query, form,
+            new Map<String, Object>(),
+            new Map<String, Object>(),
+            new List<String>{ 'application/json' },
+            new List<String>{ 'application/json' },
+            new List<String> { 'Apikey' },
+            SwagValidateStateResponse.class
         );
     }
 }

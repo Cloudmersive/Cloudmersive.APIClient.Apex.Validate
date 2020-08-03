@@ -11,14 +11,14 @@
  */
 
 /**
- * Result of validating a postal code
+ * Result of validating a city
  */
-public class SwagValidatePostalCodeResponse implements Swagger.MappedProperties {
+public class SwagValidateCityResponse implements Swagger.MappedProperties {
     /**
-     * True if the Postal Code is valid, false otherwise
-     * @return validPostalCode
+     * True if the city is valid, false otherwise
+     * @return validCity
      */
-    public Boolean validPostalCode { get; set; }
+    public Boolean validCity { get; set; }
 
     /**
      * If valid, City corresponding to the input postal code, such as \'Walnut Creek\'
@@ -27,25 +27,25 @@ public class SwagValidatePostalCodeResponse implements Swagger.MappedProperties 
     public String city { get; set; }
 
     /**
-     * If valid; State or province corresponding to the input postal code, such as \'CA\' or \'California\'
+     * If valid; State or province corresponding to the input state name, such as \'CA\' or \'California\'
      * @return stateOrProvince
      */
     public String stateOrProvince { get; set; }
 
     /**
-     * If the postal code is valid, the degrees latitude of the centroid of the postal code, null otherwise
+     * If the postal code is valid, the degrees latitude of the centroid of the state, null otherwise
      * @return latitude
      */
     public Double latitude { get; set; }
 
     /**
-     * If the postal code is valid, the degrees longitude of the centroid of the postal code, null otherwise
+     * If the postal code is valid, the degrees longitude of the centroid of the state, null otherwise
      * @return longitude
      */
     public Double longitude { get; set; }
 
     private static final Map<String, String> propertyMappings = new Map<String, String>{
-        'ValidPostalCode' => 'validPostalCode',
+        'ValidCity' => 'validCity',
         'City' => 'city',
         'StateOrProvince' => 'stateOrProvince',
         'Latitude' => 'latitude',
@@ -56,31 +56,31 @@ public class SwagValidatePostalCodeResponse implements Swagger.MappedProperties 
         return propertyMappings;
     }
 
-    public static SwagValidatePostalCodeResponse getExample() {
-        SwagValidatePostalCodeResponse validatePostalCodeResponse = new SwagValidatePostalCodeResponse();
-        validatePostalCodeResponse.validPostalCode = true;
-        validatePostalCodeResponse.city = 'aeiou';
-        validatePostalCodeResponse.stateOrProvince = 'aeiou';
-        validatePostalCodeResponse.latitude = 1.3579;
-        validatePostalCodeResponse.longitude = 1.3579;
-        return validatePostalCodeResponse;
+    public static SwagValidateCityResponse getExample() {
+        SwagValidateCityResponse validateCityResponse = new SwagValidateCityResponse();
+        validateCityResponse.validCity = true;
+        validateCityResponse.city = 'aeiou';
+        validateCityResponse.stateOrProvince = 'aeiou';
+        validateCityResponse.latitude = 1.3579;
+        validateCityResponse.longitude = 1.3579;
+        return validateCityResponse;
     }
 
     public Boolean equals(Object obj) {
-        if (obj instanceof SwagValidatePostalCodeResponse) {
-            SwagValidatePostalCodeResponse validatePostalCodeResponse = (SwagValidatePostalCodeResponse) obj;
-            return this.validPostalCode == validatePostalCodeResponse.validPostalCode
-                && this.city == validatePostalCodeResponse.city
-                && this.stateOrProvince == validatePostalCodeResponse.stateOrProvince
-                && this.latitude == validatePostalCodeResponse.latitude
-                && this.longitude == validatePostalCodeResponse.longitude;
+        if (obj instanceof SwagValidateCityResponse) {
+            SwagValidateCityResponse validateCityResponse = (SwagValidateCityResponse) obj;
+            return this.validCity == validateCityResponse.validCity
+                && this.city == validateCityResponse.city
+                && this.stateOrProvince == validateCityResponse.stateOrProvince
+                && this.latitude == validateCityResponse.latitude
+                && this.longitude == validateCityResponse.longitude;
         }
         return false;
     }
 
     public Integer hashCode() {
         Integer hashCode = 43;
-        hashCode = (17 * hashCode) + (validPostalCode == null ? 0 : System.hashCode(validPostalCode));
+        hashCode = (17 * hashCode) + (validCity == null ? 0 : System.hashCode(validCity));
         hashCode = (17 * hashCode) + (city == null ? 0 : System.hashCode(city));
         hashCode = (17 * hashCode) + (stateOrProvince == null ? 0 : System.hashCode(stateOrProvince));
         hashCode = (17 * hashCode) + (latitude == null ? 0 : System.hashCode(latitude));

@@ -67,10 +67,13 @@ Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
 *SwagAddressApi* | [**addressCheckEUMembership**](docs/SwagAddressApi.md#addressCheckEUMembership) | **POST** /validate/address/country/check-eu-membership | Check if a country is a member of the European Union (EU)
 *SwagAddressApi* | [**addressCountry**](docs/SwagAddressApi.md#addressCountry) | **POST** /validate/address/country | Validate and normalize country information, return ISO 3166-1 country codes and country name
+*SwagAddressApi* | [**addressCountryList**](docs/SwagAddressApi.md#addressCountryList) | **POST** /validate/address/country/list | Get a list of ISO 3166-1 countries
 *SwagAddressApi* | [**addressGetTimezone**](docs/SwagAddressApi.md#addressGetTimezone) | **POST** /validate/address/country/get-timezones | Gets IANA/Olsen time zones for a country
 *SwagAddressApi* | [**addressParseString**](docs/SwagAddressApi.md#addressParseString) | **POST** /validate/address/parse | Parse an unstructured input text string into an international, formatted address
 *SwagAddressApi* | [**addressValidateAddress**](docs/SwagAddressApi.md#addressValidateAddress) | **POST** /validate/address/street-address | Validate a street address
+*SwagAddressApi* | [**addressValidateCity**](docs/SwagAddressApi.md#addressValidateCity) | **POST** /validate/address/city | Validate a City and State/Province combination, get location information about it
 *SwagAddressApi* | [**addressValidatePostalCode**](docs/SwagAddressApi.md#addressValidatePostalCode) | **POST** /validate/address/postal-code | Validate a postal code, get location information about it
+*SwagAddressApi* | [**addressValidateState**](docs/SwagAddressApi.md#addressValidateState) | **POST** /validate/address/state | Validate a state or province, name or abbreviation, get location information about it
 *SwagDomainApi* | [**domainCheck**](docs/SwagDomainApi.md#domainCheck) | **POST** /validate/domain/check | Validate a domain name
 *SwagDomainApi* | [**domainPost**](docs/SwagDomainApi.md#domainPost) | **POST** /validate/domain/whois | Get WHOIS information for a domain
 *SwagDomainApi* | [**domainUrlFull**](docs/SwagDomainApi.md#domainUrlFull) | **POST** /validate/domain/url/full | Validate a URL fully
@@ -95,6 +98,8 @@ Class | Method | HTTP request | Description
  - [SwagAddressGetServersResponse](docs/SwagAddressGetServersResponse.md)
  - [SwagAddressVerifySyntaxOnlyResponse](docs/SwagAddressVerifySyntaxOnlyResponse.md)
  - [SwagCheckResponse](docs/SwagCheckResponse.md)
+ - [SwagCountryDetails](docs/SwagCountryDetails.md)
+ - [SwagCountryListResult](docs/SwagCountryListResult.md)
  - [SwagFirstNameValidationRequest](docs/SwagFirstNameValidationRequest.md)
  - [SwagFirstNameValidationResponse](docs/SwagFirstNameValidationResponse.md)
  - [SwagFullEmailValidationResponse](docs/SwagFullEmailValidationResponse.md)
@@ -118,12 +123,16 @@ Class | Method | HTTP request | Description
  - [SwagUserAgentValidateResponse](docs/SwagUserAgentValidateResponse.md)
  - [SwagValidateAddressRequest](docs/SwagValidateAddressRequest.md)
  - [SwagValidateAddressResponse](docs/SwagValidateAddressResponse.md)
+ - [SwagValidateCityRequest](docs/SwagValidateCityRequest.md)
+ - [SwagValidateCityResponse](docs/SwagValidateCityResponse.md)
  - [SwagValidateCountryRequest](docs/SwagValidateCountryRequest.md)
  - [SwagValidateCountryResponse](docs/SwagValidateCountryResponse.md)
  - [SwagValidateIdentifierRequest](docs/SwagValidateIdentifierRequest.md)
  - [SwagValidateIdentifierResponse](docs/SwagValidateIdentifierResponse.md)
  - [SwagValidatePostalCodeRequest](docs/SwagValidatePostalCodeRequest.md)
  - [SwagValidatePostalCodeResponse](docs/SwagValidatePostalCodeResponse.md)
+ - [SwagValidateStateRequest](docs/SwagValidateStateRequest.md)
+ - [SwagValidateStateResponse](docs/SwagValidateStateResponse.md)
  - [SwagValidateUrlRequestFull](docs/SwagValidateUrlRequestFull.md)
  - [SwagValidateUrlRequestSyntaxOnly](docs/SwagValidateUrlRequestSyntaxOnly.md)
  - [SwagValidateUrlResponseFull](docs/SwagValidateUrlResponseFull.md)
