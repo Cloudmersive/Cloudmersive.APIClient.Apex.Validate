@@ -81,6 +81,7 @@ Class | Method | HTTP request | Description
 *SwagEmailApi* | [**emailAddressGetServers**](docs/SwagEmailApi.md#emailAddressGetServers) | **POST** /validate/email/address/servers | Partially check whether an email address is valid
 *SwagEmailApi* | [**emailFullValidation**](docs/SwagEmailApi.md#emailFullValidation) | **POST** /validate/email/address/full | Fully validate an email address
 *SwagEmailApi* | [**emailPost**](docs/SwagEmailApi.md#emailPost) | **POST** /validate/email/address/syntaxOnly | Validate email adddress for syntactic correctness only
+*SwagIpAddressApi* | [**iPAddressIsTorNode**](docs/SwagIpAddressApi.md#iPAddressIsTorNode) | **POST** /validate/ip/is-tor-node | Check if IP address is a Tor node server
 *SwagIpAddressApi* | [**iPAddressPost**](docs/SwagIpAddressApi.md#iPAddressPost) | **POST** /validate/ip/geolocate | Geolocate an IP address
 *SwagLeadEnrichmentApi* | [**leadEnrichmentEnrichLead**](docs/SwagLeadEnrichmentApi.md#leadEnrichmentEnrichLead) | **POST** /validate/lead-enrichment/lead/enrich | Enrich an input lead with additional fields of data
 *SwagNameApi* | [**nameGetGender**](docs/SwagNameApi.md#nameGetGender) | **POST** /validate/name/get-gender | Get the gender of a first name
@@ -119,6 +120,7 @@ Class | Method | HTTP request | Description
  - [SwagPhoneNumberValidateRequest](docs/SwagPhoneNumberValidateRequest.md)
  - [SwagPhoneNumberValidationResponse](docs/SwagPhoneNumberValidationResponse.md)
  - [SwagTimezone](docs/SwagTimezone.md)
+ - [SwagTorNodeResponse](docs/SwagTorNodeResponse.md)
  - [SwagUserAgentValidateRequest](docs/SwagUserAgentValidateRequest.md)
  - [SwagUserAgentValidateResponse](docs/SwagUserAgentValidateResponse.md)
  - [SwagValidateAddressRequest](docs/SwagValidateAddressRequest.md)
