@@ -7,6 +7,7 @@ Method | HTTP request | Description
 [**addressCheckEUMembership**](SwagAddressApi.md#addressCheckEUMembership) | **POST** /validate/address/country/check-eu-membership | Check if a country is a member of the European Union (EU)
 [**addressCountry**](SwagAddressApi.md#addressCountry) | **POST** /validate/address/country | Validate and normalize country information, return ISO 3166-1 country codes and country name
 [**addressCountryList**](SwagAddressApi.md#addressCountryList) | **POST** /validate/address/country/list | Get a list of ISO 3166-1 countries
+[**addressGetCountryCurrency**](SwagAddressApi.md#addressGetCountryCurrency) | **POST** /validate/address/country/get-currency | Get the currency of the input country
 [**addressGetTimezone**](SwagAddressApi.md#addressGetTimezone) | **POST** /validate/address/country/get-timezones | Gets IANA/Olsen time zones for a country
 [**addressParseString**](SwagAddressApi.md#addressParseString) | **POST** /validate/address/parse | Parse an unstructured input text string into an international, formatted address
 [**addressValidateAddress**](SwagAddressApi.md#addressValidateAddress) | **POST** /validate/address/street-address | Validate a street address
@@ -145,6 +146,55 @@ This endpoint does not need any parameter.
 ### Return type
 
 [**SwagCountryListResult**](SwagCountryListResult.md)
+
+### Authorization
+
+[Apikey](../README.md#Apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a name="addressGetCountryCurrency"></a>
+# **addressGetCountryCurrency**
+> SwagValidateCountryResponse addressGetCountryCurrency(input)
+
+Get the currency of the input country
+
+Gets the currency information for the input country, including the ISO three-letter country code, currency symbol, and English currency name.
+
+### Example
+```java
+SwagAddressApi api = new SwagAddressApi();
+SwagClient client = api.getClient();
+
+// Configure API key authorization: Apikey
+ApiKeyAuth Apikey = (ApiKeyAuth) client.getAuthentication('Apikey');
+Apikey.setApiKey('YOUR API KEY');
+
+Map<String, Object> params = new Map<String, Object>{
+    'input' => SwagValidateCountryRequest.getExample()
+};
+
+try {
+    // cross your fingers
+    SwagValidateCountryResponse result = api.addressGetCountryCurrency(params);
+    System.debug(result);
+} catch (Swagger.ApiException e) {
+    // ...handle your exceptions
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **input** | [**SwagValidateCountryRequest**](SwagValidateCountryRequest.md)| Input request |
+
+### Return type
+
+[**SwagValidateCountryResponse**](SwagValidateCountryResponse.md)
 
 ### Authorization
 

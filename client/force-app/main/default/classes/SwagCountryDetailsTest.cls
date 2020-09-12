@@ -86,5 +86,8 @@ private class SwagCountryDetailsTest {
         System.assertEquals('threeLetterCode', propertyMappings.get('ThreeLetterCode'));
         System.assertEquals('isOTwoLetterCode', propertyMappings.get('ISOTwoLetterCode'));
         System.assertEquals('isEuropeanUnionMember', propertyMappings.get('IsEuropeanUnionMember'));
+        System.assertEquals('isOCurrencyCode', propertyMappings.get('ISOCurrencyCode'));
+        System.assertEquals('currencySymbol', propertyMappings.get('CurrencySymbol'));
+        System.assertEquals('currencyEnglishName', propertyMappings.get('CurrencyEnglishName'));
     }
 }

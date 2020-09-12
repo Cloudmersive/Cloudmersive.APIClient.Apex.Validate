@@ -95,6 +95,30 @@ public class SwagAddressApi {
         );
     }
     /**
+     * Get the currency of the input country
+     * Gets the currency information for the input country, including the ISO three-letter country code, currency symbol, and English currency name.
+     * @param input Input request (required)
+     * @return SwagValidateCountryResponse
+     * @throws Swagger.ApiException if fails to make API call
+     */
+    public SwagValidateCountryResponse addressGetCountryCurrency(Map<String, Object> params) {
+        client.assertNotNull(params.get('input'), 'input');
+        List<Swagger.Param> query = new List<Swagger.Param>();
+        List<Swagger.Param> form = new List<Swagger.Param>();
+
+        return (SwagValidateCountryResponse) client.invoke(
+            'POST', '/validate/address/country/get-currency',
+            (SwagValidateCountryRequest) params.get('input'),
+            query, form,
+            new Map<String, Object>(),
+            new Map<String, Object>(),
+            new List<String>{ 'application/json' },
+            new List<String>{ 'application/json' },
+            new List<String> { 'Apikey' },
+            SwagValidateCountryResponse.class
+        );
+    }
+    /**
      * Gets IANA/Olsen time zones for a country
      * Gets the IANA/Olsen time zones for a country.
      * @param input Input request (required)

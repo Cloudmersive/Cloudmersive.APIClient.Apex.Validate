@@ -56,6 +56,24 @@ public class SwagValidateCountryResponse implements Swagger.MappedProperties {
      */
     public List<SwagTimezone> timezones { get; set; }
 
+    /**
+     * ISO 4217 currency three-letter code associated with the country
+     * @return isOCurrencyCode
+     */
+    public String isOCurrencyCode { get; set; }
+
+    /**
+     * Symbol associated with the currency
+     * @return currencySymbol
+     */
+    public String currencySymbol { get; set; }
+
+    /**
+     * Full name of the currency
+     * @return currencyEnglishName
+     */
+    public String currencyEnglishName { get; set; }
+
     private static final Map<String, String> propertyMappings = new Map<String, String>{
         'Successful' => 'successful',
         'CountryFullName' => 'countryFullName',
@@ -63,7 +81,10 @@ public class SwagValidateCountryResponse implements Swagger.MappedProperties {
         'FIPSTwoLetterCode' => 'fiPSTwoLetterCode',
         'ThreeLetterCode' => 'threeLetterCode',
         'IsEuropeanUnionMember' => 'isEuropeanUnionMember',
-        'Timezones' => 'timezones'
+        'Timezones' => 'timezones',
+        'ISOCurrencyCode' => 'isOCurrencyCode',
+        'CurrencySymbol' => 'currencySymbol',
+        'CurrencyEnglishName' => 'currencyEnglishName'
     };
 
     public Map<String, String> getPropertyMappings() {
@@ -83,6 +104,9 @@ public class SwagValidateCountryResponse implements Swagger.MappedProperties {
         validateCountryResponse.threeLetterCode = 'aeiou';
         validateCountryResponse.isEuropeanUnionMember = true;
         validateCountryResponse.timezones = new List<SwagTimezone>{SwagTimezone.getExample()};
+        validateCountryResponse.isOCurrencyCode = 'aeiou';
+        validateCountryResponse.currencySymbol = 'aeiou';
+        validateCountryResponse.currencyEnglishName = 'aeiou';
         return validateCountryResponse;
     }
 
@@ -95,7 +119,10 @@ public class SwagValidateCountryResponse implements Swagger.MappedProperties {
                 && this.fiPSTwoLetterCode == validateCountryResponse.fiPSTwoLetterCode
                 && this.threeLetterCode == validateCountryResponse.threeLetterCode
                 && this.isEuropeanUnionMember == validateCountryResponse.isEuropeanUnionMember
-                && this.timezones == validateCountryResponse.timezones;
+                && this.timezones == validateCountryResponse.timezones
+                && this.isOCurrencyCode == validateCountryResponse.isOCurrencyCode
+                && this.currencySymbol == validateCountryResponse.currencySymbol
+                && this.currencyEnglishName == validateCountryResponse.currencyEnglishName;
         }
         return false;
     }
@@ -109,6 +136,9 @@ public class SwagValidateCountryResponse implements Swagger.MappedProperties {
         hashCode = (17 * hashCode) + (threeLetterCode == null ? 0 : System.hashCode(threeLetterCode));
         hashCode = (17 * hashCode) + (isEuropeanUnionMember == null ? 0 : System.hashCode(isEuropeanUnionMember));
         hashCode = (17 * hashCode) + (timezones == null ? 0 : System.hashCode(timezones));
+        hashCode = (17 * hashCode) + (isOCurrencyCode == null ? 0 : System.hashCode(isOCurrencyCode));
+        hashCode = (17 * hashCode) + (currencySymbol == null ? 0 : System.hashCode(currencySymbol));
+        hashCode = (17 * hashCode) + (currencyEnglishName == null ? 0 : System.hashCode(currencyEnglishName));
         return hashCode;
     }
 }

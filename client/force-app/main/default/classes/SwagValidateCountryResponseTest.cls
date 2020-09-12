@@ -89,6 +89,9 @@ private class SwagValidateCountryResponseTest {
         System.assertEquals('threeLetterCode', propertyMappings.get('ThreeLetterCode'));
         System.assertEquals('isEuropeanUnionMember', propertyMappings.get('IsEuropeanUnionMember'));
         System.assertEquals('timezones', propertyMappings.get('Timezones'));
+        System.assertEquals('isOCurrencyCode', propertyMappings.get('ISOCurrencyCode'));
+        System.assertEquals('currencySymbol', propertyMappings.get('CurrencySymbol'));
+        System.assertEquals('currencyEnglishName', propertyMappings.get('CurrencyEnglishName'));
     }
 
     @isTest
@@ -101,5 +104,8 @@ private class SwagValidateCountryResponseTest {
         System.assertEquals(null, validateCountryResponse.fiPSTwoLetterCode);
         System.assertEquals(null, validateCountryResponse.threeLetterCode);
         System.assertEquals(null, validateCountryResponse.isEuropeanUnionMember);
+        System.assertEquals(null, validateCountryResponse.isOCurrencyCode);
+        System.assertEquals(null, validateCountryResponse.currencySymbol);
+        System.assertEquals(null, validateCountryResponse.currencyEnglishName);
     }
 }

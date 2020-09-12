@@ -27,7 +27,7 @@ private class SwagAddressApiTest {
             client.setApiKey('foo-bar-api-key');
 
         res.setHeader('Content-Type', 'application/json');
-        res.setBody('{\r\n  "FIPSTwoLetterCode" : "FIPSTwoLetterCode",\r\n  "Timezones" : [ {\r\n    "BaseUTCOffset" : "BaseUTCOffset",\r\n    "Now" : "2000-01-23T04:56:07.000+00:00",\r\n    "Name" : "Name"\r\n  }, {\r\n    "BaseUTCOffset" : "BaseUTCOffset",\r\n    "Now" : "2000-01-23T04:56:07.000+00:00",\r\n    "Name" : "Name"\r\n  } ],\r\n  "CountryFullName" : "CountryFullName",\r\n  "ThreeLetterCode" : "ThreeLetterCode",\r\n  "ISOTwoLetterCode" : "ISOTwoLetterCode",\r\n  "Successful" : true,\r\n  "IsEuropeanUnionMember" : true\r\n}');
+        res.setBody('{\r\n  "FIPSTwoLetterCode" : "FIPSTwoLetterCode",\r\n  "Timezones" : [ {\r\n    "BaseUTCOffset" : "BaseUTCOffset",\r\n    "Now" : "2000-01-23T04:56:07.000+00:00",\r\n    "Name" : "Name"\r\n  }, {\r\n    "BaseUTCOffset" : "BaseUTCOffset",\r\n    "Now" : "2000-01-23T04:56:07.000+00:00",\r\n    "Name" : "Name"\r\n  } ],\r\n  "ISOCurrencyCode" : "ISOCurrencyCode",\r\n  "CurrencyEnglishName" : "CurrencyEnglishName",\r\n  "CountryFullName" : "CountryFullName",\r\n  "ThreeLetterCode" : "ThreeLetterCode",\r\n  "ISOTwoLetterCode" : "ISOTwoLetterCode",\r\n  "Successful" : true,\r\n  "IsEuropeanUnionMember" : true,\r\n  "CurrencySymbol" : "CurrencySymbol"\r\n}');
         expectedResponse = SwagValidateCountryResponse.getExample();
         response = (SwagValidateCountryResponse) api.addressCheckEUMembership(params);
         System.assertEquals(expectedResponse, response);
@@ -60,7 +60,7 @@ private class SwagAddressApiTest {
             client.setApiKey('foo-bar-api-key');
 
         res.setHeader('Content-Type', 'application/json');
-        res.setBody('{\r\n  "FIPSTwoLetterCode" : "FIPSTwoLetterCode",\r\n  "Timezones" : [ {\r\n    "BaseUTCOffset" : "BaseUTCOffset",\r\n    "Now" : "2000-01-23T04:56:07.000+00:00",\r\n    "Name" : "Name"\r\n  }, {\r\n    "BaseUTCOffset" : "BaseUTCOffset",\r\n    "Now" : "2000-01-23T04:56:07.000+00:00",\r\n    "Name" : "Name"\r\n  } ],\r\n  "CountryFullName" : "CountryFullName",\r\n  "ThreeLetterCode" : "ThreeLetterCode",\r\n  "ISOTwoLetterCode" : "ISOTwoLetterCode",\r\n  "Successful" : true,\r\n  "IsEuropeanUnionMember" : true\r\n}');
+        res.setBody('{\r\n  "FIPSTwoLetterCode" : "FIPSTwoLetterCode",\r\n  "Timezones" : [ {\r\n    "BaseUTCOffset" : "BaseUTCOffset",\r\n    "Now" : "2000-01-23T04:56:07.000+00:00",\r\n    "Name" : "Name"\r\n  }, {\r\n    "BaseUTCOffset" : "BaseUTCOffset",\r\n    "Now" : "2000-01-23T04:56:07.000+00:00",\r\n    "Name" : "Name"\r\n  } ],\r\n  "ISOCurrencyCode" : "ISOCurrencyCode",\r\n  "CurrencyEnglishName" : "CurrencyEnglishName",\r\n  "CountryFullName" : "CountryFullName",\r\n  "ThreeLetterCode" : "ThreeLetterCode",\r\n  "ISOTwoLetterCode" : "ISOTwoLetterCode",\r\n  "Successful" : true,\r\n  "IsEuropeanUnionMember" : true,\r\n  "CurrencySymbol" : "CurrencySymbol"\r\n}');
         expectedResponse = SwagValidateCountryResponse.getExample();
         response = (SwagValidateCountryResponse) api.addressCountry(params);
         System.assertEquals(expectedResponse, response);
@@ -89,9 +89,42 @@ private class SwagAddressApiTest {
             client.setApiKey('foo-bar-api-key');
 
         res.setHeader('Content-Type', 'application/json');
-        res.setBody('{\r\n  "Countries" : [ {\r\n    "CountryName" : "CountryName",\r\n    "ThreeLetterCode" : "ThreeLetterCode",\r\n    "ISOTwoLetterCode" : "ISOTwoLetterCode",\r\n    "IsEuropeanUnionMember" : true\r\n  }, {\r\n    "CountryName" : "CountryName",\r\n    "ThreeLetterCode" : "ThreeLetterCode",\r\n    "ISOTwoLetterCode" : "ISOTwoLetterCode",\r\n    "IsEuropeanUnionMember" : true\r\n  } ],\r\n  "Successful" : true\r\n}');
+        res.setBody('{\r\n  "Countries" : [ {\r\n    "ISOCurrencyCode" : "ISOCurrencyCode",\r\n    "CountryName" : "CountryName",\r\n    "CurrencyEnglishName" : "CurrencyEnglishName",\r\n    "ThreeLetterCode" : "ThreeLetterCode",\r\n    "ISOTwoLetterCode" : "ISOTwoLetterCode",\r\n    "IsEuropeanUnionMember" : true,\r\n    "CurrencySymbol" : "CurrencySymbol"\r\n  }, {\r\n    "ISOCurrencyCode" : "ISOCurrencyCode",\r\n    "CountryName" : "CountryName",\r\n    "CurrencyEnglishName" : "CurrencyEnglishName",\r\n    "ThreeLetterCode" : "ThreeLetterCode",\r\n    "ISOTwoLetterCode" : "ISOTwoLetterCode",\r\n    "IsEuropeanUnionMember" : true,\r\n    "CurrencySymbol" : "CurrencySymbol"\r\n  } ],\r\n  "Successful" : true\r\n}');
         expectedResponse = SwagCountryListResult.getExample();
         response = (SwagCountryListResult) api.addressCountryList();
+        System.assertEquals(expectedResponse, response);
+    }
+
+    /**
+     * Get the currency of the input country
+     *
+     * Gets the currency information for the input country, including the ISO three-letter country code, currency symbol, and English currency name.
+     */
+    @isTest
+    private static void addressGetCountryCurrencyTest() {
+        HttpResponse res = new HttpResponse();
+        res.setStatusCode(200);
+        res.setStatus('OK');
+        Test.setMock(HttpCalloutMock.class, new SwaggerResponseMock(res));
+
+        Map<String, Object> params = new Map<String, Object>{
+            'input' => SwagValidateCountryRequest.getExample()
+        };
+
+        SwagClient client;
+        SwagAddressApi api;
+        SwagValidateCountryResponse response;
+        SwagValidateCountryResponse expectedResponse;
+
+        client = new SwagClient();
+        api = new SwagAddressApi(client);
+        ((Swagger.ApiKeyAuth) client.getAuthentication('Apikey');
+            client.setApiKey('foo-bar-api-key');
+
+        res.setHeader('Content-Type', 'application/json');
+        res.setBody('{\r\n  "FIPSTwoLetterCode" : "FIPSTwoLetterCode",\r\n  "Timezones" : [ {\r\n    "BaseUTCOffset" : "BaseUTCOffset",\r\n    "Now" : "2000-01-23T04:56:07.000+00:00",\r\n    "Name" : "Name"\r\n  }, {\r\n    "BaseUTCOffset" : "BaseUTCOffset",\r\n    "Now" : "2000-01-23T04:56:07.000+00:00",\r\n    "Name" : "Name"\r\n  } ],\r\n  "ISOCurrencyCode" : "ISOCurrencyCode",\r\n  "CurrencyEnglishName" : "CurrencyEnglishName",\r\n  "CountryFullName" : "CountryFullName",\r\n  "ThreeLetterCode" : "ThreeLetterCode",\r\n  "ISOTwoLetterCode" : "ISOTwoLetterCode",\r\n  "Successful" : true,\r\n  "IsEuropeanUnionMember" : true,\r\n  "CurrencySymbol" : "CurrencySymbol"\r\n}');
+        expectedResponse = SwagValidateCountryResponse.getExample();
+        response = (SwagValidateCountryResponse) api.addressGetCountryCurrency(params);
         System.assertEquals(expectedResponse, response);
     }
 
