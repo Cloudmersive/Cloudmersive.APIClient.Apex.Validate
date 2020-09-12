@@ -1,6 +1,39 @@
 @isTest
 private class SwagIpAddressApiTest {
     /**
+     * Check if IP address is a known threat
+     *
+     * Check if the input IP address is a known threat IP address.  Checks against known bad IPs, botnets, compromised servers, and other lists of threats.
+     */
+    @isTest
+    private static void iPAddressIsThreatTest() {
+        HttpResponse res = new HttpResponse();
+        res.setStatusCode(200);
+        res.setStatus('OK');
+        Test.setMock(HttpCalloutMock.class, new SwaggerResponseMock(res));
+
+        Map<String, Object> params = new Map<String, Object>{
+            'value' => 'value_example'
+        };
+
+        SwagClient client;
+        SwagIpAddressApi api;
+        SwagIPThreatResponse response;
+        SwagIPThreatResponse expectedResponse;
+
+        client = new SwagClient();
+        api = new SwagIpAddressApi(client);
+        ((Swagger.ApiKeyAuth) client.getAuthentication('Apikey');
+            client.setApiKey('foo-bar-api-key');
+
+        res.setHeader('Content-Type', 'application/json');
+        res.setBody('{\r\n  "ThreatType" : "ThreatType",\r\n  "IsThreat" : true\r\n}');
+        expectedResponse = SwagIPThreatResponse.getExample();
+        response = (SwagIPThreatResponse) api.iPAddressIsThreat(params);
+        System.assertEquals(expectedResponse, response);
+    }
+
+    /**
      * Check if IP address is a Tor node server
      *
      * Check if the input IP address is a Tor exit node server.  Tor servers are a type of privacy-preserving technology that can hide the original IP address who makes a request.

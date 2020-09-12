@@ -144,7 +144,7 @@ public class SwagAddressApi {
     }
     /**
      * Validate a street address
-     * Determines if an input structured street address is valid or invalid.  If the address is valid, also returns the latitude and longitude of the address.
+     * Determines if an input structured street address is valid or invalid.  If the address is valid, also returns the latitude and longitude of the address.  Supports all major international addresses.
      * @param input Input parse request (required)
      * @return SwagValidateAddressResponse
      * @throws Swagger.ApiException if fails to make API call
@@ -168,7 +168,7 @@ public class SwagAddressApi {
     }
     /**
      * Validate a City and State/Province combination, get location information about it
-     * Checks if the input city and state name or code is valid, and returns information about it such as normalized City name, State name and more.
+     * Checks if the input city and state name or code is valid, and returns information about it such as normalized City name, State name and more.  Supports all major international addresses.
      * @param input Input parse request (required)
      * @return SwagValidateCityResponse
      * @throws Swagger.ApiException if fails to make API call
@@ -192,7 +192,7 @@ public class SwagAddressApi {
     }
     /**
      * Validate a postal code, get location information about it
-     * Checks if the input postal code is valid, and returns information about it such as City, State and more.
+     * Checks if the input postal code is valid, and returns information about it such as City, State and more.  Supports all major countries.
      * @param input Input parse request (required)
      * @return SwagValidatePostalCodeResponse
      * @throws Swagger.ApiException if fails to make API call
@@ -216,7 +216,7 @@ public class SwagAddressApi {
     }
     /**
      * Validate a state or province, name or abbreviation, get location information about it
-     * Checks if the input state name or code is valid, and returns information about it such as normalized State name and more.
+     * Checks if the input state name or code is valid, and returns information about it such as normalized State name and more.  Supports all major countries.
      * @param input Input parse request (required)
      * @return SwagValidateStateResponse
      * @throws Swagger.ApiException if fails to make API call
