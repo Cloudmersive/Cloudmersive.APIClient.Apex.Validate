@@ -119,6 +119,30 @@ public class SwagAddressApi {
         );
     }
     /**
+     * Get the region, subregion and continent of the country
+     * Gets the continent information including region and subregion for the input country.
+     * @param input Input request (required)
+     * @return SwagValidateCountryResponse
+     * @throws Swagger.ApiException if fails to make API call
+     */
+    public SwagValidateCountryResponse addressGetCountryRegion(Map<String, Object> params) {
+        client.assertNotNull(params.get('input'), 'input');
+        List<Swagger.Param> query = new List<Swagger.Param>();
+        List<Swagger.Param> form = new List<Swagger.Param>();
+
+        return (SwagValidateCountryResponse) client.invoke(
+            'POST', '/validate/address/country/get-region',
+            (SwagValidateCountryRequest) params.get('input'),
+            query, form,
+            new Map<String, Object>(),
+            new Map<String, Object>(),
+            new List<String>{ 'application/json' },
+            new List<String>{ 'application/json' },
+            new List<String> { 'Apikey' },
+            SwagValidateCountryResponse.class
+        );
+    }
+    /**
      * Gets IANA/Olsen time zones for a country
      * Gets the IANA/Olsen time zones for a country.
      * @param input Input request (required)

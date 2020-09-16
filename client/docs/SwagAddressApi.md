@@ -8,6 +8,7 @@ Method | HTTP request | Description
 [**addressCountry**](SwagAddressApi.md#addressCountry) | **POST** /validate/address/country | Validate and normalize country information, return ISO 3166-1 country codes and country name
 [**addressCountryList**](SwagAddressApi.md#addressCountryList) | **POST** /validate/address/country/list | Get a list of ISO 3166-1 countries
 [**addressGetCountryCurrency**](SwagAddressApi.md#addressGetCountryCurrency) | **POST** /validate/address/country/get-currency | Get the currency of the input country
+[**addressGetCountryRegion**](SwagAddressApi.md#addressGetCountryRegion) | **POST** /validate/address/country/get-region | Get the region, subregion and continent of the country
 [**addressGetTimezone**](SwagAddressApi.md#addressGetTimezone) | **POST** /validate/address/country/get-timezones | Gets IANA/Olsen time zones for a country
 [**addressParseString**](SwagAddressApi.md#addressParseString) | **POST** /validate/address/parse | Parse an unstructured input text string into an international, formatted address
 [**addressValidateAddress**](SwagAddressApi.md#addressValidateAddress) | **POST** /validate/address/street-address | Validate a street address
@@ -180,6 +181,55 @@ Map<String, Object> params = new Map<String, Object>{
 try {
     // cross your fingers
     SwagValidateCountryResponse result = api.addressGetCountryCurrency(params);
+    System.debug(result);
+} catch (Swagger.ApiException e) {
+    // ...handle your exceptions
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **input** | [**SwagValidateCountryRequest**](SwagValidateCountryRequest.md)| Input request |
+
+### Return type
+
+[**SwagValidateCountryResponse**](SwagValidateCountryResponse.md)
+
+### Authorization
+
+[Apikey](../README.md#Apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a name="addressGetCountryRegion"></a>
+# **addressGetCountryRegion**
+> SwagValidateCountryResponse addressGetCountryRegion(input)
+
+Get the region, subregion and continent of the country
+
+Gets the continent information including region and subregion for the input country.
+
+### Example
+```java
+SwagAddressApi api = new SwagAddressApi();
+SwagClient client = api.getClient();
+
+// Configure API key authorization: Apikey
+ApiKeyAuth Apikey = (ApiKeyAuth) client.getAuthentication('Apikey');
+Apikey.setApiKey('YOUR API KEY');
+
+Map<String, Object> params = new Map<String, Object>{
+    'input' => SwagValidateCountryRequest.getExample()
+};
+
+try {
+    // cross your fingers
+    SwagValidateCountryResponse result = api.addressGetCountryRegion(params);
     System.debug(result);
 } catch (Swagger.ApiException e) {
     // ...handle your exceptions

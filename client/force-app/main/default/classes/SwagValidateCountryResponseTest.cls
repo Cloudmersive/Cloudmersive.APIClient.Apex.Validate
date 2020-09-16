@@ -92,6 +92,8 @@ private class SwagValidateCountryResponseTest {
         System.assertEquals('isOCurrencyCode', propertyMappings.get('ISOCurrencyCode'));
         System.assertEquals('currencySymbol', propertyMappings.get('CurrencySymbol'));
         System.assertEquals('currencyEnglishName', propertyMappings.get('CurrencyEnglishName'));
+        System.assertEquals('region', propertyMappings.get('Region'));
+        System.assertEquals('subregion', propertyMappings.get('Subregion'));
     }
 
     @isTest
@@ -107,5 +109,7 @@ private class SwagValidateCountryResponseTest {
         System.assertEquals(null, validateCountryResponse.isOCurrencyCode);
         System.assertEquals(null, validateCountryResponse.currencySymbol);
         System.assertEquals(null, validateCountryResponse.currencyEnglishName);
+        System.assertEquals(null, validateCountryResponse.region);
+        System.assertEquals(null, validateCountryResponse.subregion);
     }
 }

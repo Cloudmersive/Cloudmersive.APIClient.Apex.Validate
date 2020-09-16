@@ -56,6 +56,18 @@ public class SwagCountryDetails implements Swagger.MappedProperties {
      */
     public String currencyEnglishName { get; set; }
 
+    /**
+     * Region (continent) in which the country is located; possible values are None, Europe, Americas, Asia, Africa, Oceania
+     * @return region
+     */
+    public String region { get; set; }
+
+    /**
+     * Subregion in which the country is located; possible values are None, NorthernEurope, WesternEurope, SouthernEurope, EasternEurope, CentralAmerica, NorthernAmerica, SouthAmerica, EasternAfrica, MiddleAfrica, NorthernAfrica , SouthernAfrica , WesternAfrica , CentralAsia , EasternAsia , SouthernAsia , SouthEasternAsia , WesternAsia , Southern , Middle , AustraliaandNewZealand , Melanesia , Polynesia , Micronesia , Caribbean,
+     * @return subregion
+     */
+    public String subregion { get; set; }
+
     private static final Map<String, String> propertyMappings = new Map<String, String>{
         'CountryName' => 'countryName',
         'ThreeLetterCode' => 'threeLetterCode',
@@ -63,7 +75,9 @@ public class SwagCountryDetails implements Swagger.MappedProperties {
         'IsEuropeanUnionMember' => 'isEuropeanUnionMember',
         'ISOCurrencyCode' => 'isOCurrencyCode',
         'CurrencySymbol' => 'currencySymbol',
-        'CurrencyEnglishName' => 'currencyEnglishName'
+        'CurrencyEnglishName' => 'currencyEnglishName',
+        'Region' => 'region',
+        'Subregion' => 'subregion'
     };
 
     public Map<String, String> getPropertyMappings() {
@@ -79,6 +93,8 @@ public class SwagCountryDetails implements Swagger.MappedProperties {
         countryDetails.isOCurrencyCode = 'aeiou';
         countryDetails.currencySymbol = 'aeiou';
         countryDetails.currencyEnglishName = 'aeiou';
+        countryDetails.region = 'aeiou';
+        countryDetails.subregion = 'aeiou';
         return countryDetails;
     }
 
@@ -91,7 +107,9 @@ public class SwagCountryDetails implements Swagger.MappedProperties {
                 && this.isEuropeanUnionMember == countryDetails.isEuropeanUnionMember
                 && this.isOCurrencyCode == countryDetails.isOCurrencyCode
                 && this.currencySymbol == countryDetails.currencySymbol
-                && this.currencyEnglishName == countryDetails.currencyEnglishName;
+                && this.currencyEnglishName == countryDetails.currencyEnglishName
+                && this.region == countryDetails.region
+                && this.subregion == countryDetails.subregion;
         }
         return false;
     }
@@ -105,6 +123,8 @@ public class SwagCountryDetails implements Swagger.MappedProperties {
         hashCode = (17 * hashCode) + (isOCurrencyCode == null ? 0 : System.hashCode(isOCurrencyCode));
         hashCode = (17 * hashCode) + (currencySymbol == null ? 0 : System.hashCode(currencySymbol));
         hashCode = (17 * hashCode) + (currencyEnglishName == null ? 0 : System.hashCode(currencyEnglishName));
+        hashCode = (17 * hashCode) + (region == null ? 0 : System.hashCode(region));
+        hashCode = (17 * hashCode) + (subregion == null ? 0 : System.hashCode(subregion));
         return hashCode;
     }
 }

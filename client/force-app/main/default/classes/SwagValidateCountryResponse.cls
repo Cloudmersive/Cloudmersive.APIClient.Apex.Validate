@@ -74,6 +74,18 @@ public class SwagValidateCountryResponse implements Swagger.MappedProperties {
      */
     public String currencyEnglishName { get; set; }
 
+    /**
+     * Region (continent) in which the country is located; possible values are None, Europe, Americas, Asia, Africa, Oceania
+     * @return region
+     */
+    public String region { get; set; }
+
+    /**
+     * Subregion in which the country is located; possible values are None, NorthernEurope, WesternEurope, SouthernEurope, EasternEurope, CentralAmerica, NorthernAmerica, SouthAmerica, EasternAfrica, MiddleAfrica, NorthernAfrica , SouthernAfrica , WesternAfrica , CentralAsia , EasternAsia , SouthernAsia , SouthEasternAsia , WesternAsia , Southern , Middle , AustraliaandNewZealand , Melanesia , Polynesia , Micronesia , Caribbean,
+     * @return subregion
+     */
+    public String subregion { get; set; }
+
     private static final Map<String, String> propertyMappings = new Map<String, String>{
         'Successful' => 'successful',
         'CountryFullName' => 'countryFullName',
@@ -84,7 +96,9 @@ public class SwagValidateCountryResponse implements Swagger.MappedProperties {
         'Timezones' => 'timezones',
         'ISOCurrencyCode' => 'isOCurrencyCode',
         'CurrencySymbol' => 'currencySymbol',
-        'CurrencyEnglishName' => 'currencyEnglishName'
+        'CurrencyEnglishName' => 'currencyEnglishName',
+        'Region' => 'region',
+        'Subregion' => 'subregion'
     };
 
     public Map<String, String> getPropertyMappings() {
@@ -107,6 +121,8 @@ public class SwagValidateCountryResponse implements Swagger.MappedProperties {
         validateCountryResponse.isOCurrencyCode = 'aeiou';
         validateCountryResponse.currencySymbol = 'aeiou';
         validateCountryResponse.currencyEnglishName = 'aeiou';
+        validateCountryResponse.region = 'aeiou';
+        validateCountryResponse.subregion = 'aeiou';
         return validateCountryResponse;
     }
 
@@ -122,7 +138,9 @@ public class SwagValidateCountryResponse implements Swagger.MappedProperties {
                 && this.timezones == validateCountryResponse.timezones
                 && this.isOCurrencyCode == validateCountryResponse.isOCurrencyCode
                 && this.currencySymbol == validateCountryResponse.currencySymbol
-                && this.currencyEnglishName == validateCountryResponse.currencyEnglishName;
+                && this.currencyEnglishName == validateCountryResponse.currencyEnglishName
+                && this.region == validateCountryResponse.region
+                && this.subregion == validateCountryResponse.subregion;
         }
         return false;
     }
@@ -139,6 +157,8 @@ public class SwagValidateCountryResponse implements Swagger.MappedProperties {
         hashCode = (17 * hashCode) + (isOCurrencyCode == null ? 0 : System.hashCode(isOCurrencyCode));
         hashCode = (17 * hashCode) + (currencySymbol == null ? 0 : System.hashCode(currencySymbol));
         hashCode = (17 * hashCode) + (currencyEnglishName == null ? 0 : System.hashCode(currencyEnglishName));
+        hashCode = (17 * hashCode) + (region == null ? 0 : System.hashCode(region));
+        hashCode = (17 * hashCode) + (subregion == null ? 0 : System.hashCode(subregion));
         return hashCode;
     }
 }
