@@ -78,6 +78,7 @@ Class | Method | HTTP request | Description
 *SwagAddressApi* | [**addressValidateState**](docs/SwagAddressApi.md#addressValidateState) | **POST** /validate/address/state | Validate a state or province, name or abbreviation, get location information about it
 *SwagDomainApi* | [**domainCheck**](docs/SwagDomainApi.md#domainCheck) | **POST** /validate/domain/check | Validate a domain name
 *SwagDomainApi* | [**domainPost**](docs/SwagDomainApi.md#domainPost) | **POST** /validate/domain/whois | Get WHOIS information for a domain
+*SwagDomainApi* | [**domainQualityScore**](docs/SwagDomainApi.md#domainQualityScore) | **POST** /validate/domain/quality-score | Validate a domain name\&#39;s quality score
 *SwagDomainApi* | [**domainUrlFull**](docs/SwagDomainApi.md#domainUrlFull) | **POST** /validate/domain/url/full | Validate a URL fully
 *SwagDomainApi* | [**domainUrlSyntaxOnly**](docs/SwagDomainApi.md#domainUrlSyntaxOnly) | **POST** /validate/domain/url/syntax-only | Validate a URL syntactically
 *SwagEmailApi* | [**emailAddressGetServers**](docs/SwagEmailApi.md#emailAddressGetServers) | **POST** /validate/email/address/servers | Partially check whether an email address is valid
@@ -104,6 +105,7 @@ Class | Method | HTTP request | Description
  - [SwagCheckResponse](docs/SwagCheckResponse.md)
  - [SwagCountryDetails](docs/SwagCountryDetails.md)
  - [SwagCountryListResult](docs/SwagCountryListResult.md)
+ - [SwagDomainQualityResponse](docs/SwagDomainQualityResponse.md)
  - [SwagFirstNameValidationRequest](docs/SwagFirstNameValidationRequest.md)
  - [SwagFirstNameValidationResponse](docs/SwagFirstNameValidationResponse.md)
  - [SwagFullEmailValidationResponse](docs/SwagFullEmailValidationResponse.md)

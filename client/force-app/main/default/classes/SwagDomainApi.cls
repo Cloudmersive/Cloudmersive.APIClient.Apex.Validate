@@ -74,6 +74,30 @@ public class SwagDomainApi {
         );
     }
     /**
+     * Validate a domain name\&#39;s quality score
+     * Check the quality of a domain name.  Higher quality scores indicate more trust and authority in the domain name.
+     * @param domain Domain name to check, for example &quot;cloudmersive.com&quot;. (required)
+     * @return SwagDomainQualityResponse
+     * @throws Swagger.ApiException if fails to make API call
+     */
+    public SwagDomainQualityResponse domainQualityScore(Map<String, Object> params) {
+        client.assertNotNull(params.get('domain'), 'domain');
+        List<Swagger.Param> query = new List<Swagger.Param>();
+        List<Swagger.Param> form = new List<Swagger.Param>();
+
+        return (SwagDomainQualityResponse) client.invoke(
+            'POST', '/validate/domain/quality-score',
+            (String) params.get('domain'),
+            query, form,
+            new Map<String, Object>(),
+            new Map<String, Object>(),
+            new List<String>{ 'application/json' },
+            new List<String>{ 'application/json' },
+            new List<String> { 'Apikey' },
+            SwagDomainQualityResponse.class
+        );
+    }
+    /**
      * Validate a URL fully
      * Validate whether a URL is syntactically valid (does not check endpoint for validity), whether it exists, and whether the endpoint is up and passes virus scan checks.  Accepts various types of input and produces a well-formed URL as output.
      * @param request Input URL request (required)

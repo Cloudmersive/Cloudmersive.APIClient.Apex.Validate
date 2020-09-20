@@ -67,6 +67,39 @@ private class SwagDomainApiTest {
     }
 
     /**
+     * Validate a domain name\&#39;s quality score
+     *
+     * Check the quality of a domain name.  Higher quality scores indicate more trust and authority in the domain name.
+     */
+    @isTest
+    private static void domainQualityScoreTest() {
+        HttpResponse res = new HttpResponse();
+        res.setStatusCode(200);
+        res.setStatus('OK');
+        Test.setMock(HttpCalloutMock.class, new SwaggerResponseMock(res));
+
+        Map<String, Object> params = new Map<String, Object>{
+            'domain' => 'domain_example'
+        };
+
+        SwagClient client;
+        SwagDomainApi api;
+        SwagDomainQualityResponse response;
+        SwagDomainQualityResponse expectedResponse;
+
+        client = new SwagClient();
+        api = new SwagDomainApi(client);
+        ((Swagger.ApiKeyAuth) client.getAuthentication('Apikey');
+            client.setApiKey('foo-bar-api-key');
+
+        res.setHeader('Content-Type', 'application/json');
+        res.setBody('{\r\n  "DomainQualityScore" : 0.8008281904610115\r\n}');
+        expectedResponse = SwagDomainQualityResponse.getExample();
+        response = (SwagDomainQualityResponse) api.domainQualityScore(params);
+        System.assertEquals(expectedResponse, response);
+    }
+
+    /**
      * Validate a URL fully
      *
      * Validate whether a URL is syntactically valid (does not check endpoint for validity), whether it exists, and whether the endpoint is up and passes virus scan checks.  Accepts various types of input and produces a well-formed URL as output.
