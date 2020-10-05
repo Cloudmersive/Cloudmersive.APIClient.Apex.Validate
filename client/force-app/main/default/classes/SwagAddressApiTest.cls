@@ -96,6 +96,39 @@ private class SwagAddressApiTest {
     }
 
     /**
+     * Geocode a street address into latitude and longitude
+     *
+     * Geocodes a street address into latitude and longitude.
+     */
+    @isTest
+    private static void addressGeocodeTest() {
+        HttpResponse res = new HttpResponse();
+        res.setStatusCode(200);
+        res.setStatus('OK');
+        Test.setMock(HttpCalloutMock.class, new SwaggerResponseMock(res));
+
+        Map<String, Object> params = new Map<String, Object>{
+            'input' => SwagValidateAddressRequest.getExample()
+        };
+
+        SwagClient client;
+        SwagAddressApi api;
+        SwagValidateAddressResponse response;
+        SwagValidateAddressResponse expectedResponse;
+
+        client = new SwagClient();
+        api = new SwagAddressApi(client);
+        ((Swagger.ApiKeyAuth) client.getAuthentication('Apikey');
+            client.setApiKey('foo-bar-api-key');
+
+        res.setHeader('Content-Type', 'application/json');
+        res.setBody('{\r\n  "ValidAddress" : true,\r\n  "Latitude" : 0.8008281904610115,\r\n  "Longitude" : 6.027456183070403\r\n}');
+        expectedResponse = SwagValidateAddressResponse.getExample();
+        response = (SwagValidateAddressResponse) api.addressGeocode(params);
+        System.assertEquals(expectedResponse, response);
+    }
+
+    /**
      * Get the currency of the input country
      *
      * Gets the currency information for the input country, including the ISO three-letter country code, currency symbol, and English currency name.
@@ -224,6 +257,39 @@ private class SwagAddressApiTest {
         res.setBody('{\r\n  "Building" : "Building",\r\n  "StateOrProvince" : "StateOrProvince",\r\n  "StreetNumber" : "StreetNumber",\r\n  "Street" : "Street",\r\n  "PostalCode" : "PostalCode",\r\n  "CountryFullName" : "CountryFullName",\r\n  "City" : "City",\r\n  "ISOTwoLetterCode" : "ISOTwoLetterCode",\r\n  "Successful" : true\r\n}');
         expectedResponse = SwagParseAddressResponse.getExample();
         response = (SwagParseAddressResponse) api.addressParseString(params);
+        System.assertEquals(expectedResponse, response);
+    }
+
+    /**
+     * Reverse geocode a lattitude and longitude into an address
+     *
+     * Converts lattitude and longitude coordinates into an address through reverse-geocoding.
+     */
+    @isTest
+    private static void addressReverseGeocodeAddressTest() {
+        HttpResponse res = new HttpResponse();
+        res.setStatusCode(200);
+        res.setStatus('OK');
+        Test.setMock(HttpCalloutMock.class, new SwaggerResponseMock(res));
+
+        Map<String, Object> params = new Map<String, Object>{
+            'input' => SwagReverseGeocodeAddressRequest.getExample()
+        };
+
+        SwagClient client;
+        SwagAddressApi api;
+        SwagReverseGeocodeAddressResponse response;
+        SwagReverseGeocodeAddressResponse expectedResponse;
+
+        client = new SwagClient();
+        api = new SwagAddressApi(client);
+        ((Swagger.ApiKeyAuth) client.getAuthentication('Apikey');
+            client.setApiKey('foo-bar-api-key');
+
+        res.setHeader('Content-Type', 'application/json');
+        res.setBody('{\r\n  "StreetAddress" : "StreetAddress",\r\n  "StateOrProvince" : "StateOrProvince",\r\n  "PostalCode" : "PostalCode",\r\n  "CountryFullName" : "CountryFullName",\r\n  "City" : "City",\r\n  "CountryCode" : "CountryCode",\r\n  "Successful" : true\r\n}');
+        expectedResponse = SwagReverseGeocodeAddressResponse.getExample();
+        response = (SwagReverseGeocodeAddressResponse) api.addressReverseGeocodeAddress(params);
         System.assertEquals(expectedResponse, response);
     }
 

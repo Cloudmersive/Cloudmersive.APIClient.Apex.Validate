@@ -95,6 +95,30 @@ public class SwagAddressApi {
         );
     }
     /**
+     * Geocode a street address into latitude and longitude
+     * Geocodes a street address into latitude and longitude.
+     * @param input Input parse request (required)
+     * @return SwagValidateAddressResponse
+     * @throws Swagger.ApiException if fails to make API call
+     */
+    public SwagValidateAddressResponse addressGeocode(Map<String, Object> params) {
+        client.assertNotNull(params.get('input'), 'input');
+        List<Swagger.Param> query = new List<Swagger.Param>();
+        List<Swagger.Param> form = new List<Swagger.Param>();
+
+        return (SwagValidateAddressResponse) client.invoke(
+            'POST', '/validate/address/geocode',
+            (SwagValidateAddressRequest) params.get('input'),
+            query, form,
+            new Map<String, Object>(),
+            new Map<String, Object>(),
+            new List<String>{ 'application/json' },
+            new List<String>{ 'application/json' },
+            new List<String> { 'Apikey' },
+            SwagValidateAddressResponse.class
+        );
+    }
+    /**
      * Get the currency of the input country
      * Gets the currency information for the input country, including the ISO three-letter country code, currency symbol, and English currency name.
      * @param input Input request (required)
@@ -188,6 +212,30 @@ public class SwagAddressApi {
             new List<String>{ 'application/json' },
             new List<String> { 'Apikey' },
             SwagParseAddressResponse.class
+        );
+    }
+    /**
+     * Reverse geocode a lattitude and longitude into an address
+     * Converts lattitude and longitude coordinates into an address through reverse-geocoding.
+     * @param input Input reverse geocoding request (required)
+     * @return SwagReverseGeocodeAddressResponse
+     * @throws Swagger.ApiException if fails to make API call
+     */
+    public SwagReverseGeocodeAddressResponse addressReverseGeocodeAddress(Map<String, Object> params) {
+        client.assertNotNull(params.get('input'), 'input');
+        List<Swagger.Param> query = new List<Swagger.Param>();
+        List<Swagger.Param> form = new List<Swagger.Param>();
+
+        return (SwagReverseGeocodeAddressResponse) client.invoke(
+            'POST', '/validate/address/geocode/reverse',
+            (SwagReverseGeocodeAddressRequest) params.get('input'),
+            query, form,
+            new Map<String, Object>(),
+            new Map<String, Object>(),
+            new List<String>{ 'application/json' },
+            new List<String>{ 'application/json' },
+            new List<String> { 'Apikey' },
+            SwagReverseGeocodeAddressResponse.class
         );
     }
     /**

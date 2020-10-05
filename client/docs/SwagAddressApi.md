@@ -7,10 +7,12 @@ Method | HTTP request | Description
 [**addressCheckEUMembership**](SwagAddressApi.md#addressCheckEUMembership) | **POST** /validate/address/country/check-eu-membership | Check if a country is a member of the European Union (EU)
 [**addressCountry**](SwagAddressApi.md#addressCountry) | **POST** /validate/address/country | Validate and normalize country information, return ISO 3166-1 country codes and country name
 [**addressCountryList**](SwagAddressApi.md#addressCountryList) | **POST** /validate/address/country/list | Get a list of ISO 3166-1 countries
+[**addressGeocode**](SwagAddressApi.md#addressGeocode) | **POST** /validate/address/geocode | Geocode a street address into latitude and longitude
 [**addressGetCountryCurrency**](SwagAddressApi.md#addressGetCountryCurrency) | **POST** /validate/address/country/get-currency | Get the currency of the input country
 [**addressGetCountryRegion**](SwagAddressApi.md#addressGetCountryRegion) | **POST** /validate/address/country/get-region | Get the region, subregion and continent of the country
 [**addressGetTimezone**](SwagAddressApi.md#addressGetTimezone) | **POST** /validate/address/country/get-timezones | Gets IANA/Olsen time zones for a country
 [**addressParseString**](SwagAddressApi.md#addressParseString) | **POST** /validate/address/parse | Parse an unstructured input text string into an international, formatted address
+[**addressReverseGeocodeAddress**](SwagAddressApi.md#addressReverseGeocodeAddress) | **POST** /validate/address/geocode/reverse | Reverse geocode a lattitude and longitude into an address
 [**addressValidateAddress**](SwagAddressApi.md#addressValidateAddress) | **POST** /validate/address/street-address | Validate a street address
 [**addressValidateCity**](SwagAddressApi.md#addressValidateCity) | **POST** /validate/address/city | Validate a City and State/Province combination, get location information about it
 [**addressValidatePostalCode**](SwagAddressApi.md#addressValidatePostalCode) | **POST** /validate/address/postal-code | Validate a postal code, get location information about it
@@ -147,6 +149,55 @@ This endpoint does not need any parameter.
 ### Return type
 
 [**SwagCountryListResult**](SwagCountryListResult.md)
+
+### Authorization
+
+[Apikey](../README.md#Apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a name="addressGeocode"></a>
+# **addressGeocode**
+> SwagValidateAddressResponse addressGeocode(input)
+
+Geocode a street address into latitude and longitude
+
+Geocodes a street address into latitude and longitude.
+
+### Example
+```java
+SwagAddressApi api = new SwagAddressApi();
+SwagClient client = api.getClient();
+
+// Configure API key authorization: Apikey
+ApiKeyAuth Apikey = (ApiKeyAuth) client.getAuthentication('Apikey');
+Apikey.setApiKey('YOUR API KEY');
+
+Map<String, Object> params = new Map<String, Object>{
+    'input' => SwagValidateAddressRequest.getExample()
+};
+
+try {
+    // cross your fingers
+    SwagValidateAddressResponse result = api.addressGeocode(params);
+    System.debug(result);
+} catch (Swagger.ApiException e) {
+    // ...handle your exceptions
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **input** | [**SwagValidateAddressRequest**](SwagValidateAddressRequest.md)| Input parse request |
+
+### Return type
+
+[**SwagValidateAddressResponse**](SwagValidateAddressResponse.md)
 
 ### Authorization
 
@@ -343,6 +394,55 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**SwagParseAddressResponse**](SwagParseAddressResponse.md)
+
+### Authorization
+
+[Apikey](../README.md#Apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a name="addressReverseGeocodeAddress"></a>
+# **addressReverseGeocodeAddress**
+> SwagReverseGeocodeAddressResponse addressReverseGeocodeAddress(input)
+
+Reverse geocode a lattitude and longitude into an address
+
+Converts lattitude and longitude coordinates into an address through reverse-geocoding.
+
+### Example
+```java
+SwagAddressApi api = new SwagAddressApi();
+SwagClient client = api.getClient();
+
+// Configure API key authorization: Apikey
+ApiKeyAuth Apikey = (ApiKeyAuth) client.getAuthentication('Apikey');
+Apikey.setApiKey('YOUR API KEY');
+
+Map<String, Object> params = new Map<String, Object>{
+    'input' => SwagReverseGeocodeAddressRequest.getExample()
+};
+
+try {
+    // cross your fingers
+    SwagReverseGeocodeAddressResponse result = api.addressReverseGeocodeAddress(params);
+    System.debug(result);
+} catch (Swagger.ApiException e) {
+    // ...handle your exceptions
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **input** | [**SwagReverseGeocodeAddressRequest**](SwagReverseGeocodeAddressRequest.md)| Input reverse geocoding request |
+
+### Return type
+
+[**SwagReverseGeocodeAddressResponse**](SwagReverseGeocodeAddressResponse.md)
 
 ### Authorization
 
