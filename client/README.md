@@ -86,6 +86,7 @@ Class | Method | HTTP request | Description
 *SwagEmailApi* | [**emailAddressGetServers**](docs/SwagEmailApi.md#emailAddressGetServers) | **POST** /validate/email/address/servers | Partially check whether an email address is valid
 *SwagEmailApi* | [**emailFullValidation**](docs/SwagEmailApi.md#emailFullValidation) | **POST** /validate/email/address/full | Fully validate an email address
 *SwagEmailApi* | [**emailPost**](docs/SwagEmailApi.md#emailPost) | **POST** /validate/email/address/syntaxOnly | Validate email adddress for syntactic correctness only
+*SwagIpAddressApi* | [**iPAddressGeolocateStreetAddress**](docs/SwagIpAddressApi.md#iPAddressGeolocateStreetAddress) | **POST** /validate/ip/geolocate/street-address | Geolocate an IP address to a street address
 *SwagIpAddressApi* | [**iPAddressIsThreat**](docs/SwagIpAddressApi.md#iPAddressIsThreat) | **POST** /validate/ip/is-threat | Check if IP address is a known threat
 *SwagIpAddressApi* | [**iPAddressIsTorNode**](docs/SwagIpAddressApi.md#iPAddressIsTorNode) | **POST** /validate/ip/is-tor-node | Check if IP address is a Tor node server
 *SwagIpAddressApi* | [**iPAddressPost**](docs/SwagIpAddressApi.md#iPAddressPost) | **POST** /validate/ip/geolocate | Geolocate an IP address
@@ -96,6 +97,8 @@ Class | Method | HTTP request | Description
 *SwagNameApi* | [**nameValidateFullName**](docs/SwagNameApi.md#nameValidateFullName) | **POST** /validate/name/full-name | Parse and validate a full name
 *SwagNameApi* | [**nameValidateLastName**](docs/SwagNameApi.md#nameValidateLastName) | **POST** /validate/name/last | Validate a last name
 *SwagPhoneNumberApi* | [**phoneNumberSyntaxOnly**](docs/SwagPhoneNumberApi.md#phoneNumberSyntaxOnly) | **POST** /validate/phonenumber/basic | Validate phone number (basic)
+*SwagTextInputApi* | [**textInputCheckXss**](docs/SwagTextInputApi.md#textInputCheckXss) | **POST** /validate/text-input/check/xss | Check text input for Cross-Site-Scripting (XSS) attacks
+*SwagTextInputApi* | [**textInputProtectXss**](docs/SwagTextInputApi.md#textInputProtectXss) | **POST** /validate/text-input/protect/xss | Protect text input from Cross-Site-Scripting (XSS) attacks through normalization
 *SwagUserAgentApi* | [**userAgentParse**](docs/SwagUserAgentApi.md#userAgentParse) | **POST** /validate/useragent/parse | Parse an HTTP User-Agent string, identify robots
 *SwagVatApi* | [**vatVatLookup**](docs/SwagVatApi.md#vatVatLookup) | **POST** /validate/vat/lookup | Validate a VAT number
 
@@ -114,6 +117,7 @@ Class | Method | HTTP request | Description
  - [SwagFullNameValidationRequest](docs/SwagFullNameValidationRequest.md)
  - [SwagFullNameValidationResponse](docs/SwagFullNameValidationResponse.md)
  - [SwagGeolocateResponse](docs/SwagGeolocateResponse.md)
+ - [SwagGeolocateStreetAddressResponse](docs/SwagGeolocateStreetAddressResponse.md)
  - [SwagGetGenderRequest](docs/SwagGetGenderRequest.md)
  - [SwagGetGenderResponse](docs/SwagGetGenderResponse.md)
  - [SwagGetTimezonesRequest](docs/SwagGetTimezonesRequest.md)
@@ -152,6 +156,7 @@ Class | Method | HTTP request | Description
  - [SwagVatLookupRequest](docs/SwagVatLookupRequest.md)
  - [SwagVatLookupResponse](docs/SwagVatLookupResponse.md)
  - [SwagWhoisResponse](docs/SwagWhoisResponse.md)
+ - [SwagXssProtectionResult](docs/SwagXssProtectionResult.md)
 
 
 ## Documentation for Authorization

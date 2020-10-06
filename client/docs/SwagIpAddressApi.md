@@ -4,10 +4,60 @@ All URIs are relative to *https://api.cloudmersive.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**iPAddressGeolocateStreetAddress**](SwagIpAddressApi.md#iPAddressGeolocateStreetAddress) | **POST** /validate/ip/geolocate/street-address | Geolocate an IP address to a street address
 [**iPAddressIsThreat**](SwagIpAddressApi.md#iPAddressIsThreat) | **POST** /validate/ip/is-threat | Check if IP address is a known threat
 [**iPAddressIsTorNode**](SwagIpAddressApi.md#iPAddressIsTorNode) | **POST** /validate/ip/is-tor-node | Check if IP address is a Tor node server
 [**iPAddressPost**](SwagIpAddressApi.md#iPAddressPost) | **POST** /validate/ip/geolocate | Geolocate an IP address
 
+
+<a name="iPAddressGeolocateStreetAddress"></a>
+# **iPAddressGeolocateStreetAddress**
+> SwagGeolocateStreetAddressResponse iPAddressGeolocateStreetAddress(value)
+
+Geolocate an IP address to a street address
+
+Identify an IP address\&#39;s street address.  Useful for security and UX applications.
+
+### Example
+```java
+SwagIpAddressApi api = new SwagIpAddressApi();
+SwagClient client = api.getClient();
+
+// Configure API key authorization: Apikey
+ApiKeyAuth Apikey = (ApiKeyAuth) client.getAuthentication('Apikey');
+Apikey.setApiKey('YOUR API KEY');
+
+Map<String, Object> params = new Map<String, Object>{
+    'value' => 'value_example'
+};
+
+try {
+    // cross your fingers
+    SwagGeolocateStreetAddressResponse result = api.iPAddressGeolocateStreetAddress(params);
+    System.debug(result);
+} catch (Swagger.ApiException e) {
+    // ...handle your exceptions
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **value** | **String**| IP address to geolocate, e.g. &quot;55.55.55.55&quot;.  The input is a string so be sure to enclose it in double-quotes. |
+
+### Return type
+
+[**SwagGeolocateStreetAddressResponse**](SwagGeolocateStreetAddressResponse.md)
+
+### Authorization
+
+[Apikey](../README.md#Apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
 
 <a name="iPAddressIsThreat"></a>
 # **iPAddressIsThreat**

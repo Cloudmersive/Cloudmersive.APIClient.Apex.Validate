@@ -26,6 +26,30 @@ public class SwagIpAddressApi {
     }
 
     /**
+     * Geolocate an IP address to a street address
+     * Identify an IP address\&#39;s street address.  Useful for security and UX applications.
+     * @param value IP address to geolocate, e.g. &quot;55.55.55.55&quot;.  The input is a string so be sure to enclose it in double-quotes. (required)
+     * @return SwagGeolocateStreetAddressResponse
+     * @throws Swagger.ApiException if fails to make API call
+     */
+    public SwagGeolocateStreetAddressResponse iPAddressGeolocateStreetAddress(Map<String, Object> params) {
+        client.assertNotNull(params.get('value'), 'value');
+        List<Swagger.Param> query = new List<Swagger.Param>();
+        List<Swagger.Param> form = new List<Swagger.Param>();
+
+        return (SwagGeolocateStreetAddressResponse) client.invoke(
+            'POST', '/validate/ip/geolocate/street-address',
+            (String) params.get('value'),
+            query, form,
+            new Map<String, Object>(),
+            new Map<String, Object>(),
+            new List<String>{ 'application/json' },
+            new List<String>{ 'application/json' },
+            new List<String> { 'Apikey' },
+            SwagGeolocateStreetAddressResponse.class
+        );
+    }
+    /**
      * Check if IP address is a known threat
      * Check if the input IP address is a known threat IP address.  Checks against known bad IPs, botnets, compromised servers, and other lists of threats.
      * @param value IP address to check, e.g. &quot;55.55.55.55&quot;.  The input is a string so be sure to enclose it in double-quotes. (required)

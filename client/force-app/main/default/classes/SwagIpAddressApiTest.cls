@@ -1,6 +1,39 @@
 @isTest
 private class SwagIpAddressApiTest {
     /**
+     * Geolocate an IP address to a street address
+     *
+     * Identify an IP address\&#39;s street address.  Useful for security and UX applications.
+     */
+    @isTest
+    private static void iPAddressGeolocateStreetAddressTest() {
+        HttpResponse res = new HttpResponse();
+        res.setStatusCode(200);
+        res.setStatus('OK');
+        Test.setMock(HttpCalloutMock.class, new SwaggerResponseMock(res));
+
+        Map<String, Object> params = new Map<String, Object>{
+            'value' => 'value_example'
+        };
+
+        SwagClient client;
+        SwagIpAddressApi api;
+        SwagGeolocateStreetAddressResponse response;
+        SwagGeolocateStreetAddressResponse expectedResponse;
+
+        client = new SwagClient();
+        api = new SwagIpAddressApi(client);
+        ((Swagger.ApiKeyAuth) client.getAuthentication('Apikey');
+            client.setApiKey('foo-bar-api-key');
+
+        res.setHeader('Content-Type', 'application/json');
+        res.setBody('{\r\n  "StreetAddress" : "StreetAddress",\r\n  "CountryName" : "CountryName",\r\n  "RegionName" : "RegionName",\r\n  "ZipCode" : "ZipCode",\r\n  "City" : "City",\r\n  "CountryCode" : "CountryCode"\r\n}');
+        expectedResponse = SwagGeolocateStreetAddressResponse.getExample();
+        response = (SwagGeolocateStreetAddressResponse) api.iPAddressGeolocateStreetAddress(params);
+        System.assertEquals(expectedResponse, response);
+    }
+
+    /**
      * Check if IP address is a known threat
      *
      * Check if the input IP address is a known threat IP address.  Checks against known bad IPs, botnets, compromised servers, and other lists of threats.
