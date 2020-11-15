@@ -191,6 +191,30 @@ public class SwagAddressApi {
         );
     }
     /**
+     * Normalize a street address
+     * Normalizes an input structured street address is valid or invalid.  If the address is valid, also returns the latitude and longitude of the address.  Supports all major international addresses.
+     * @param input Input parse request (required)
+     * @return SwagNormalizeAddressResponse
+     * @throws Swagger.ApiException if fails to make API call
+     */
+    public SwagNormalizeAddressResponse addressNormalizeAddress(Map<String, Object> params) {
+        client.assertNotNull(params.get('input'), 'input');
+        List<Swagger.Param> query = new List<Swagger.Param>();
+        List<Swagger.Param> form = new List<Swagger.Param>();
+
+        return (SwagNormalizeAddressResponse) client.invoke(
+            'POST', '/validate/address/street-address/normalize',
+            (SwagValidateAddressRequest) params.get('input'),
+            query, form,
+            new Map<String, Object>(),
+            new Map<String, Object>(),
+            new List<String>{ 'application/json' },
+            new List<String>{ 'application/json' },
+            new List<String> { 'Apikey' },
+            SwagNormalizeAddressResponse.class
+        );
+    }
+    /**
      * Parse an unstructured input text string into an international, formatted address
      * Uses machine learning and Natural Language Processing (NLP) to handle a wide array of cases, including non-standard and unstructured address strings across a wide array of countries and address formatting norms.
      * @param input Input parse request (required)

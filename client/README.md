@@ -72,12 +72,17 @@ Class | Method | HTTP request | Description
 *SwagAddressApi* | [**addressGetCountryCurrency**](docs/SwagAddressApi.md#addressGetCountryCurrency) | **POST** /validate/address/country/get-currency | Get the currency of the input country
 *SwagAddressApi* | [**addressGetCountryRegion**](docs/SwagAddressApi.md#addressGetCountryRegion) | **POST** /validate/address/country/get-region | Get the region, subregion and continent of the country
 *SwagAddressApi* | [**addressGetTimezone**](docs/SwagAddressApi.md#addressGetTimezone) | **POST** /validate/address/country/get-timezones | Gets IANA/Olsen time zones for a country
+*SwagAddressApi* | [**addressNormalizeAddress**](docs/SwagAddressApi.md#addressNormalizeAddress) | **POST** /validate/address/street-address/normalize | Normalize a street address
 *SwagAddressApi* | [**addressParseString**](docs/SwagAddressApi.md#addressParseString) | **POST** /validate/address/parse | Parse an unstructured input text string into an international, formatted address
 *SwagAddressApi* | [**addressReverseGeocodeAddress**](docs/SwagAddressApi.md#addressReverseGeocodeAddress) | **POST** /validate/address/geocode/reverse | Reverse geocode a lattitude and longitude into an address
 *SwagAddressApi* | [**addressValidateAddress**](docs/SwagAddressApi.md#addressValidateAddress) | **POST** /validate/address/street-address | Validate a street address
 *SwagAddressApi* | [**addressValidateCity**](docs/SwagAddressApi.md#addressValidateCity) | **POST** /validate/address/city | Validate a City and State/Province combination, get location information about it
 *SwagAddressApi* | [**addressValidatePostalCode**](docs/SwagAddressApi.md#addressValidatePostalCode) | **POST** /validate/address/postal-code | Validate a postal code, get location information about it
 *SwagAddressApi* | [**addressValidateState**](docs/SwagAddressApi.md#addressValidateState) | **POST** /validate/address/state | Validate a state or province, name or abbreviation, get location information about it
+*SwagDateTimeApi* | [**dateTimeGetNowSimple**](docs/SwagDateTimeApi.md#dateTimeGetNowSimple) | **GET** /validate/date-time/get/now | Get current date and time as of now
+*SwagDateTimeApi* | [**dateTimeGetPublicHolidays**](docs/SwagDateTimeApi.md#dateTimeGetPublicHolidays) | **POST** /validate/date-time/get/holidays | Get public holidays in the specified country and year
+*SwagDateTimeApi* | [**dateTimeParseNaturalLanguageDateTime**](docs/SwagDateTimeApi.md#dateTimeParseNaturalLanguageDateTime) | **POST** /validate/date-time/parse/date-time/natural-language | Parses a free-form natural language date and time string into a date and time
+*SwagDateTimeApi* | [**dateTimeParseStandardDateTime**](docs/SwagDateTimeApi.md#dateTimeParseStandardDateTime) | **POST** /validate/date-time/parse/date-time/structured | Parses a standardized date and time string into a date and time
 *SwagDomainApi* | [**domainCheck**](docs/SwagDomainApi.md#domainCheck) | **POST** /validate/domain/check | Validate a domain name
 *SwagDomainApi* | [**domainPost**](docs/SwagDomainApi.md#domainPost) | **POST** /validate/domain/whois | Get WHOIS information for a domain
 *SwagDomainApi* | [**domainQualityScore**](docs/SwagDomainApi.md#domainQualityScore) | **POST** /validate/domain/quality-score | Validate a domain name\&#39;s quality score
@@ -110,6 +115,10 @@ Class | Method | HTTP request | Description
  - [SwagCheckResponse](docs/SwagCheckResponse.md)
  - [SwagCountryDetails](docs/SwagCountryDetails.md)
  - [SwagCountryListResult](docs/SwagCountryListResult.md)
+ - [SwagDateTimeNaturalLanguageParseRequ](docs/SwagDateTimeNaturalLanguageParseRequ.md)
+ - [SwagDateTimeNowResult](docs/SwagDateTimeNowResult.md)
+ - [SwagDateTimeStandardizedParseRequest](docs/SwagDateTimeStandardizedParseRequest.md)
+ - [SwagDateTimeStandardizedParseRespons](docs/SwagDateTimeStandardizedParseRespons.md)
  - [SwagDomainQualityResponse](docs/SwagDomainQualityResponse.md)
  - [SwagFirstNameValidationRequest](docs/SwagFirstNameValidationRequest.md)
  - [SwagFirstNameValidationResponse](docs/SwagFirstNameValidationResponse.md)
@@ -120,6 +129,7 @@ Class | Method | HTTP request | Description
  - [SwagGeolocateStreetAddressResponse](docs/SwagGeolocateStreetAddressResponse.md)
  - [SwagGetGenderRequest](docs/SwagGetGenderRequest.md)
  - [SwagGetGenderResponse](docs/SwagGetGenderResponse.md)
+ - [SwagGetPublicHolidaysRequest](docs/SwagGetPublicHolidaysRequest.md)
  - [SwagGetTimezonesRequest](docs/SwagGetTimezonesRequest.md)
  - [SwagGetTimezonesResponse](docs/SwagGetTimezonesResponse.md)
  - [SwagIPThreatResponse](docs/SwagIPThreatResponse.md)
@@ -127,10 +137,13 @@ Class | Method | HTTP request | Description
  - [SwagLastNameValidationResponse](docs/SwagLastNameValidationResponse.md)
  - [SwagLeadEnrichmentRequest](docs/SwagLeadEnrichmentRequest.md)
  - [SwagLeadEnrichmentResponse](docs/SwagLeadEnrichmentResponse.md)
+ - [SwagNormalizeAddressResponse](docs/SwagNormalizeAddressResponse.md)
  - [SwagParseAddressRequest](docs/SwagParseAddressRequest.md)
  - [SwagParseAddressResponse](docs/SwagParseAddressResponse.md)
  - [SwagPhoneNumberValidateRequest](docs/SwagPhoneNumberValidateRequest.md)
  - [SwagPhoneNumberValidationResponse](docs/SwagPhoneNumberValidationResponse.md)
+ - [SwagPublicHolidayOccurrence](docs/SwagPublicHolidayOccurrence.md)
+ - [SwagPublicHolidaysResponse](docs/SwagPublicHolidaysResponse.md)
  - [SwagReverseGeocodeAddressRequest](docs/SwagReverseGeocodeAddressRequest.md)
  - [SwagReverseGeocodeAddressResponse](docs/SwagReverseGeocodeAddressResponse.md)
  - [SwagTimezone](docs/SwagTimezone.md)

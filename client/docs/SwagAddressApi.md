@@ -11,6 +11,7 @@ Method | HTTP request | Description
 [**addressGetCountryCurrency**](SwagAddressApi.md#addressGetCountryCurrency) | **POST** /validate/address/country/get-currency | Get the currency of the input country
 [**addressGetCountryRegion**](SwagAddressApi.md#addressGetCountryRegion) | **POST** /validate/address/country/get-region | Get the region, subregion and continent of the country
 [**addressGetTimezone**](SwagAddressApi.md#addressGetTimezone) | **POST** /validate/address/country/get-timezones | Gets IANA/Olsen time zones for a country
+[**addressNormalizeAddress**](SwagAddressApi.md#addressNormalizeAddress) | **POST** /validate/address/street-address/normalize | Normalize a street address
 [**addressParseString**](SwagAddressApi.md#addressParseString) | **POST** /validate/address/parse | Parse an unstructured input text string into an international, formatted address
 [**addressReverseGeocodeAddress**](SwagAddressApi.md#addressReverseGeocodeAddress) | **POST** /validate/address/geocode/reverse | Reverse geocode a lattitude and longitude into an address
 [**addressValidateAddress**](SwagAddressApi.md#addressValidateAddress) | **POST** /validate/address/street-address | Validate a street address
@@ -345,6 +346,55 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**SwagGetTimezonesResponse**](SwagGetTimezonesResponse.md)
+
+### Authorization
+
+[Apikey](../README.md#Apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a name="addressNormalizeAddress"></a>
+# **addressNormalizeAddress**
+> SwagNormalizeAddressResponse addressNormalizeAddress(input)
+
+Normalize a street address
+
+Normalizes an input structured street address is valid or invalid.  If the address is valid, also returns the latitude and longitude of the address.  Supports all major international addresses.
+
+### Example
+```java
+SwagAddressApi api = new SwagAddressApi();
+SwagClient client = api.getClient();
+
+// Configure API key authorization: Apikey
+ApiKeyAuth Apikey = (ApiKeyAuth) client.getAuthentication('Apikey');
+Apikey.setApiKey('YOUR API KEY');
+
+Map<String, Object> params = new Map<String, Object>{
+    'input' => SwagValidateAddressRequest.getExample()
+};
+
+try {
+    // cross your fingers
+    SwagNormalizeAddressResponse result = api.addressNormalizeAddress(params);
+    System.debug(result);
+} catch (Swagger.ApiException e) {
+    // ...handle your exceptions
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **input** | [**SwagValidateAddressRequest**](SwagValidateAddressRequest.md)| Input parse request |
+
+### Return type
+
+[**SwagNormalizeAddressResponse**](SwagNormalizeAddressResponse.md)
 
 ### Authorization
 
