@@ -5,6 +5,7 @@ All URIs are relative to *https://api.cloudmersive.com*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**textInputCheckXss**](SwagTextInputApi.md#textInputCheckXss) | **POST** /validate/text-input/check/xss | Check text input for Cross-Site-Scripting (XSS) attacks
+[**textInputCheckXssBatch**](SwagTextInputApi.md#textInputCheckXssBatch) | **POST** /validate/text-input/check-and-protect/xss/batch | Check and protect multiple text inputs for Cross-Site-Scripting (XSS) attacks in batch
 [**textInputProtectXss**](SwagTextInputApi.md#textInputProtectXss) | **POST** /validate/text-input/protect/xss | Protect text input from Cross-Site-Scripting (XSS) attacks through normalization
 
 
@@ -47,6 +48,55 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**SwagXssProtectionResult**](SwagXssProtectionResult.md)
+
+### Authorization
+
+[Apikey](../README.md#Apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a name="textInputCheckXssBatch"></a>
+# **textInputCheckXssBatch**
+> SwagXssProtectionBatchResponse textInputCheckXssBatch(value)
+
+Check and protect multiple text inputs for Cross-Site-Scripting (XSS) attacks in batch
+
+Detects XSS (Cross-Site-Scripting) attacks from multiple text input.  Output preverses order of input items.
+
+### Example
+```java
+SwagTextInputApi api = new SwagTextInputApi();
+SwagClient client = api.getClient();
+
+// Configure API key authorization: Apikey
+ApiKeyAuth Apikey = (ApiKeyAuth) client.getAuthentication('Apikey');
+Apikey.setApiKey('YOUR API KEY');
+
+Map<String, Object> params = new Map<String, Object>{
+    'value' => SwagXssProtectionBatchRequest.getExample()
+};
+
+try {
+    // cross your fingers
+    SwagXssProtectionBatchResponse result = api.textInputCheckXssBatch(params);
+    System.debug(result);
+} catch (Swagger.ApiException e) {
+    // ...handle your exceptions
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **value** | [**SwagXssProtectionBatchRequest**](SwagXssProtectionBatchRequest.md)| User-facing text input. |
+
+### Return type
+
+[**SwagXssProtectionBatchResponse**](SwagXssProtectionBatchResponse.md)
 
 ### Authorization
 

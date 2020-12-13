@@ -50,6 +50,30 @@ public class SwagTextInputApi {
         );
     }
     /**
+     * Check and protect multiple text inputs for Cross-Site-Scripting (XSS) attacks in batch
+     * Detects XSS (Cross-Site-Scripting) attacks from multiple text input.  Output preverses order of input items.
+     * @param value User-facing text input. (required)
+     * @return SwagXssProtectionBatchResponse
+     * @throws Swagger.ApiException if fails to make API call
+     */
+    public SwagXssProtectionBatchResponse textInputCheckXssBatch(Map<String, Object> params) {
+        client.assertNotNull(params.get('value'), 'value');
+        List<Swagger.Param> query = new List<Swagger.Param>();
+        List<Swagger.Param> form = new List<Swagger.Param>();
+
+        return (SwagXssProtectionBatchResponse) client.invoke(
+            'POST', '/validate/text-input/check-and-protect/xss/batch',
+            (SwagXssProtectionBatchRequest) params.get('value'),
+            query, form,
+            new Map<String, Object>(),
+            new Map<String, Object>(),
+            new List<String>{ 'application/json' },
+            new List<String>{ 'application/json' },
+            new List<String> { 'Apikey' },
+            SwagXssProtectionBatchResponse.class
+        );
+    }
+    /**
      * Protect text input from Cross-Site-Scripting (XSS) attacks through normalization
      * Detects and removes XSS (Cross-Site-Scripting) attacks from text input through normalization.  Returns the normalized result, as well as information on whether the original input contained an XSS risk.
      * @param value User-facing text input. (required)

@@ -103,6 +103,7 @@ Class | Method | HTTP request | Description
 *SwagNameApi* | [**nameValidateLastName**](docs/SwagNameApi.md#nameValidateLastName) | **POST** /validate/name/last | Validate a last name
 *SwagPhoneNumberApi* | [**phoneNumberSyntaxOnly**](docs/SwagPhoneNumberApi.md#phoneNumberSyntaxOnly) | **POST** /validate/phonenumber/basic | Validate phone number (basic)
 *SwagTextInputApi* | [**textInputCheckXss**](docs/SwagTextInputApi.md#textInputCheckXss) | **POST** /validate/text-input/check/xss | Check text input for Cross-Site-Scripting (XSS) attacks
+*SwagTextInputApi* | [**textInputCheckXssBatch**](docs/SwagTextInputApi.md#textInputCheckXssBatch) | **POST** /validate/text-input/check-and-protect/xss/batch | Check and protect multiple text inputs for Cross-Site-Scripting (XSS) attacks in batch
 *SwagTextInputApi* | [**textInputProtectXss**](docs/SwagTextInputApi.md#textInputProtectXss) | **POST** /validate/text-input/protect/xss | Protect text input from Cross-Site-Scripting (XSS) attacks through normalization
 *SwagUserAgentApi* | [**userAgentParse**](docs/SwagUserAgentApi.md#userAgentParse) | **POST** /validate/useragent/parse | Parse an HTTP User-Agent string, identify robots
 *SwagVatApi* | [**vatVatLookup**](docs/SwagVatApi.md#vatVatLookup) | **POST** /validate/vat/lookup | Validate a VAT number
@@ -169,6 +170,9 @@ Class | Method | HTTP request | Description
  - [SwagVatLookupRequest](docs/SwagVatLookupRequest.md)
  - [SwagVatLookupResponse](docs/SwagVatLookupResponse.md)
  - [SwagWhoisResponse](docs/SwagWhoisResponse.md)
+ - [SwagXssProtectionBatchRequest](docs/SwagXssProtectionBatchRequest.md)
+ - [SwagXssProtectionBatchResponse](docs/SwagXssProtectionBatchResponse.md)
+ - [SwagXssProtectionRequestItem](docs/SwagXssProtectionRequestItem.md)
  - [SwagXssProtectionResult](docs/SwagXssProtectionResult.md)
 
 
