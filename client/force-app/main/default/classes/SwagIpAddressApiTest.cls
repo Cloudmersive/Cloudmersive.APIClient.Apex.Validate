@@ -131,4 +131,37 @@ private class SwagIpAddressApiTest {
         response = (SwagGeolocateResponse) api.iPAddressPost(params);
         System.assertEquals(expectedResponse, response);
     }
+
+    /**
+     * Perform a reverse domain name (DNS) lookup on an IP address
+     *
+     * Gets the domain name, if any, associated with the IP address.
+     */
+    @isTest
+    private static void iPAddressReverseDomainLookupTest() {
+        HttpResponse res = new HttpResponse();
+        res.setStatusCode(200);
+        res.setStatus('OK');
+        Test.setMock(HttpCalloutMock.class, new SwaggerResponseMock(res));
+
+        Map<String, Object> params = new Map<String, Object>{
+            'value' => 'value_example'
+        };
+
+        SwagClient client;
+        SwagIpAddressApi api;
+        SwagIPReverseDNSLookupResponse response;
+        SwagIPReverseDNSLookupResponse expectedResponse;
+
+        client = new SwagClient();
+        api = new SwagIpAddressApi(client);
+        ((Swagger.ApiKeyAuth) client.getAuthentication('Apikey');
+            client.setApiKey('foo-bar-api-key');
+
+        res.setHeader('Content-Type', 'application/json');
+        res.setBody('{\r\n  "Successful" : true,\r\n  "HostName" : "HostName"\r\n}');
+        expectedResponse = SwagIPReverseDNSLookupResponse.getExample();
+        response = (SwagIPReverseDNSLookupResponse) api.iPAddressReverseDomainLookup(params);
+        System.assertEquals(expectedResponse, response);
+    }
 }

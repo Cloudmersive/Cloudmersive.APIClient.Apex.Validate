@@ -8,6 +8,7 @@ Method | HTTP request | Description
 [**iPAddressIsThreat**](SwagIpAddressApi.md#iPAddressIsThreat) | **POST** /validate/ip/is-threat | Check if IP address is a known threat
 [**iPAddressIsTorNode**](SwagIpAddressApi.md#iPAddressIsTorNode) | **POST** /validate/ip/is-tor-node | Check if IP address is a Tor node server
 [**iPAddressPost**](SwagIpAddressApi.md#iPAddressPost) | **POST** /validate/ip/geolocate | Geolocate an IP address
+[**iPAddressReverseDomainLookup**](SwagIpAddressApi.md#iPAddressReverseDomainLookup) | **POST** /validate/ip/reverse-domain-lookup | Perform a reverse domain name (DNS) lookup on an IP address
 
 
 <a name="iPAddressGeolocateStreetAddress"></a>
@@ -196,6 +197,55 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**SwagGeolocateResponse**](SwagGeolocateResponse.md)
+
+### Authorization
+
+[Apikey](../README.md#Apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a name="iPAddressReverseDomainLookup"></a>
+# **iPAddressReverseDomainLookup**
+> SwagIPReverseDNSLookupResponse iPAddressReverseDomainLookup(value)
+
+Perform a reverse domain name (DNS) lookup on an IP address
+
+Gets the domain name, if any, associated with the IP address.
+
+### Example
+```java
+SwagIpAddressApi api = new SwagIpAddressApi();
+SwagClient client = api.getClient();
+
+// Configure API key authorization: Apikey
+ApiKeyAuth Apikey = (ApiKeyAuth) client.getAuthentication('Apikey');
+Apikey.setApiKey('YOUR API KEY');
+
+Map<String, Object> params = new Map<String, Object>{
+    'value' => 'value_example'
+};
+
+try {
+    // cross your fingers
+    SwagIPReverseDNSLookupResponse result = api.iPAddressReverseDomainLookup(params);
+    System.debug(result);
+} catch (Swagger.ApiException e) {
+    // ...handle your exceptions
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **value** | **String**| IP address to check, e.g. &quot;55.55.55.55&quot;.  The input is a string so be sure to enclose it in double-quotes. |
+
+### Return type
+
+[**SwagIPReverseDNSLookupResponse**](SwagIPReverseDNSLookupResponse.md)
 
 ### Authorization
 

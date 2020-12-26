@@ -121,4 +121,28 @@ public class SwagIpAddressApi {
             SwagGeolocateResponse.class
         );
     }
+    /**
+     * Perform a reverse domain name (DNS) lookup on an IP address
+     * Gets the domain name, if any, associated with the IP address.
+     * @param value IP address to check, e.g. &quot;55.55.55.55&quot;.  The input is a string so be sure to enclose it in double-quotes. (required)
+     * @return SwagIPReverseDNSLookupResponse
+     * @throws Swagger.ApiException if fails to make API call
+     */
+    public SwagIPReverseDNSLookupResponse iPAddressReverseDomainLookup(Map<String, Object> params) {
+        client.assertNotNull(params.get('value'), 'value');
+        List<Swagger.Param> query = new List<Swagger.Param>();
+        List<Swagger.Param> form = new List<Swagger.Param>();
+
+        return (SwagIPReverseDNSLookupResponse) client.invoke(
+            'POST', '/validate/ip/reverse-domain-lookup',
+            (String) params.get('value'),
+            query, form,
+            new Map<String, Object>(),
+            new Map<String, Object>(),
+            new List<String>{ 'application/json' },
+            new List<String>{ 'application/json' },
+            new List<String> { 'Apikey' },
+            SwagIPReverseDNSLookupResponse.class
+        );
+    }
 }

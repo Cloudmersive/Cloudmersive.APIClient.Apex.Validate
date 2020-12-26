@@ -95,6 +95,7 @@ Class | Method | HTTP request | Description
 *SwagIpAddressApi* | [**iPAddressIsThreat**](docs/SwagIpAddressApi.md#iPAddressIsThreat) | **POST** /validate/ip/is-threat | Check if IP address is a known threat
 *SwagIpAddressApi* | [**iPAddressIsTorNode**](docs/SwagIpAddressApi.md#iPAddressIsTorNode) | **POST** /validate/ip/is-tor-node | Check if IP address is a Tor node server
 *SwagIpAddressApi* | [**iPAddressPost**](docs/SwagIpAddressApi.md#iPAddressPost) | **POST** /validate/ip/geolocate | Geolocate an IP address
+*SwagIpAddressApi* | [**iPAddressReverseDomainLookup**](docs/SwagIpAddressApi.md#iPAddressReverseDomainLookup) | **POST** /validate/ip/reverse-domain-lookup | Perform a reverse domain name (DNS) lookup on an IP address
 *SwagLeadEnrichmentApi* | [**leadEnrichmentEnrichLead**](docs/SwagLeadEnrichmentApi.md#leadEnrichmentEnrichLead) | **POST** /validate/lead-enrichment/lead/enrich | Enrich an input lead with additional fields of data
 *SwagNameApi* | [**nameGetGender**](docs/SwagNameApi.md#nameGetGender) | **POST** /validate/name/get-gender | Get the gender of a first name
 *SwagNameApi* | [**nameIdentifier**](docs/SwagNameApi.md#nameIdentifier) | **POST** /validate/name/identifier | Validate a code identifier
@@ -133,6 +134,7 @@ Class | Method | HTTP request | Description
  - [SwagGetPublicHolidaysRequest](docs/SwagGetPublicHolidaysRequest.md)
  - [SwagGetTimezonesRequest](docs/SwagGetTimezonesRequest.md)
  - [SwagGetTimezonesResponse](docs/SwagGetTimezonesResponse.md)
+ - [SwagIPReverseDNSLookupResponse](docs/SwagIPReverseDNSLookupResponse.md)
  - [SwagIPThreatResponse](docs/SwagIPThreatResponse.md)
  - [SwagLastNameValidationRequest](docs/SwagLastNameValidationRequest.md)
  - [SwagLastNameValidationResponse](docs/SwagLastNameValidationResponse.md)
