@@ -50,6 +50,54 @@ public class SwagIpAddressApi {
         );
     }
     /**
+     * Get intelligence on an IP address
+     * Identify key intelligence about an IP address, including if it is a known threat IP, known bot, Tor exit node, as well as the location of the IP address.
+     * @param value IP address to process, e.g. &quot;55.55.55.55&quot;.  The input is a string so be sure to enclose it in double-quotes. (required)
+     * @return SwagIPIntelligenceResponse
+     * @throws Swagger.ApiException if fails to make API call
+     */
+    public SwagIPIntelligenceResponse iPAddressIpIntelligence(Map<String, Object> params) {
+        client.assertNotNull(params.get('value'), 'value');
+        List<Swagger.Param> query = new List<Swagger.Param>();
+        List<Swagger.Param> form = new List<Swagger.Param>();
+
+        return (SwagIPIntelligenceResponse) client.invoke(
+            'POST', '/validate/ip/intelligence',
+            (String) params.get('value'),
+            query, form,
+            new Map<String, Object>(),
+            new Map<String, Object>(),
+            new List<String>{ 'application/json' },
+            new List<String>{ 'application/json' },
+            new List<String> { 'Apikey' },
+            SwagIPIntelligenceResponse.class
+        );
+    }
+    /**
+     * Check if IP address is a Bot client
+     * Check if the input IP address is a Bot, robot, or otherwise a non-user entity.  Leverages real-time signals to check against known high-probability bots..
+     * @param value IP address to check, e.g. &quot;55.55.55.55&quot;.  The input is a string so be sure to enclose it in double-quotes. (required)
+     * @return SwagBotCheckResponse
+     * @throws Swagger.ApiException if fails to make API call
+     */
+    public SwagBotCheckResponse iPAddressIsBot(Map<String, Object> params) {
+        client.assertNotNull(params.get('value'), 'value');
+        List<Swagger.Param> query = new List<Swagger.Param>();
+        List<Swagger.Param> form = new List<Swagger.Param>();
+
+        return (SwagBotCheckResponse) client.invoke(
+            'POST', '/validate/ip/is-bot',
+            (String) params.get('value'),
+            query, form,
+            new Map<String, Object>(),
+            new Map<String, Object>(),
+            new List<String>{ 'application/json' },
+            new List<String>{ 'application/json' },
+            new List<String> { 'Apikey' },
+            SwagBotCheckResponse.class
+        );
+    }
+    /**
      * Check if IP address is a known threat
      * Check if the input IP address is a known threat IP address.  Checks against known bad IPs, botnets, compromised servers, and other lists of threats.
      * @param value IP address to check, e.g. &quot;55.55.55.55&quot;.  The input is a string so be sure to enclose it in double-quotes. (required)

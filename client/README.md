@@ -92,6 +92,8 @@ Class | Method | HTTP request | Description
 *SwagEmailApi* | [**emailFullValidation**](docs/SwagEmailApi.md#emailFullValidation) | **POST** /validate/email/address/full | Fully validate an email address
 *SwagEmailApi* | [**emailPost**](docs/SwagEmailApi.md#emailPost) | **POST** /validate/email/address/syntaxOnly | Validate email adddress for syntactic correctness only
 *SwagIpAddressApi* | [**iPAddressGeolocateStreetAddress**](docs/SwagIpAddressApi.md#iPAddressGeolocateStreetAddress) | **POST** /validate/ip/geolocate/street-address | Geolocate an IP address to a street address
+*SwagIpAddressApi* | [**iPAddressIpIntelligence**](docs/SwagIpAddressApi.md#iPAddressIpIntelligence) | **POST** /validate/ip/intelligence | Get intelligence on an IP address
+*SwagIpAddressApi* | [**iPAddressIsBot**](docs/SwagIpAddressApi.md#iPAddressIsBot) | **POST** /validate/ip/is-bot | Check if IP address is a Bot client
 *SwagIpAddressApi* | [**iPAddressIsThreat**](docs/SwagIpAddressApi.md#iPAddressIsThreat) | **POST** /validate/ip/is-threat | Check if IP address is a known threat
 *SwagIpAddressApi* | [**iPAddressIsTorNode**](docs/SwagIpAddressApi.md#iPAddressIsTorNode) | **POST** /validate/ip/is-tor-node | Check if IP address is a Tor node server
 *SwagIpAddressApi* | [**iPAddressPost**](docs/SwagIpAddressApi.md#iPAddressPost) | **POST** /validate/ip/geolocate | Geolocate an IP address
@@ -114,6 +116,7 @@ Class | Method | HTTP request | Description
 
  - [SwagAddressGetServersResponse](docs/SwagAddressGetServersResponse.md)
  - [SwagAddressVerifySyntaxOnlyResponse](docs/SwagAddressVerifySyntaxOnlyResponse.md)
+ - [SwagBotCheckResponse](docs/SwagBotCheckResponse.md)
  - [SwagCheckResponse](docs/SwagCheckResponse.md)
  - [SwagCountryDetails](docs/SwagCountryDetails.md)
  - [SwagCountryListResult](docs/SwagCountryListResult.md)
@@ -134,6 +137,7 @@ Class | Method | HTTP request | Description
  - [SwagGetPublicHolidaysRequest](docs/SwagGetPublicHolidaysRequest.md)
  - [SwagGetTimezonesRequest](docs/SwagGetTimezonesRequest.md)
  - [SwagGetTimezonesResponse](docs/SwagGetTimezonesResponse.md)
+ - [SwagIPIntelligenceResponse](docs/SwagIPIntelligenceResponse.md)
  - [SwagIPReverseDNSLookupResponse](docs/SwagIPReverseDNSLookupResponse.md)
  - [SwagIPThreatResponse](docs/SwagIPThreatResponse.md)
  - [SwagLastNameValidationRequest](docs/SwagLastNameValidationRequest.md)
