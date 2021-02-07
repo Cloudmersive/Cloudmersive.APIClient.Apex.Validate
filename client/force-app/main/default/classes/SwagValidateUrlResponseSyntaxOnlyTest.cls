@@ -84,5 +84,6 @@ private class SwagValidateUrlResponseSyntaxOnlyTest {
         Map<String, String> propertyMappings = validateUrlResponseSyntaxOnly.getPropertyMappings();
         System.assertEquals('validURL', propertyMappings.get('ValidURL'));
         System.assertEquals('wellFormedURL', propertyMappings.get('WellFormedURL'));
+        System.assertEquals('topLevelDomainName', propertyMappings.get('TopLevelDomainName'));
     }
 }

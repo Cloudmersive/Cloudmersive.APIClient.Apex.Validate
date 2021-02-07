@@ -34,6 +34,39 @@ private class SwagDomainApiTest {
     }
 
     /**
+     * Get top-level domain name from URL
+     *
+     * Gets the top-level domain name from a URL, such as mydomain.com.
+     */
+    @isTest
+    private static void domainGetTopLevelDomainFromUrlTest() {
+        HttpResponse res = new HttpResponse();
+        res.setStatusCode(200);
+        res.setStatus('OK');
+        Test.setMock(HttpCalloutMock.class, new SwaggerResponseMock(res));
+
+        Map<String, Object> params = new Map<String, Object>{
+            'request' => SwagValidateUrlRequestSyntaxOnly.getExample()
+        };
+
+        SwagClient client;
+        SwagDomainApi api;
+        SwagValidateUrlResponseSyntaxOnly response;
+        SwagValidateUrlResponseSyntaxOnly expectedResponse;
+
+        client = new SwagClient();
+        api = new SwagDomainApi(client);
+        ((Swagger.ApiKeyAuth) client.getAuthentication('Apikey');
+            client.setApiKey('foo-bar-api-key');
+
+        res.setHeader('Content-Type', 'application/json');
+        res.setBody('{\r\n  "ValidURL" : true,\r\n  "TopLevelDomainName" : "TopLevelDomainName",\r\n  "WellFormedURL" : "WellFormedURL"\r\n}');
+        expectedResponse = SwagValidateUrlResponseSyntaxOnly.getExample();
+        response = (SwagValidateUrlResponseSyntaxOnly) api.domainGetTopLevelDomainFromUrl(params);
+        System.assertEquals(expectedResponse, response);
+    }
+
+    /**
      * Get WHOIS information for a domain
      *
      * Validate whether a domain name exists, and also return the full WHOIS record for that domain name.  WHOIS records include all the registration details of the domain name, such as information about the domain\&#39;s owners.
@@ -100,6 +133,72 @@ private class SwagDomainApiTest {
     }
 
     /**
+     * Check a URL for SSRF threats
+     *
+     * Checks if an input URL is at risk of being an SSRF (Server-side request forgery) threat or attack.
+     */
+    @isTest
+    private static void domainSsrfCheckTest() {
+        HttpResponse res = new HttpResponse();
+        res.setStatusCode(200);
+        res.setStatus('OK');
+        Test.setMock(HttpCalloutMock.class, new SwaggerResponseMock(res));
+
+        Map<String, Object> params = new Map<String, Object>{
+            'request' => SwagUrlSsrfRequestFull.getExample()
+        };
+
+        SwagClient client;
+        SwagDomainApi api;
+        SwagUrlSsrfResponseFull response;
+        SwagUrlSsrfResponseFull expectedResponse;
+
+        client = new SwagClient();
+        api = new SwagDomainApi(client);
+        ((Swagger.ApiKeyAuth) client.getAuthentication('Apikey');
+            client.setApiKey('foo-bar-api-key');
+
+        res.setHeader('Content-Type', 'application/json');
+        res.setBody('{\r\n  "ThreatLevel" : "ThreatLevel",\r\n  "CleanURL" : true\r\n}');
+        expectedResponse = SwagUrlSsrfResponseFull.getExample();
+        response = (SwagUrlSsrfResponseFull) api.domainSsrfCheck(params);
+        System.assertEquals(expectedResponse, response);
+    }
+
+    /**
+     * Check a URL for SSRF threats in batches
+     *
+     * Batch-checks if input URLs are at risk of being an SSRF (Server-side request forgery) threat or attack.
+     */
+    @isTest
+    private static void domainSsrfCheckBatchTest() {
+        HttpResponse res = new HttpResponse();
+        res.setStatusCode(200);
+        res.setStatus('OK');
+        Test.setMock(HttpCalloutMock.class, new SwaggerResponseMock(res));
+
+        Map<String, Object> params = new Map<String, Object>{
+            'request' => SwagUrlSsrfRequestBatch.getExample()
+        };
+
+        SwagClient client;
+        SwagDomainApi api;
+        SwagUrlSsrfResponseBatch response;
+        SwagUrlSsrfResponseBatch expectedResponse;
+
+        client = new SwagClient();
+        api = new SwagDomainApi(client);
+        ((Swagger.ApiKeyAuth) client.getAuthentication('Apikey');
+            client.setApiKey('foo-bar-api-key');
+
+        res.setHeader('Content-Type', 'application/json');
+        res.setBody('{\r\n  "OutputItems" : [ {\r\n    "ThreatLevel" : "ThreatLevel",\r\n    "CleanURL" : true\r\n  }, {\r\n    "ThreatLevel" : "ThreatLevel",\r\n    "CleanURL" : true\r\n  } ]\r\n}');
+        expectedResponse = SwagUrlSsrfResponseBatch.getExample();
+        response = (SwagUrlSsrfResponseBatch) api.domainSsrfCheckBatch(params);
+        System.assertEquals(expectedResponse, response);
+    }
+
+    /**
      * Validate a URL fully
      *
      * Validate whether a URL is syntactically valid (does not check endpoint for validity), whether it exists, and whether the endpoint is up and passes virus scan checks.  Accepts various types of input and produces a well-formed URL as output.
@@ -159,7 +258,7 @@ private class SwagDomainApiTest {
             client.setApiKey('foo-bar-api-key');
 
         res.setHeader('Content-Type', 'application/json');
-        res.setBody('{\r\n  "ValidURL" : true,\r\n  "WellFormedURL" : "WellFormedURL"\r\n}');
+        res.setBody('{\r\n  "ValidURL" : true,\r\n  "TopLevelDomainName" : "TopLevelDomainName",\r\n  "WellFormedURL" : "WellFormedURL"\r\n}');
         expectedResponse = SwagValidateUrlResponseSyntaxOnly.getExample();
         response = (SwagValidateUrlResponseSyntaxOnly) api.domainUrlSyntaxOnly(params);
         System.assertEquals(expectedResponse, response);

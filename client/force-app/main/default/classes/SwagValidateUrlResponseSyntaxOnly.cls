@@ -26,9 +26,16 @@ public class SwagValidateUrlResponseSyntaxOnly implements Swagger.MappedProperti
      */
     public String wellFormedURL { get; set; }
 
+    /**
+     * The top-level domain name of the URL, e.g. mydomain.com
+     * @return topLevelDomainName
+     */
+    public String topLevelDomainName { get; set; }
+
     private static final Map<String, String> propertyMappings = new Map<String, String>{
         'ValidURL' => 'validURL',
-        'WellFormedURL' => 'wellFormedURL'
+        'WellFormedURL' => 'wellFormedURL',
+        'TopLevelDomainName' => 'topLevelDomainName'
     };
 
     public Map<String, String> getPropertyMappings() {
@@ -39,6 +46,7 @@ public class SwagValidateUrlResponseSyntaxOnly implements Swagger.MappedProperti
         SwagValidateUrlResponseSyntaxOnly validateUrlResponseSyntaxOnly = new SwagValidateUrlResponseSyntaxOnly();
         validateUrlResponseSyntaxOnly.validURL = true;
         validateUrlResponseSyntaxOnly.wellFormedURL = 'aeiou';
+        validateUrlResponseSyntaxOnly.topLevelDomainName = 'aeiou';
         return validateUrlResponseSyntaxOnly;
     }
 
@@ -46,7 +54,8 @@ public class SwagValidateUrlResponseSyntaxOnly implements Swagger.MappedProperti
         if (obj instanceof SwagValidateUrlResponseSyntaxOnly) {
             SwagValidateUrlResponseSyntaxOnly validateUrlResponseSyntaxOnly = (SwagValidateUrlResponseSyntaxOnly) obj;
             return this.validURL == validateUrlResponseSyntaxOnly.validURL
-                && this.wellFormedURL == validateUrlResponseSyntaxOnly.wellFormedURL;
+                && this.wellFormedURL == validateUrlResponseSyntaxOnly.wellFormedURL
+                && this.topLevelDomainName == validateUrlResponseSyntaxOnly.topLevelDomainName;
         }
         return false;
     }
@@ -55,6 +64,7 @@ public class SwagValidateUrlResponseSyntaxOnly implements Swagger.MappedProperti
         Integer hashCode = 43;
         hashCode = (17 * hashCode) + (validURL == null ? 0 : System.hashCode(validURL));
         hashCode = (17 * hashCode) + (wellFormedURL == null ? 0 : System.hashCode(wellFormedURL));
+        hashCode = (17 * hashCode) + (topLevelDomainName == null ? 0 : System.hashCode(topLevelDomainName));
         return hashCode;
     }
 }

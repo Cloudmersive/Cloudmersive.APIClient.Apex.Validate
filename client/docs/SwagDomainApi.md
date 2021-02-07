@@ -5,8 +5,11 @@ All URIs are relative to *https://api.cloudmersive.com*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**domainCheck**](SwagDomainApi.md#domainCheck) | **POST** /validate/domain/check | Validate a domain name
+[**domainGetTopLevelDomainFromUrl**](SwagDomainApi.md#domainGetTopLevelDomainFromUrl) | **POST** /validate/domain/url/get-top-level-domain | Get top-level domain name from URL
 [**domainPost**](SwagDomainApi.md#domainPost) | **POST** /validate/domain/whois | Get WHOIS information for a domain
 [**domainQualityScore**](SwagDomainApi.md#domainQualityScore) | **POST** /validate/domain/quality-score | Validate a domain name\&#39;s quality score
+[**domainSsrfCheck**](SwagDomainApi.md#domainSsrfCheck) | **POST** /validate/domain/url/ssrf-threat-check | Check a URL for SSRF threats
+[**domainSsrfCheckBatch**](SwagDomainApi.md#domainSsrfCheckBatch) | **POST** /validate/domain/url/ssrf-threat-check/batch | Check a URL for SSRF threats in batches
 [**domainUrlFull**](SwagDomainApi.md#domainUrlFull) | **POST** /validate/domain/url/full | Validate a URL fully
 [**domainUrlSyntaxOnly**](SwagDomainApi.md#domainUrlSyntaxOnly) | **POST** /validate/domain/url/syntax-only | Validate a URL syntactically
 
@@ -50,6 +53,55 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**SwagCheckResponse**](SwagCheckResponse.md)
+
+### Authorization
+
+[Apikey](../README.md#Apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a name="domainGetTopLevelDomainFromUrl"></a>
+# **domainGetTopLevelDomainFromUrl**
+> SwagValidateUrlResponseSyntaxOnly domainGetTopLevelDomainFromUrl(request)
+
+Get top-level domain name from URL
+
+Gets the top-level domain name from a URL, such as mydomain.com.
+
+### Example
+```java
+SwagDomainApi api = new SwagDomainApi();
+SwagClient client = api.getClient();
+
+// Configure API key authorization: Apikey
+ApiKeyAuth Apikey = (ApiKeyAuth) client.getAuthentication('Apikey');
+Apikey.setApiKey('YOUR API KEY');
+
+Map<String, Object> params = new Map<String, Object>{
+    'request' => SwagValidateUrlRequestSyntaxOnly.getExample()
+};
+
+try {
+    // cross your fingers
+    SwagValidateUrlResponseSyntaxOnly result = api.domainGetTopLevelDomainFromUrl(params);
+    System.debug(result);
+} catch (Swagger.ApiException e) {
+    // ...handle your exceptions
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **request** | [**SwagValidateUrlRequestSyntaxOnly**](SwagValidateUrlRequestSyntaxOnly.md)| Input URL information |
+
+### Return type
+
+[**SwagValidateUrlResponseSyntaxOnly**](SwagValidateUrlResponseSyntaxOnly.md)
 
 ### Authorization
 
@@ -148,6 +200,104 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**SwagDomainQualityResponse**](SwagDomainQualityResponse.md)
+
+### Authorization
+
+[Apikey](../README.md#Apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a name="domainSsrfCheck"></a>
+# **domainSsrfCheck**
+> SwagUrlSsrfResponseFull domainSsrfCheck(request)
+
+Check a URL for SSRF threats
+
+Checks if an input URL is at risk of being an SSRF (Server-side request forgery) threat or attack.
+
+### Example
+```java
+SwagDomainApi api = new SwagDomainApi();
+SwagClient client = api.getClient();
+
+// Configure API key authorization: Apikey
+ApiKeyAuth Apikey = (ApiKeyAuth) client.getAuthentication('Apikey');
+Apikey.setApiKey('YOUR API KEY');
+
+Map<String, Object> params = new Map<String, Object>{
+    'request' => SwagUrlSsrfRequestFull.getExample()
+};
+
+try {
+    // cross your fingers
+    SwagUrlSsrfResponseFull result = api.domainSsrfCheck(params);
+    System.debug(result);
+} catch (Swagger.ApiException e) {
+    // ...handle your exceptions
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **request** | [**SwagUrlSsrfRequestFull**](SwagUrlSsrfRequestFull.md)| Input URL request |
+
+### Return type
+
+[**SwagUrlSsrfResponseFull**](SwagUrlSsrfResponseFull.md)
+
+### Authorization
+
+[Apikey](../README.md#Apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a name="domainSsrfCheckBatch"></a>
+# **domainSsrfCheckBatch**
+> SwagUrlSsrfResponseBatch domainSsrfCheckBatch(request)
+
+Check a URL for SSRF threats in batches
+
+Batch-checks if input URLs are at risk of being an SSRF (Server-side request forgery) threat or attack.
+
+### Example
+```java
+SwagDomainApi api = new SwagDomainApi();
+SwagClient client = api.getClient();
+
+// Configure API key authorization: Apikey
+ApiKeyAuth Apikey = (ApiKeyAuth) client.getAuthentication('Apikey');
+Apikey.setApiKey('YOUR API KEY');
+
+Map<String, Object> params = new Map<String, Object>{
+    'request' => SwagUrlSsrfRequestBatch.getExample()
+};
+
+try {
+    // cross your fingers
+    SwagUrlSsrfResponseBatch result = api.domainSsrfCheckBatch(params);
+    System.debug(result);
+} catch (Swagger.ApiException e) {
+    // ...handle your exceptions
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **request** | [**SwagUrlSsrfRequestBatch**](SwagUrlSsrfRequestBatch.md)| Input URL request as a batch of multiple URLs |
+
+### Return type
+
+[**SwagUrlSsrfResponseBatch**](SwagUrlSsrfResponseBatch.md)
 
 ### Authorization
 

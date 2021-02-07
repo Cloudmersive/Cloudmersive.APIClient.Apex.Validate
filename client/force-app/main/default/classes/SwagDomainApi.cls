@@ -50,6 +50,30 @@ public class SwagDomainApi {
         );
     }
     /**
+     * Get top-level domain name from URL
+     * Gets the top-level domain name from a URL, such as mydomain.com.
+     * @param request Input URL information (required)
+     * @return SwagValidateUrlResponseSyntaxOnly
+     * @throws Swagger.ApiException if fails to make API call
+     */
+    public SwagValidateUrlResponseSyntaxOnly domainGetTopLevelDomainFromUrl(Map<String, Object> params) {
+        client.assertNotNull(params.get('request'), 'request');
+        List<Swagger.Param> query = new List<Swagger.Param>();
+        List<Swagger.Param> form = new List<Swagger.Param>();
+
+        return (SwagValidateUrlResponseSyntaxOnly) client.invoke(
+            'POST', '/validate/domain/url/get-top-level-domain',
+            (SwagValidateUrlRequestSyntaxOnly) params.get('request'),
+            query, form,
+            new Map<String, Object>(),
+            new Map<String, Object>(),
+            new List<String>{ 'application/json' },
+            new List<String>{ 'application/json' },
+            new List<String> { 'Apikey' },
+            SwagValidateUrlResponseSyntaxOnly.class
+        );
+    }
+    /**
      * Get WHOIS information for a domain
      * Validate whether a domain name exists, and also return the full WHOIS record for that domain name.  WHOIS records include all the registration details of the domain name, such as information about the domain\&#39;s owners.
      * @param domain Domain name to check, for example &quot;cloudmersive.com&quot;.   The input is a string so be sure to enclose it in double-quotes. (required)
@@ -95,6 +119,54 @@ public class SwagDomainApi {
             new List<String>{ 'application/json' },
             new List<String> { 'Apikey' },
             SwagDomainQualityResponse.class
+        );
+    }
+    /**
+     * Check a URL for SSRF threats
+     * Checks if an input URL is at risk of being an SSRF (Server-side request forgery) threat or attack.
+     * @param request Input URL request (required)
+     * @return SwagUrlSsrfResponseFull
+     * @throws Swagger.ApiException if fails to make API call
+     */
+    public SwagUrlSsrfResponseFull domainSsrfCheck(Map<String, Object> params) {
+        client.assertNotNull(params.get('request'), 'request');
+        List<Swagger.Param> query = new List<Swagger.Param>();
+        List<Swagger.Param> form = new List<Swagger.Param>();
+
+        return (SwagUrlSsrfResponseFull) client.invoke(
+            'POST', '/validate/domain/url/ssrf-threat-check',
+            (SwagUrlSsrfRequestFull) params.get('request'),
+            query, form,
+            new Map<String, Object>(),
+            new Map<String, Object>(),
+            new List<String>{ 'application/json' },
+            new List<String>{ 'application/json' },
+            new List<String> { 'Apikey' },
+            SwagUrlSsrfResponseFull.class
+        );
+    }
+    /**
+     * Check a URL for SSRF threats in batches
+     * Batch-checks if input URLs are at risk of being an SSRF (Server-side request forgery) threat or attack.
+     * @param request Input URL request as a batch of multiple URLs (required)
+     * @return SwagUrlSsrfResponseBatch
+     * @throws Swagger.ApiException if fails to make API call
+     */
+    public SwagUrlSsrfResponseBatch domainSsrfCheckBatch(Map<String, Object> params) {
+        client.assertNotNull(params.get('request'), 'request');
+        List<Swagger.Param> query = new List<Swagger.Param>();
+        List<Swagger.Param> form = new List<Swagger.Param>();
+
+        return (SwagUrlSsrfResponseBatch) client.invoke(
+            'POST', '/validate/domain/url/ssrf-threat-check/batch',
+            (SwagUrlSsrfRequestBatch) params.get('request'),
+            query, form,
+            new Map<String, Object>(),
+            new Map<String, Object>(),
+            new List<String>{ 'application/json' },
+            new List<String>{ 'application/json' },
+            new List<String> { 'Apikey' },
+            SwagUrlSsrfResponseBatch.class
         );
     }
     /**

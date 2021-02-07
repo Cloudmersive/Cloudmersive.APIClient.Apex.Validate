@@ -84,8 +84,11 @@ Class | Method | HTTP request | Description
 *SwagDateTimeApi* | [**dateTimeParseNaturalLanguageDateTime**](docs/SwagDateTimeApi.md#dateTimeParseNaturalLanguageDateTime) | **POST** /validate/date-time/parse/date-time/natural-language | Parses a free-form natural language date and time string into a date and time
 *SwagDateTimeApi* | [**dateTimeParseStandardDateTime**](docs/SwagDateTimeApi.md#dateTimeParseStandardDateTime) | **POST** /validate/date-time/parse/date-time/structured | Parses a standardized date and time string into a date and time
 *SwagDomainApi* | [**domainCheck**](docs/SwagDomainApi.md#domainCheck) | **POST** /validate/domain/check | Validate a domain name
+*SwagDomainApi* | [**domainGetTopLevelDomainFromUrl**](docs/SwagDomainApi.md#domainGetTopLevelDomainFromUrl) | **POST** /validate/domain/url/get-top-level-domain | Get top-level domain name from URL
 *SwagDomainApi* | [**domainPost**](docs/SwagDomainApi.md#domainPost) | **POST** /validate/domain/whois | Get WHOIS information for a domain
 *SwagDomainApi* | [**domainQualityScore**](docs/SwagDomainApi.md#domainQualityScore) | **POST** /validate/domain/quality-score | Validate a domain name\&#39;s quality score
+*SwagDomainApi* | [**domainSsrfCheck**](docs/SwagDomainApi.md#domainSsrfCheck) | **POST** /validate/domain/url/ssrf-threat-check | Check a URL for SSRF threats
+*SwagDomainApi* | [**domainSsrfCheckBatch**](docs/SwagDomainApi.md#domainSsrfCheckBatch) | **POST** /validate/domain/url/ssrf-threat-check/batch | Check a URL for SSRF threats in batches
 *SwagDomainApi* | [**domainUrlFull**](docs/SwagDomainApi.md#domainUrlFull) | **POST** /validate/domain/url/full | Validate a URL fully
 *SwagDomainApi* | [**domainUrlSyntaxOnly**](docs/SwagDomainApi.md#domainUrlSyntaxOnly) | **POST** /validate/domain/url/syntax-only | Validate a URL syntactically
 *SwagEmailApi* | [**emailAddressGetServers**](docs/SwagEmailApi.md#emailAddressGetServers) | **POST** /validate/email/address/servers | Partially check whether an email address is valid
@@ -155,6 +158,10 @@ Class | Method | HTTP request | Description
  - [SwagReverseGeocodeAddressResponse](docs/SwagReverseGeocodeAddressResponse.md)
  - [SwagTimezone](docs/SwagTimezone.md)
  - [SwagTorNodeResponse](docs/SwagTorNodeResponse.md)
+ - [SwagUrlSsrfRequestBatch](docs/SwagUrlSsrfRequestBatch.md)
+ - [SwagUrlSsrfRequestFull](docs/SwagUrlSsrfRequestFull.md)
+ - [SwagUrlSsrfResponseBatch](docs/SwagUrlSsrfResponseBatch.md)
+ - [SwagUrlSsrfResponseFull](docs/SwagUrlSsrfResponseFull.md)
  - [SwagUserAgentValidateRequest](docs/SwagUserAgentValidateRequest.md)
  - [SwagUserAgentValidateResponse](docs/SwagUserAgentValidateResponse.md)
  - [SwagValidateAddressRequest](docs/SwagValidateAddressRequest.md)
