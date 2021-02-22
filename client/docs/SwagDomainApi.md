@@ -6,8 +6,10 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**domainCheck**](SwagDomainApi.md#domainCheck) | **POST** /validate/domain/check | Validate a domain name
 [**domainGetTopLevelDomainFromUrl**](SwagDomainApi.md#domainGetTopLevelDomainFromUrl) | **POST** /validate/domain/url/get-top-level-domain | Get top-level domain name from URL
+[**domainPhishingCheck**](SwagDomainApi.md#domainPhishingCheck) | **POST** /validate/domain/url/phishing-threat-check | Check a URL for Phishing threats
 [**domainPost**](SwagDomainApi.md#domainPost) | **POST** /validate/domain/whois | Get WHOIS information for a domain
 [**domainQualityScore**](SwagDomainApi.md#domainQualityScore) | **POST** /validate/domain/quality-score | Validate a domain name\&#39;s quality score
+[**domainSafetyCheck**](SwagDomainApi.md#domainSafetyCheck) | **POST** /validate/domain/url/safety-threat-check | Check a URL for safety threats
 [**domainSsrfCheck**](SwagDomainApi.md#domainSsrfCheck) | **POST** /validate/domain/url/ssrf-threat-check | Check a URL for SSRF threats
 [**domainSsrfCheckBatch**](SwagDomainApi.md#domainSsrfCheckBatch) | **POST** /validate/domain/url/ssrf-threat-check/batch | Check a URL for SSRF threats in batches
 [**domainUrlFull**](SwagDomainApi.md#domainUrlFull) | **POST** /validate/domain/url/full | Validate a URL fully
@@ -112,6 +114,55 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+<a name="domainPhishingCheck"></a>
+# **domainPhishingCheck**
+> SwagPhishingCheckResponse domainPhishingCheck(request)
+
+Check a URL for Phishing threats
+
+Checks if an input URL is at risk of being an Phishing (fake login page, or other page designed to collect information via social engineering) threat or attack.
+
+### Example
+```java
+SwagDomainApi api = new SwagDomainApi();
+SwagClient client = api.getClient();
+
+// Configure API key authorization: Apikey
+ApiKeyAuth Apikey = (ApiKeyAuth) client.getAuthentication('Apikey');
+Apikey.setApiKey('YOUR API KEY');
+
+Map<String, Object> params = new Map<String, Object>{
+    'request' => SwagPhishingCheckRequest.getExample()
+};
+
+try {
+    // cross your fingers
+    SwagPhishingCheckResponse result = api.domainPhishingCheck(params);
+    System.debug(result);
+} catch (Swagger.ApiException e) {
+    // ...handle your exceptions
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **request** | [**SwagPhishingCheckRequest**](SwagPhishingCheckRequest.md)| Input URL request |
+
+### Return type
+
+[**SwagPhishingCheckResponse**](SwagPhishingCheckResponse.md)
+
+### Authorization
+
+[Apikey](../README.md#Apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
 <a name="domainPost"></a>
 # **domainPost**
 > SwagWhoisResponse domainPost(domain)
@@ -200,6 +251,55 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**SwagDomainQualityResponse**](SwagDomainQualityResponse.md)
+
+### Authorization
+
+[Apikey](../README.md#Apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a name="domainSafetyCheck"></a>
+# **domainSafetyCheck**
+> SwagUrlSafetyCheckResponseFull domainSafetyCheck(request)
+
+Check a URL for safety threats
+
+Checks if an input URL is at risk of being a safety threat through malware, unwanted software, or social engineering threats.
+
+### Example
+```java
+SwagDomainApi api = new SwagDomainApi();
+SwagClient client = api.getClient();
+
+// Configure API key authorization: Apikey
+ApiKeyAuth Apikey = (ApiKeyAuth) client.getAuthentication('Apikey');
+Apikey.setApiKey('YOUR API KEY');
+
+Map<String, Object> params = new Map<String, Object>{
+    'request' => SwagUrlSafetyCheckRequestFull.getExample()
+};
+
+try {
+    // cross your fingers
+    SwagUrlSafetyCheckResponseFull result = api.domainSafetyCheck(params);
+    System.debug(result);
+} catch (Swagger.ApiException e) {
+    // ...handle your exceptions
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **request** | [**SwagUrlSafetyCheckRequestFull**](SwagUrlSafetyCheckRequestFull.md)| Input URL request |
+
+### Return type
+
+[**SwagUrlSafetyCheckResponseFull**](SwagUrlSafetyCheckResponseFull.md)
 
 ### Authorization
 

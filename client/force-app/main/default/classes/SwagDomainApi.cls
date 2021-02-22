@@ -74,6 +74,30 @@ public class SwagDomainApi {
         );
     }
     /**
+     * Check a URL for Phishing threats
+     * Checks if an input URL is at risk of being an Phishing (fake login page, or other page designed to collect information via social engineering) threat or attack.
+     * @param request Input URL request (required)
+     * @return SwagPhishingCheckResponse
+     * @throws Swagger.ApiException if fails to make API call
+     */
+    public SwagPhishingCheckResponse domainPhishingCheck(Map<String, Object> params) {
+        client.assertNotNull(params.get('request'), 'request');
+        List<Swagger.Param> query = new List<Swagger.Param>();
+        List<Swagger.Param> form = new List<Swagger.Param>();
+
+        return (SwagPhishingCheckResponse) client.invoke(
+            'POST', '/validate/domain/url/phishing-threat-check',
+            (SwagPhishingCheckRequest) params.get('request'),
+            query, form,
+            new Map<String, Object>(),
+            new Map<String, Object>(),
+            new List<String>{ 'application/json' },
+            new List<String>{ 'application/json' },
+            new List<String> { 'Apikey' },
+            SwagPhishingCheckResponse.class
+        );
+    }
+    /**
      * Get WHOIS information for a domain
      * Validate whether a domain name exists, and also return the full WHOIS record for that domain name.  WHOIS records include all the registration details of the domain name, such as information about the domain\&#39;s owners.
      * @param domain Domain name to check, for example &quot;cloudmersive.com&quot;.   The input is a string so be sure to enclose it in double-quotes. (required)
@@ -119,6 +143,30 @@ public class SwagDomainApi {
             new List<String>{ 'application/json' },
             new List<String> { 'Apikey' },
             SwagDomainQualityResponse.class
+        );
+    }
+    /**
+     * Check a URL for safety threats
+     * Checks if an input URL is at risk of being a safety threat through malware, unwanted software, or social engineering threats.
+     * @param request Input URL request (required)
+     * @return SwagUrlSafetyCheckResponseFull
+     * @throws Swagger.ApiException if fails to make API call
+     */
+    public SwagUrlSafetyCheckResponseFull domainSafetyCheck(Map<String, Object> params) {
+        client.assertNotNull(params.get('request'), 'request');
+        List<Swagger.Param> query = new List<Swagger.Param>();
+        List<Swagger.Param> form = new List<Swagger.Param>();
+
+        return (SwagUrlSafetyCheckResponseFull) client.invoke(
+            'POST', '/validate/domain/url/safety-threat-check',
+            (SwagUrlSafetyCheckRequestFull) params.get('request'),
+            query, form,
+            new Map<String, Object>(),
+            new Map<String, Object>(),
+            new List<String>{ 'application/json' },
+            new List<String>{ 'application/json' },
+            new List<String> { 'Apikey' },
+            SwagUrlSafetyCheckResponseFull.class
         );
     }
     /**

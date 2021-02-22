@@ -85,8 +85,10 @@ Class | Method | HTTP request | Description
 *SwagDateTimeApi* | [**dateTimeParseStandardDateTime**](docs/SwagDateTimeApi.md#dateTimeParseStandardDateTime) | **POST** /validate/date-time/parse/date-time/structured | Parses a standardized date and time string into a date and time
 *SwagDomainApi* | [**domainCheck**](docs/SwagDomainApi.md#domainCheck) | **POST** /validate/domain/check | Validate a domain name
 *SwagDomainApi* | [**domainGetTopLevelDomainFromUrl**](docs/SwagDomainApi.md#domainGetTopLevelDomainFromUrl) | **POST** /validate/domain/url/get-top-level-domain | Get top-level domain name from URL
+*SwagDomainApi* | [**domainPhishingCheck**](docs/SwagDomainApi.md#domainPhishingCheck) | **POST** /validate/domain/url/phishing-threat-check | Check a URL for Phishing threats
 *SwagDomainApi* | [**domainPost**](docs/SwagDomainApi.md#domainPost) | **POST** /validate/domain/whois | Get WHOIS information for a domain
 *SwagDomainApi* | [**domainQualityScore**](docs/SwagDomainApi.md#domainQualityScore) | **POST** /validate/domain/quality-score | Validate a domain name\&#39;s quality score
+*SwagDomainApi* | [**domainSafetyCheck**](docs/SwagDomainApi.md#domainSafetyCheck) | **POST** /validate/domain/url/safety-threat-check | Check a URL for safety threats
 *SwagDomainApi* | [**domainSsrfCheck**](docs/SwagDomainApi.md#domainSsrfCheck) | **POST** /validate/domain/url/ssrf-threat-check | Check a URL for SSRF threats
 *SwagDomainApi* | [**domainSsrfCheckBatch**](docs/SwagDomainApi.md#domainSsrfCheckBatch) | **POST** /validate/domain/url/ssrf-threat-check/batch | Check a URL for SSRF threats in batches
 *SwagDomainApi* | [**domainUrlFull**](docs/SwagDomainApi.md#domainUrlFull) | **POST** /validate/domain/url/full | Validate a URL fully
@@ -150,6 +152,8 @@ Class | Method | HTTP request | Description
  - [SwagNormalizeAddressResponse](docs/SwagNormalizeAddressResponse.md)
  - [SwagParseAddressRequest](docs/SwagParseAddressRequest.md)
  - [SwagParseAddressResponse](docs/SwagParseAddressResponse.md)
+ - [SwagPhishingCheckRequest](docs/SwagPhishingCheckRequest.md)
+ - [SwagPhishingCheckResponse](docs/SwagPhishingCheckResponse.md)
  - [SwagPhoneNumberValidateRequest](docs/SwagPhoneNumberValidateRequest.md)
  - [SwagPhoneNumberValidationResponse](docs/SwagPhoneNumberValidationResponse.md)
  - [SwagPublicHolidayOccurrence](docs/SwagPublicHolidayOccurrence.md)
@@ -158,6 +162,8 @@ Class | Method | HTTP request | Description
  - [SwagReverseGeocodeAddressResponse](docs/SwagReverseGeocodeAddressResponse.md)
  - [SwagTimezone](docs/SwagTimezone.md)
  - [SwagTorNodeResponse](docs/SwagTorNodeResponse.md)
+ - [SwagUrlSafetyCheckRequestFull](docs/SwagUrlSafetyCheckRequestFull.md)
+ - [SwagUrlSafetyCheckResponseFull](docs/SwagUrlSafetyCheckResponseFull.md)
  - [SwagUrlSsrfRequestBatch](docs/SwagUrlSsrfRequestBatch.md)
  - [SwagUrlSsrfRequestFull](docs/SwagUrlSsrfRequestFull.md)
  - [SwagUrlSsrfResponseBatch](docs/SwagUrlSsrfResponseBatch.md)

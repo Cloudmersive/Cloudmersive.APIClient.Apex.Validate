@@ -67,6 +67,39 @@ private class SwagDomainApiTest {
     }
 
     /**
+     * Check a URL for Phishing threats
+     *
+     * Checks if an input URL is at risk of being an Phishing (fake login page, or other page designed to collect information via social engineering) threat or attack.
+     */
+    @isTest
+    private static void domainPhishingCheckTest() {
+        HttpResponse res = new HttpResponse();
+        res.setStatusCode(200);
+        res.setStatus('OK');
+        Test.setMock(HttpCalloutMock.class, new SwaggerResponseMock(res));
+
+        Map<String, Object> params = new Map<String, Object>{
+            'request' => SwagPhishingCheckRequest.getExample()
+        };
+
+        SwagClient client;
+        SwagDomainApi api;
+        SwagPhishingCheckResponse response;
+        SwagPhishingCheckResponse expectedResponse;
+
+        client = new SwagClient();
+        api = new SwagDomainApi(client);
+        ((Swagger.ApiKeyAuth) client.getAuthentication('Apikey');
+            client.setApiKey('foo-bar-api-key');
+
+        res.setHeader('Content-Type', 'application/json');
+        res.setBody('{\r\n  "CleanURL" : true,\r\n  "ThreatType" : "ThreatType"\r\n}');
+        expectedResponse = SwagPhishingCheckResponse.getExample();
+        response = (SwagPhishingCheckResponse) api.domainPhishingCheck(params);
+        System.assertEquals(expectedResponse, response);
+    }
+
+    /**
      * Get WHOIS information for a domain
      *
      * Validate whether a domain name exists, and also return the full WHOIS record for that domain name.  WHOIS records include all the registration details of the domain name, such as information about the domain\&#39;s owners.
@@ -129,6 +162,39 @@ private class SwagDomainApiTest {
         res.setBody('{\r\n  "DomainQualityScore" : 0.8008281904610115\r\n}');
         expectedResponse = SwagDomainQualityResponse.getExample();
         response = (SwagDomainQualityResponse) api.domainQualityScore(params);
+        System.assertEquals(expectedResponse, response);
+    }
+
+    /**
+     * Check a URL for safety threats
+     *
+     * Checks if an input URL is at risk of being a safety threat through malware, unwanted software, or social engineering threats.
+     */
+    @isTest
+    private static void domainSafetyCheckTest() {
+        HttpResponse res = new HttpResponse();
+        res.setStatusCode(200);
+        res.setStatus('OK');
+        Test.setMock(HttpCalloutMock.class, new SwaggerResponseMock(res));
+
+        Map<String, Object> params = new Map<String, Object>{
+            'request' => SwagUrlSafetyCheckRequestFull.getExample()
+        };
+
+        SwagClient client;
+        SwagDomainApi api;
+        SwagUrlSafetyCheckResponseFull response;
+        SwagUrlSafetyCheckResponseFull expectedResponse;
+
+        client = new SwagClient();
+        api = new SwagDomainApi(client);
+        ((Swagger.ApiKeyAuth) client.getAuthentication('Apikey');
+            client.setApiKey('foo-bar-api-key');
+
+        res.setHeader('Content-Type', 'application/json');
+        res.setBody('{\r\n  "CleanURL" : true,\r\n  "ThreatType" : "ThreatType"\r\n}');
+        expectedResponse = SwagUrlSafetyCheckResponseFull.getExample();
+        response = (SwagUrlSafetyCheckResponseFull) api.domainSafetyCheck(params);
         System.assertEquals(expectedResponse, response);
     }
 
