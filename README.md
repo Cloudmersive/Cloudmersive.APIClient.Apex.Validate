@@ -110,6 +110,8 @@ Class | Method | HTTP request | Description
 *SwagNameApi* | [**nameValidateFullName**](docs/SwagNameApi.md#nameValidateFullName) | **POST** /validate/name/full-name | Parse and validate a full name
 *SwagNameApi* | [**nameValidateLastName**](docs/SwagNameApi.md#nameValidateLastName) | **POST** /validate/name/last | Validate a last name
 *SwagPhoneNumberApi* | [**phoneNumberSyntaxOnly**](docs/SwagPhoneNumberApi.md#phoneNumberSyntaxOnly) | **POST** /validate/phonenumber/basic | Validate phone number (basic)
+*SwagTextInputApi* | [**textInputCheckSqlInjection**](docs/SwagTextInputApi.md#textInputCheckSqlInjection) | **POST** /validate/text-input/check/sql-injection | Check text input for SQL Injection (SQLI) attacks
+*SwagTextInputApi* | [**textInputCheckSqlInjectionBatch**](docs/SwagTextInputApi.md#textInputCheckSqlInjectionBatch) | **POST** /validate/text-input/check/sql-injection/batch | Check and protect multiple text inputs for SQL Injection (SQLI) attacks in batch
 *SwagTextInputApi* | [**textInputCheckXss**](docs/SwagTextInputApi.md#textInputCheckXss) | **POST** /validate/text-input/check/xss | Check text input for Cross-Site-Scripting (XSS) attacks
 *SwagTextInputApi* | [**textInputCheckXssBatch**](docs/SwagTextInputApi.md#textInputCheckXssBatch) | **POST** /validate/text-input/check-and-protect/xss/batch | Check and protect multiple text inputs for Cross-Site-Scripting (XSS) attacks in batch
 *SwagTextInputApi* | [**textInputProtectXss**](docs/SwagTextInputApi.md#textInputProtectXss) | **POST** /validate/text-input/protect/xss | Protect text input from Cross-Site-Scripting (XSS) attacks through normalization
@@ -160,6 +162,10 @@ Class | Method | HTTP request | Description
  - [SwagPublicHolidaysResponse](docs/SwagPublicHolidaysResponse.md)
  - [SwagReverseGeocodeAddressRequest](docs/SwagReverseGeocodeAddressRequest.md)
  - [SwagReverseGeocodeAddressResponse](docs/SwagReverseGeocodeAddressResponse.md)
+ - [SwagSqlInjectionCheckBatchRequest](docs/SwagSqlInjectionCheckBatchRequest.md)
+ - [SwagSqlInjectionCheckBatchResponse](docs/SwagSqlInjectionCheckBatchResponse.md)
+ - [SwagSqlInjectionCheckRequestItem](docs/SwagSqlInjectionCheckRequestItem.md)
+ - [SwagSqlInjectionDetectionResult](docs/SwagSqlInjectionDetectionResult.md)
  - [SwagTimezone](docs/SwagTimezone.md)
  - [SwagTorNodeResponse](docs/SwagTorNodeResponse.md)
  - [SwagUrlSafetyCheckRequestFull](docs/SwagUrlSafetyCheckRequestFull.md)

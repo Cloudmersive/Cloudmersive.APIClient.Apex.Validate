@@ -26,6 +26,57 @@ public class SwagTextInputApi {
     }
 
     /**
+     * Check text input for SQL Injection (SQLI) attacks
+     * Detects SQL Injection (SQLI) attacks from text input.
+     * @param value User-facing text input. (required)
+     * @param detectionLevel Set to Normal to target a high-security SQL Injection detection level with a very low false positive rate; select High to target a very-high security SQL Injection detection level with higher false positives.  Default is Normal (recommended). (optional)
+     * @return SwagSqlInjectionDetectionResult
+     * @throws Swagger.ApiException if fails to make API call
+     */
+    public SwagSqlInjectionDetectionResult textInputCheckSqlInjection(Map<String, Object> params) {
+        client.assertNotNull(params.get('value'), 'value');
+        List<Swagger.Param> query = new List<Swagger.Param>();
+        List<Swagger.Param> form = new List<Swagger.Param>();
+
+        return (SwagSqlInjectionDetectionResult) client.invoke(
+            'POST', '/validate/text-input/check/sql-injection',
+            (String) params.get('value'),
+            query, form,
+            new Map<String, Object>(),
+            new Map<String, Object>{
+                'detectionLevel' => (String) params.get('detectionLevel')
+            },
+            new List<String>{ 'application/json' },
+            new List<String>{ 'application/json' },
+            new List<String> { 'Apikey' },
+            SwagSqlInjectionDetectionResult.class
+        );
+    }
+    /**
+     * Check and protect multiple text inputs for SQL Injection (SQLI) attacks in batch
+     * Detects SQL Injection (SQLI) attacks from multiple text inputs.  Output preverses order of input items.
+     * @param value User-facing text input. (required)
+     * @return SwagSqlInjectionCheckBatchResponse
+     * @throws Swagger.ApiException if fails to make API call
+     */
+    public SwagSqlInjectionCheckBatchResponse textInputCheckSqlInjectionBatch(Map<String, Object> params) {
+        client.assertNotNull(params.get('value'), 'value');
+        List<Swagger.Param> query = new List<Swagger.Param>();
+        List<Swagger.Param> form = new List<Swagger.Param>();
+
+        return (SwagSqlInjectionCheckBatchResponse) client.invoke(
+            'POST', '/validate/text-input/check/sql-injection/batch',
+            (SwagSqlInjectionCheckBatchRequest) params.get('value'),
+            query, form,
+            new Map<String, Object>(),
+            new Map<String, Object>(),
+            new List<String>{ 'application/json' },
+            new List<String>{ 'application/json' },
+            new List<String> { 'Apikey' },
+            SwagSqlInjectionCheckBatchResponse.class
+        );
+    }
+    /**
      * Check text input for Cross-Site-Scripting (XSS) attacks
      * Detects XSS (Cross-Site-Scripting) attacks from text input.
      * @param value User-facing text input. (required)
@@ -51,7 +102,7 @@ public class SwagTextInputApi {
     }
     /**
      * Check and protect multiple text inputs for Cross-Site-Scripting (XSS) attacks in batch
-     * Detects XSS (Cross-Site-Scripting) attacks from multiple text input.  Output preverses order of input items.
+     * Detects XSS (Cross-Site-Scripting) attacks from multiple text inputs.  Output preverses order of input items.
      * @param value User-facing text input. (required)
      * @return SwagXssProtectionBatchResponse
      * @throws Swagger.ApiException if fails to make API call
