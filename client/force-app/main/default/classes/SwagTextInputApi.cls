@@ -125,6 +125,61 @@ public class SwagTextInputApi {
         );
     }
     /**
+     * Protect text input from XML External Entity (XXE) attacks
+     * Detects XXE (XML External Entity) attacks from text input.
+     * @param value User-facing text input. (required)
+     * @param allowInternetUrls Optional: Set to true to allow Internet-based dependency URLs for DTDs and other XML External Entitites, set to false to block.  Default is false. (optional)
+     * @param knownSafeUrls Optional: Comma separated list of fully-qualified URLs that will automatically be considered safe. (optional)
+     * @param knownUnsafeUrls Optional: Comma separated list of fully-qualified URLs that will automatically be considered unsafe. (optional)
+     * @return SwagXxeDetectionResult
+     * @throws Swagger.ApiException if fails to make API call
+     */
+    public SwagXxeDetectionResult textInputCheckXxe(Map<String, Object> params) {
+        client.assertNotNull(params.get('value'), 'value');
+        List<Swagger.Param> query = new List<Swagger.Param>();
+        List<Swagger.Param> form = new List<Swagger.Param>();
+
+        return (SwagXxeDetectionResult) client.invoke(
+            'POST', '/validate/text-input/check/xxe',
+            (String) params.get('value'),
+            query, form,
+            new Map<String, Object>(),
+            new Map<String, Object>{
+                'allowInternetUrls' => (Boolean) params.get('allowInternetUrls'),
+                'knownSafeUrls' => (String) params.get('knownSafeUrls'),
+                'knownUnsafeUrls' => (String) params.get('knownUnsafeUrls')
+            },
+            new List<String>{ 'application/json' },
+            new List<String>{ 'application/json' },
+            new List<String> { 'Apikey' },
+            SwagXxeDetectionResult.class
+        );
+    }
+    /**
+     * Protect text input from XML External Entity (XXE) attacks
+     * Detects XXE (XML External Entity) attacks from text input.
+     * @param request  (required)
+     * @return SwagXxeDetectionBatchResponse
+     * @throws Swagger.ApiException if fails to make API call
+     */
+    public SwagXxeDetectionBatchResponse textInputCheckXxeBatch(Map<String, Object> params) {
+        client.assertNotNull(params.get('request'), 'request');
+        List<Swagger.Param> query = new List<Swagger.Param>();
+        List<Swagger.Param> form = new List<Swagger.Param>();
+
+        return (SwagXxeDetectionBatchResponse) client.invoke(
+            'POST', '/validate/text-input/check/xxe/batch',
+            (SwagXxeDetectionBatchRequest) params.get('request'),
+            query, form,
+            new Map<String, Object>(),
+            new Map<String, Object>(),
+            new List<String>{ 'application/json' },
+            new List<String>{ 'application/json' },
+            new List<String> { 'Apikey' },
+            SwagXxeDetectionBatchResponse.class
+        );
+    }
+    /**
      * Protect text input from Cross-Site-Scripting (XSS) attacks through normalization
      * Detects and removes XSS (Cross-Site-Scripting) attacks from text input through normalization.  Returns the normalized result, as well as information on whether the original input contained an XSS risk.
      * @param value User-facing text input. (required)

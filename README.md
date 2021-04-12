@@ -114,6 +114,8 @@ Class | Method | HTTP request | Description
 *SwagTextInputApi* | [**textInputCheckSqlInjectionBatch**](docs/SwagTextInputApi.md#textInputCheckSqlInjectionBatch) | **POST** /validate/text-input/check/sql-injection/batch | Check and protect multiple text inputs for SQL Injection (SQLI) attacks in batch
 *SwagTextInputApi* | [**textInputCheckXss**](docs/SwagTextInputApi.md#textInputCheckXss) | **POST** /validate/text-input/check/xss | Check text input for Cross-Site-Scripting (XSS) attacks
 *SwagTextInputApi* | [**textInputCheckXssBatch**](docs/SwagTextInputApi.md#textInputCheckXssBatch) | **POST** /validate/text-input/check-and-protect/xss/batch | Check and protect multiple text inputs for Cross-Site-Scripting (XSS) attacks in batch
+*SwagTextInputApi* | [**textInputCheckXxe**](docs/SwagTextInputApi.md#textInputCheckXxe) | **POST** /validate/text-input/check/xxe | Protect text input from XML External Entity (XXE) attacks
+*SwagTextInputApi* | [**textInputCheckXxeBatch**](docs/SwagTextInputApi.md#textInputCheckXxeBatch) | **POST** /validate/text-input/check/xxe/batch | Protect text input from XML External Entity (XXE) attacks
 *SwagTextInputApi* | [**textInputProtectXss**](docs/SwagTextInputApi.md#textInputProtectXss) | **POST** /validate/text-input/protect/xss | Protect text input from Cross-Site-Scripting (XSS) attacks through normalization
 *SwagUserAgentApi* | [**userAgentParse**](docs/SwagUserAgentApi.md#userAgentParse) | **POST** /validate/useragent/parse | Parse an HTTP User-Agent string, identify robots
 *SwagVatApi* | [**vatVatLookup**](docs/SwagVatApi.md#vatVatLookup) | **POST** /validate/vat/lookup | Validate a VAT number
@@ -199,6 +201,10 @@ Class | Method | HTTP request | Description
  - [SwagXssProtectionBatchResponse](docs/SwagXssProtectionBatchResponse.md)
  - [SwagXssProtectionRequestItem](docs/SwagXssProtectionRequestItem.md)
  - [SwagXssProtectionResult](docs/SwagXssProtectionResult.md)
+ - [SwagXxeDetectionBatchRequest](docs/SwagXxeDetectionBatchRequest.md)
+ - [SwagXxeDetectionBatchResponse](docs/SwagXxeDetectionBatchResponse.md)
+ - [SwagXxeDetectionRequestItem](docs/SwagXxeDetectionRequestItem.md)
+ - [SwagXxeDetectionResult](docs/SwagXxeDetectionResult.md)
 
 
 ## Documentation for Authorization

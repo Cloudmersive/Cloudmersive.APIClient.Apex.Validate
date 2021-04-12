@@ -134,6 +134,75 @@ private class SwagTextInputApiTest {
     }
 
     /**
+     * Protect text input from XML External Entity (XXE) attacks
+     *
+     * Detects XXE (XML External Entity) attacks from text input.
+     */
+    @isTest
+    private static void textInputCheckXxeTest() {
+        HttpResponse res = new HttpResponse();
+        res.setStatusCode(200);
+        res.setStatus('OK');
+        Test.setMock(HttpCalloutMock.class, new SwaggerResponseMock(res));
+
+        Map<String, Object> params = new Map<String, Object>{
+            'value' => 'value_example',
+            'allowInternetUrls' => true,
+            'knownSafeUrls' => 'knownSafeUrls_example',
+            'knownUnsafeUrls' => 'knownUnsafeUrls_example'
+        };
+
+        SwagClient client;
+        SwagTextInputApi api;
+        SwagXxeDetectionResult response;
+        SwagXxeDetectionResult expectedResponse;
+
+        client = new SwagClient();
+        api = new SwagTextInputApi(client);
+        ((Swagger.ApiKeyAuth) client.getAuthentication('Apikey');
+            client.setApiKey('foo-bar-api-key');
+
+        res.setHeader('Content-Type', 'application/json');
+        res.setBody('{\r\n  "Successful" : true,\r\n  "ContainedXxe" : true\r\n}');
+        expectedResponse = SwagXxeDetectionResult.getExample();
+        response = (SwagXxeDetectionResult) api.textInputCheckXxe(params);
+        System.assertEquals(expectedResponse, response);
+    }
+
+    /**
+     * Protect text input from XML External Entity (XXE) attacks
+     *
+     * Detects XXE (XML External Entity) attacks from text input.
+     */
+    @isTest
+    private static void textInputCheckXxeBatchTest() {
+        HttpResponse res = new HttpResponse();
+        res.setStatusCode(200);
+        res.setStatus('OK');
+        Test.setMock(HttpCalloutMock.class, new SwaggerResponseMock(res));
+
+        Map<String, Object> params = new Map<String, Object>{
+            'request' => SwagXxeDetectionBatchRequest.getExample()
+        };
+
+        SwagClient client;
+        SwagTextInputApi api;
+        SwagXxeDetectionBatchResponse response;
+        SwagXxeDetectionBatchResponse expectedResponse;
+
+        client = new SwagClient();
+        api = new SwagTextInputApi(client);
+        ((Swagger.ApiKeyAuth) client.getAuthentication('Apikey');
+            client.setApiKey('foo-bar-api-key');
+
+        res.setHeader('Content-Type', 'application/json');
+        res.setBody('{\r\n  "ResultItems" : [ {\r\n    "Successful" : true,\r\n    "ContainedXxe" : true\r\n  }, {\r\n    "Successful" : true,\r\n    "ContainedXxe" : true\r\n  } ]\r\n}');
+        expectedResponse = SwagXxeDetectionBatchResponse.getExample();
+        response = (SwagXxeDetectionBatchResponse) api.textInputCheckXxeBatch(params);
+        System.assertEquals(expectedResponse, response);
+    }
+
+    /**
      * Protect text input from Cross-Site-Scripting (XSS) attacks through normalization
      *
      * Detects and removes XSS (Cross-Site-Scripting) attacks from text input through normalization.  Returns the normalized result, as well as information on whether the original input contained an XSS risk.
