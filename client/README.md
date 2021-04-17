@@ -85,6 +85,7 @@ Class | Method | HTTP request | Description
 *SwagDateTimeApi* | [**dateTimeParseStandardDateTime**](docs/SwagDateTimeApi.md#dateTimeParseStandardDateTime) | **POST** /validate/date-time/parse/date-time/structured | Parses a standardized date and time string into a date and time
 *SwagDomainApi* | [**domainCheck**](docs/SwagDomainApi.md#domainCheck) | **POST** /validate/domain/check | Validate a domain name
 *SwagDomainApi* | [**domainGetTopLevelDomainFromUrl**](docs/SwagDomainApi.md#domainGetTopLevelDomainFromUrl) | **POST** /validate/domain/url/get-top-level-domain | Get top-level domain name from URL
+*SwagDomainApi* | [**domainIsAdminPath**](docs/SwagDomainApi.md#domainIsAdminPath) | **POST** /validate/domain/url/is-admin-path | Check if path is a high-risk server administration path
 *SwagDomainApi* | [**domainPhishingCheck**](docs/SwagDomainApi.md#domainPhishingCheck) | **POST** /validate/domain/url/phishing-threat-check | Check a URL for Phishing threats
 *SwagDomainApi* | [**domainPost**](docs/SwagDomainApi.md#domainPost) | **POST** /validate/domain/whois | Get WHOIS information for a domain
 *SwagDomainApi* | [**domainQualityScore**](docs/SwagDomainApi.md#domainQualityScore) | **POST** /validate/domain/quality-score | Validate a domain name\&#39;s quality score
@@ -149,6 +150,7 @@ Class | Method | HTTP request | Description
  - [SwagIPIntelligenceResponse](docs/SwagIPIntelligenceResponse.md)
  - [SwagIPReverseDNSLookupResponse](docs/SwagIPReverseDNSLookupResponse.md)
  - [SwagIPThreatResponse](docs/SwagIPThreatResponse.md)
+ - [SwagIsAdminPathResponse](docs/SwagIsAdminPathResponse.md)
  - [SwagLastNameValidationRequest](docs/SwagLastNameValidationRequest.md)
  - [SwagLastNameValidationResponse](docs/SwagLastNameValidationResponse.md)
  - [SwagLeadEnrichmentRequest](docs/SwagLeadEnrichmentRequest.md)

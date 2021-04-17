@@ -74,6 +74,30 @@ public class SwagDomainApi {
         );
     }
     /**
+     * Check if path is a high-risk server administration path
+     * Check if the input URL or relative path is a server Administration Path, and therefore a risk for remote access.
+     * @param value URL or relative path to check, e.g. &quot;/admin/login&quot;.  The input is a string so be sure to enclose it in double-quotes. (required)
+     * @return SwagIsAdminPathResponse
+     * @throws Swagger.ApiException if fails to make API call
+     */
+    public SwagIsAdminPathResponse domainIsAdminPath(Map<String, Object> params) {
+        client.assertNotNull(params.get('value'), 'value');
+        List<Swagger.Param> query = new List<Swagger.Param>();
+        List<Swagger.Param> form = new List<Swagger.Param>();
+
+        return (SwagIsAdminPathResponse) client.invoke(
+            'POST', '/validate/domain/url/is-admin-path',
+            (String) params.get('value'),
+            query, form,
+            new Map<String, Object>(),
+            new Map<String, Object>(),
+            new List<String>{ 'application/json' },
+            new List<String>{ 'application/json' },
+            new List<String> { 'Apikey' },
+            SwagIsAdminPathResponse.class
+        );
+    }
+    /**
      * Check a URL for Phishing threats
      * Checks if an input URL is at risk of being an Phishing (fake login page, or other page designed to collect information via social engineering) threat or attack.
      * @param request Input URL request (required)

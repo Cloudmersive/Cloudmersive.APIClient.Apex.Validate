@@ -67,6 +67,39 @@ private class SwagDomainApiTest {
     }
 
     /**
+     * Check if path is a high-risk server administration path
+     *
+     * Check if the input URL or relative path is a server Administration Path, and therefore a risk for remote access.
+     */
+    @isTest
+    private static void domainIsAdminPathTest() {
+        HttpResponse res = new HttpResponse();
+        res.setStatusCode(200);
+        res.setStatus('OK');
+        Test.setMock(HttpCalloutMock.class, new SwaggerResponseMock(res));
+
+        Map<String, Object> params = new Map<String, Object>{
+            'value' => 'value_example'
+        };
+
+        SwagClient client;
+        SwagDomainApi api;
+        SwagIsAdminPathResponse response;
+        SwagIsAdminPathResponse expectedResponse;
+
+        client = new SwagClient();
+        api = new SwagDomainApi(client);
+        ((Swagger.ApiKeyAuth) client.getAuthentication('Apikey');
+            client.setApiKey('foo-bar-api-key');
+
+        res.setHeader('Content-Type', 'application/json');
+        res.setBody('{\r\n  "IsAdminPathNode" : true,\r\n  "Successful" : true\r\n}');
+        expectedResponse = SwagIsAdminPathResponse.getExample();
+        response = (SwagIsAdminPathResponse) api.domainIsAdminPath(params);
+        System.assertEquals(expectedResponse, response);
+    }
+
+    /**
      * Check a URL for Phishing threats
      *
      * Checks if an input URL is at risk of being an Phishing (fake login page, or other page designed to collect information via social engineering) threat or attack.
