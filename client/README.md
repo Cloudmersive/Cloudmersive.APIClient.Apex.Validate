@@ -85,7 +85,7 @@ Class | Method | HTTP request | Description
 *SwagDateTimeApi* | [**dateTimeParseStandardDateTime**](docs/SwagDateTimeApi.md#dateTimeParseStandardDateTime) | **POST** /validate/date-time/parse/date-time/structured | Parses a standardized date and time string into a date and time
 *SwagDomainApi* | [**domainCheck**](docs/SwagDomainApi.md#domainCheck) | **POST** /validate/domain/check | Validate a domain name
 *SwagDomainApi* | [**domainGetTopLevelDomainFromUrl**](docs/SwagDomainApi.md#domainGetTopLevelDomainFromUrl) | **POST** /validate/domain/url/get-top-level-domain | Get top-level domain name from URL
-*SwagDomainApi* | [**domainIsAdminPath**](docs/SwagDomainApi.md#domainIsAdminPath) | **POST** /validate/domain/url/is-admin-path | Check if path is a high-risk server administration path
+*SwagDomainApi* | [**domainIsAdminPath**](docs/SwagDomainApi.md#domainIsAdminPath) | **POST** /validate/domain/url/is-admin-path | Check if path is a high-risk or vulnerable server administration path
 *SwagDomainApi* | [**domainPhishingCheck**](docs/SwagDomainApi.md#domainPhishingCheck) | **POST** /validate/domain/url/phishing-threat-check | Check a URL for Phishing threats
 *SwagDomainApi* | [**domainPost**](docs/SwagDomainApi.md#domainPost) | **POST** /validate/domain/whois | Get WHOIS information for a domain
 *SwagDomainApi* | [**domainQualityScore**](docs/SwagDomainApi.md#domainQualityScore) | **POST** /validate/domain/quality-score | Validate a domain name\&#39;s quality score
@@ -111,6 +111,7 @@ Class | Method | HTTP request | Description
 *SwagNameApi* | [**nameValidateFullName**](docs/SwagNameApi.md#nameValidateFullName) | **POST** /validate/name/full-name | Parse and validate a full name
 *SwagNameApi* | [**nameValidateLastName**](docs/SwagNameApi.md#nameValidateLastName) | **POST** /validate/name/last | Validate a last name
 *SwagPhoneNumberApi* | [**phoneNumberSyntaxOnly**](docs/SwagPhoneNumberApi.md#phoneNumberSyntaxOnly) | **POST** /validate/phonenumber/basic | Validate phone number (basic)
+*SwagTextInputApi* | [**textInputCheckHtmlSsrf**](docs/SwagTextInputApi.md#textInputCheckHtmlSsrf) | **POST** /validate/text-input/html/check/ssrf | Protect html input from Server-side Request Forgery (SSRF) attacks
 *SwagTextInputApi* | [**textInputCheckSqlInjection**](docs/SwagTextInputApi.md#textInputCheckSqlInjection) | **POST** /validate/text-input/check/sql-injection | Check text input for SQL Injection (SQLI) attacks
 *SwagTextInputApi* | [**textInputCheckSqlInjectionBatch**](docs/SwagTextInputApi.md#textInputCheckSqlInjectionBatch) | **POST** /validate/text-input/check/sql-injection/batch | Check and protect multiple text inputs for SQL Injection (SQLI) attacks in batch
 *SwagTextInputApi* | [**textInputCheckXss**](docs/SwagTextInputApi.md#textInputCheckXss) | **POST** /validate/text-input/check/xss | Check text input for Cross-Site-Scripting (XSS) attacks
@@ -147,6 +148,7 @@ Class | Method | HTTP request | Description
  - [SwagGetPublicHolidaysRequest](docs/SwagGetPublicHolidaysRequest.md)
  - [SwagGetTimezonesRequest](docs/SwagGetTimezonesRequest.md)
  - [SwagGetTimezonesResponse](docs/SwagGetTimezonesResponse.md)
+ - [SwagHtmlSsrfDetectionResult](docs/SwagHtmlSsrfDetectionResult.md)
  - [SwagIPIntelligenceResponse](docs/SwagIPIntelligenceResponse.md)
  - [SwagIPReverseDNSLookupResponse](docs/SwagIPReverseDNSLookupResponse.md)
  - [SwagIPThreatResponse](docs/SwagIPThreatResponse.md)

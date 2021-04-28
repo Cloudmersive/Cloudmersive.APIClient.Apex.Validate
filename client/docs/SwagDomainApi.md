@@ -6,7 +6,7 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**domainCheck**](SwagDomainApi.md#domainCheck) | **POST** /validate/domain/check | Validate a domain name
 [**domainGetTopLevelDomainFromUrl**](SwagDomainApi.md#domainGetTopLevelDomainFromUrl) | **POST** /validate/domain/url/get-top-level-domain | Get top-level domain name from URL
-[**domainIsAdminPath**](SwagDomainApi.md#domainIsAdminPath) | **POST** /validate/domain/url/is-admin-path | Check if path is a high-risk server administration path
+[**domainIsAdminPath**](SwagDomainApi.md#domainIsAdminPath) | **POST** /validate/domain/url/is-admin-path | Check if path is a high-risk or vulnerable server administration path
 [**domainPhishingCheck**](SwagDomainApi.md#domainPhishingCheck) | **POST** /validate/domain/url/phishing-threat-check | Check a URL for Phishing threats
 [**domainPost**](SwagDomainApi.md#domainPost) | **POST** /validate/domain/whois | Get WHOIS information for a domain
 [**domainQualityScore**](SwagDomainApi.md#domainQualityScore) | **POST** /validate/domain/quality-score | Validate a domain name\&#39;s quality score
@@ -119,9 +119,9 @@ Name | Type | Description  | Notes
 # **domainIsAdminPath**
 > SwagIsAdminPathResponse domainIsAdminPath(value)
 
-Check if path is a high-risk server administration path
+Check if path is a high-risk or vulnerable server administration path
 
-Check if the input URL or relative path is a server Administration Path, and therefore a risk for remote access.
+Check if the input URL or relative path is a server Administration Path, and therefore a risk or vulnerability for remote access.
 
 ### Example
 ```java

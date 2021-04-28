@@ -4,6 +4,7 @@ All URIs are relative to *https://api.cloudmersive.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**textInputCheckHtmlSsrf**](SwagTextInputApi.md#textInputCheckHtmlSsrf) | **POST** /validate/text-input/html/check/ssrf | Protect html input from Server-side Request Forgery (SSRF) attacks
 [**textInputCheckSqlInjection**](SwagTextInputApi.md#textInputCheckSqlInjection) | **POST** /validate/text-input/check/sql-injection | Check text input for SQL Injection (SQLI) attacks
 [**textInputCheckSqlInjectionBatch**](SwagTextInputApi.md#textInputCheckSqlInjectionBatch) | **POST** /validate/text-input/check/sql-injection/batch | Check and protect multiple text inputs for SQL Injection (SQLI) attacks in batch
 [**textInputCheckXss**](SwagTextInputApi.md#textInputCheckXss) | **POST** /validate/text-input/check/xss | Check text input for Cross-Site-Scripting (XSS) attacks
@@ -12,6 +13,55 @@ Method | HTTP request | Description
 [**textInputCheckXxeBatch**](SwagTextInputApi.md#textInputCheckXxeBatch) | **POST** /validate/text-input/check/xxe/batch | Protect text input from XML External Entity (XXE) attacks
 [**textInputProtectXss**](SwagTextInputApi.md#textInputProtectXss) | **POST** /validate/text-input/protect/xss | Protect text input from Cross-Site-Scripting (XSS) attacks through normalization
 
+
+<a name="textInputCheckHtmlSsrf"></a>
+# **textInputCheckHtmlSsrf**
+> SwagHtmlSsrfDetectionResult textInputCheckHtmlSsrf(value)
+
+Protect html input from Server-side Request Forgery (SSRF) attacks
+
+Detects SSRF (Server-side request forgery) attacks and unsafe URL attacks from HTML text input, where attackers can attempt to access unsafe local or network paths in the server environment by injecting them into HTML.
+
+### Example
+```java
+SwagTextInputApi api = new SwagTextInputApi();
+SwagClient client = api.getClient();
+
+// Configure API key authorization: Apikey
+ApiKeyAuth Apikey = (ApiKeyAuth) client.getAuthentication('Apikey');
+Apikey.setApiKey('YOUR API KEY');
+
+Map<String, Object> params = new Map<String, Object>{
+    'value' => 'value_example'
+};
+
+try {
+    // cross your fingers
+    SwagHtmlSsrfDetectionResult result = api.textInputCheckHtmlSsrf(params);
+    System.debug(result);
+} catch (Swagger.ApiException e) {
+    // ...handle your exceptions
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **value** | **String**| User-facing HTML input. |
+
+### Return type
+
+[**SwagHtmlSsrfDetectionResult**](SwagHtmlSsrfDetectionResult.md)
+
+### Authorization
+
+[Apikey](../README.md#Apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
 
 <a name="textInputCheckSqlInjection"></a>
 # **textInputCheckSqlInjection**

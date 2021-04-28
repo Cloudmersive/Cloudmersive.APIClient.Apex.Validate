@@ -1,6 +1,39 @@
 @isTest
 private class SwagTextInputApiTest {
     /**
+     * Protect html input from Server-side Request Forgery (SSRF) attacks
+     *
+     * Detects SSRF (Server-side request forgery) attacks and unsafe URL attacks from HTML text input, where attackers can attempt to access unsafe local or network paths in the server environment by injecting them into HTML.
+     */
+    @isTest
+    private static void textInputCheckHtmlSsrfTest() {
+        HttpResponse res = new HttpResponse();
+        res.setStatusCode(200);
+        res.setStatus('OK');
+        Test.setMock(HttpCalloutMock.class, new SwaggerResponseMock(res));
+
+        Map<String, Object> params = new Map<String, Object>{
+            'value' => 'value_example'
+        };
+
+        SwagClient client;
+        SwagTextInputApi api;
+        SwagHtmlSsrfDetectionResult response;
+        SwagHtmlSsrfDetectionResult expectedResponse;
+
+        client = new SwagClient();
+        api = new SwagTextInputApi(client);
+        ((Swagger.ApiKeyAuth) client.getAuthentication('Apikey');
+            client.setApiKey('foo-bar-api-key');
+
+        res.setHeader('Content-Type', 'application/json');
+        res.setBody('{\r\n  "ContainedThreats" : true,\r\n  "Successful" : true\r\n}');
+        expectedResponse = SwagHtmlSsrfDetectionResult.getExample();
+        response = (SwagHtmlSsrfDetectionResult) api.textInputCheckHtmlSsrf(params);
+        System.assertEquals(expectedResponse, response);
+    }
+
+    /**
      * Check text input for SQL Injection (SQLI) attacks
      *
      * Detects SQL Injection (SQLI) attacks from text input.

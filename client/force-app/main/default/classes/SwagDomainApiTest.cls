@@ -67,9 +67,9 @@ private class SwagDomainApiTest {
     }
 
     /**
-     * Check if path is a high-risk server administration path
+     * Check if path is a high-risk or vulnerable server administration path
      *
-     * Check if the input URL or relative path is a server Administration Path, and therefore a risk for remote access.
+     * Check if the input URL or relative path is a server Administration Path, and therefore a risk or vulnerability for remote access.
      */
     @isTest
     private static void domainIsAdminPathTest() {
