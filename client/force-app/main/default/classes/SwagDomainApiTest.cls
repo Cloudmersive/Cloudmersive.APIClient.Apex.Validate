@@ -331,6 +331,39 @@ private class SwagDomainApiTest {
     }
 
     /**
+     * Check a URL for HTML embedded SSRF threats
+     *
+     * Checks if an input URL HTML is at risk of containing one or more embedded SSRF (Server-side request forgery) threats or attacks.
+     */
+    @isTest
+    private static void domainUrlHtmlSsrfCheckTest() {
+        HttpResponse res = new HttpResponse();
+        res.setStatusCode(200);
+        res.setStatus('OK');
+        Test.setMock(HttpCalloutMock.class, new SwaggerResponseMock(res));
+
+        Map<String, Object> params = new Map<String, Object>{
+            'request' => SwagUrlHtmlSsrfRequestFull.getExample()
+        };
+
+        SwagClient client;
+        SwagDomainApi api;
+        SwagUrlHtmlSsrfResponseFull response;
+        SwagUrlHtmlSsrfResponseFull expectedResponse;
+
+        client = new SwagClient();
+        api = new SwagDomainApi(client);
+        ((Swagger.ApiKeyAuth) client.getAuthentication('Apikey');
+            client.setApiKey('foo-bar-api-key');
+
+        res.setHeader('Content-Type', 'application/json');
+        res.setBody('{\r\n  "CleanURL" : true,\r\n  "HttpResponseCode" : 0\r\n}');
+        expectedResponse = SwagUrlHtmlSsrfResponseFull.getExample();
+        response = (SwagUrlHtmlSsrfResponseFull) api.domainUrlHtmlSsrfCheck(params);
+        System.assertEquals(expectedResponse, response);
+    }
+
+    /**
      * Validate a URL syntactically
      *
      * Validate whether a URL is syntactically valid (does not check endpoint for validity).  Accepts various types of input and produces a well-formed URL as output.

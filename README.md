@@ -93,6 +93,7 @@ Class | Method | HTTP request | Description
 *SwagDomainApi* | [**domainSsrfCheck**](docs/SwagDomainApi.md#domainSsrfCheck) | **POST** /validate/domain/url/ssrf-threat-check | Check a URL for SSRF threats
 *SwagDomainApi* | [**domainSsrfCheckBatch**](docs/SwagDomainApi.md#domainSsrfCheckBatch) | **POST** /validate/domain/url/ssrf-threat-check/batch | Check a URL for SSRF threats in batches
 *SwagDomainApi* | [**domainUrlFull**](docs/SwagDomainApi.md#domainUrlFull) | **POST** /validate/domain/url/full | Validate a URL fully
+*SwagDomainApi* | [**domainUrlHtmlSsrfCheck**](docs/SwagDomainApi.md#domainUrlHtmlSsrfCheck) | **POST** /validate/domain/url/ssrf-threat-check/html-embedded | Check a URL for HTML embedded SSRF threats
 *SwagDomainApi* | [**domainUrlSyntaxOnly**](docs/SwagDomainApi.md#domainUrlSyntaxOnly) | **POST** /validate/domain/url/syntax-only | Validate a URL syntactically
 *SwagEmailApi* | [**emailAddressGetServers**](docs/SwagEmailApi.md#emailAddressGetServers) | **POST** /validate/email/address/servers | Partially check whether an email address is valid
 *SwagEmailApi* | [**emailFullValidation**](docs/SwagEmailApi.md#emailFullValidation) | **POST** /validate/email/address/full | Fully validate an email address
@@ -174,6 +175,8 @@ Class | Method | HTTP request | Description
  - [SwagSqlInjectionDetectionResult](docs/SwagSqlInjectionDetectionResult.md)
  - [SwagTimezone](docs/SwagTimezone.md)
  - [SwagTorNodeResponse](docs/SwagTorNodeResponse.md)
+ - [SwagUrlHtmlSsrfRequestFull](docs/SwagUrlHtmlSsrfRequestFull.md)
+ - [SwagUrlHtmlSsrfResponseFull](docs/SwagUrlHtmlSsrfResponseFull.md)
  - [SwagUrlSafetyCheckRequestFull](docs/SwagUrlSafetyCheckRequestFull.md)
  - [SwagUrlSafetyCheckResponseFull](docs/SwagUrlSafetyCheckResponseFull.md)
  - [SwagUrlSsrfRequestBatch](docs/SwagUrlSsrfRequestBatch.md)

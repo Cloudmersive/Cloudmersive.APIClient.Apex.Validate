@@ -14,6 +14,7 @@ Method | HTTP request | Description
 [**domainSsrfCheck**](SwagDomainApi.md#domainSsrfCheck) | **POST** /validate/domain/url/ssrf-threat-check | Check a URL for SSRF threats
 [**domainSsrfCheckBatch**](SwagDomainApi.md#domainSsrfCheckBatch) | **POST** /validate/domain/url/ssrf-threat-check/batch | Check a URL for SSRF threats in batches
 [**domainUrlFull**](SwagDomainApi.md#domainUrlFull) | **POST** /validate/domain/url/full | Validate a URL fully
+[**domainUrlHtmlSsrfCheck**](SwagDomainApi.md#domainUrlHtmlSsrfCheck) | **POST** /validate/domain/url/ssrf-threat-check/html-embedded | Check a URL for HTML embedded SSRF threats
 [**domainUrlSyntaxOnly**](SwagDomainApi.md#domainUrlSyntaxOnly) | **POST** /validate/domain/url/syntax-only | Validate a URL syntactically
 
 
@@ -497,6 +498,55 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**SwagValidateUrlResponseFull**](SwagValidateUrlResponseFull.md)
+
+### Authorization
+
+[Apikey](../README.md#Apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a name="domainUrlHtmlSsrfCheck"></a>
+# **domainUrlHtmlSsrfCheck**
+> SwagUrlHtmlSsrfResponseFull domainUrlHtmlSsrfCheck(request)
+
+Check a URL for HTML embedded SSRF threats
+
+Checks if an input URL HTML is at risk of containing one or more embedded SSRF (Server-side request forgery) threats or attacks.
+
+### Example
+```java
+SwagDomainApi api = new SwagDomainApi();
+SwagClient client = api.getClient();
+
+// Configure API key authorization: Apikey
+ApiKeyAuth Apikey = (ApiKeyAuth) client.getAuthentication('Apikey');
+Apikey.setApiKey('YOUR API KEY');
+
+Map<String, Object> params = new Map<String, Object>{
+    'request' => SwagUrlHtmlSsrfRequestFull.getExample()
+};
+
+try {
+    // cross your fingers
+    SwagUrlHtmlSsrfResponseFull result = api.domainUrlHtmlSsrfCheck(params);
+    System.debug(result);
+} catch (Swagger.ApiException e) {
+    // ...handle your exceptions
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **request** | [**SwagUrlHtmlSsrfRequestFull**](SwagUrlHtmlSsrfRequestFull.md)| Input URL request |
+
+### Return type
+
+[**SwagUrlHtmlSsrfResponseFull**](SwagUrlHtmlSsrfResponseFull.md)
 
 ### Authorization
 

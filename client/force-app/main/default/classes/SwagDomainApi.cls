@@ -266,6 +266,30 @@ public class SwagDomainApi {
         );
     }
     /**
+     * Check a URL for HTML embedded SSRF threats
+     * Checks if an input URL HTML is at risk of containing one or more embedded SSRF (Server-side request forgery) threats or attacks.
+     * @param request Input URL request (required)
+     * @return SwagUrlHtmlSsrfResponseFull
+     * @throws Swagger.ApiException if fails to make API call
+     */
+    public SwagUrlHtmlSsrfResponseFull domainUrlHtmlSsrfCheck(Map<String, Object> params) {
+        client.assertNotNull(params.get('request'), 'request');
+        List<Swagger.Param> query = new List<Swagger.Param>();
+        List<Swagger.Param> form = new List<Swagger.Param>();
+
+        return (SwagUrlHtmlSsrfResponseFull) client.invoke(
+            'POST', '/validate/domain/url/ssrf-threat-check/html-embedded',
+            (SwagUrlHtmlSsrfRequestFull) params.get('request'),
+            query, form,
+            new Map<String, Object>(),
+            new Map<String, Object>(),
+            new List<String>{ 'application/json' },
+            new List<String>{ 'application/json' },
+            new List<String> { 'Apikey' },
+            SwagUrlHtmlSsrfResponseFull.class
+        );
+    }
+    /**
      * Validate a URL syntactically
      * Validate whether a URL is syntactically valid (does not check endpoint for validity).  Accepts various types of input and produces a well-formed URL as output.
      * @param request Input URL information (required)
