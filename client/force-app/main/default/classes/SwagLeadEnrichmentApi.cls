@@ -49,4 +49,28 @@ public class SwagLeadEnrichmentApi {
             SwagLeadEnrichmentResponse.class
         );
     }
+    /**
+     * Get company information from email address
+     * 
+     * @param request Input email address lead (required)
+     * @return SwagLeadEnrichmentResponse
+     * @throws Swagger.ApiException if fails to make API call
+     */
+    public SwagLeadEnrichmentResponse leadEnrichmentGetCompanyInformation(Map<String, Object> params) {
+        client.assertNotNull(params.get('request'), 'request');
+        List<Swagger.Param> query = new List<Swagger.Param>();
+        List<Swagger.Param> form = new List<Swagger.Param>();
+
+        return (SwagLeadEnrichmentResponse) client.invoke(
+            'POST', '/validate/lead-enrichment/lead/email/company-information',
+            (SwagEmailLead) params.get('request'),
+            query, form,
+            new Map<String, Object>(),
+            new Map<String, Object>(),
+            new List<String>{ 'application/json' },
+            new List<String>{ 'application/json' },
+            new List<String> { 'Apikey' },
+            SwagLeadEnrichmentResponse.class
+        );
+    }
 }

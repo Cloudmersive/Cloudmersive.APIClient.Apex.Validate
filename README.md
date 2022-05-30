@@ -106,6 +106,7 @@ Class | Method | HTTP request | Description
 *SwagIpAddressApi* | [**iPAddressPost**](docs/SwagIpAddressApi.md#iPAddressPost) | **POST** /validate/ip/geolocate | Geolocate an IP address
 *SwagIpAddressApi* | [**iPAddressReverseDomainLookup**](docs/SwagIpAddressApi.md#iPAddressReverseDomainLookup) | **POST** /validate/ip/reverse-domain-lookup | Perform a reverse domain name (DNS) lookup on an IP address
 *SwagLeadEnrichmentApi* | [**leadEnrichmentEnrichLead**](docs/SwagLeadEnrichmentApi.md#leadEnrichmentEnrichLead) | **POST** /validate/lead-enrichment/lead/enrich | Enrich an input lead with additional fields of data
+*SwagLeadEnrichmentApi* | [**leadEnrichmentGetCompanyInformation**](docs/SwagLeadEnrichmentApi.md#leadEnrichmentGetCompanyInformation) | **POST** /validate/lead-enrichment/lead/email/company-information | Get company information from email address
 *SwagNameApi* | [**nameGetGender**](docs/SwagNameApi.md#nameGetGender) | **POST** /validate/name/get-gender | Get the gender of a first name
 *SwagNameApi* | [**nameIdentifier**](docs/SwagNameApi.md#nameIdentifier) | **POST** /validate/name/identifier | Validate a code identifier
 *SwagNameApi* | [**nameValidateFirstName**](docs/SwagNameApi.md#nameValidateFirstName) | **POST** /validate/name/first | Validate a first name
@@ -137,6 +138,7 @@ Class | Method | HTTP request | Description
  - [SwagDateTimeStandardizedParseRequest](docs/SwagDateTimeStandardizedParseRequest.md)
  - [SwagDateTimeStandardizedParseRespons](docs/SwagDateTimeStandardizedParseRespons.md)
  - [SwagDomainQualityResponse](docs/SwagDomainQualityResponse.md)
+ - [SwagEmailLead](docs/SwagEmailLead.md)
  - [SwagFirstNameValidationRequest](docs/SwagFirstNameValidationRequest.md)
  - [SwagFirstNameValidationResponse](docs/SwagFirstNameValidationResponse.md)
  - [SwagFullEmailValidationResponse](docs/SwagFullEmailValidationResponse.md)
