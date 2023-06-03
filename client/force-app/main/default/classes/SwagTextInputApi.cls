@@ -29,6 +29,7 @@ public class SwagTextInputApi {
      * Protect html input from Server-side Request Forgery (SSRF) attacks
      * Detects SSRF (Server-side request forgery) attacks and unsafe URL attacks from HTML text input, where attackers can attempt to access unsafe local or network paths in the server environment by injecting them into HTML.
      * @param value User-facing HTML input. (required)
+     * @param allowCidScheme Optional: Set to true to allow cid: scheme URLs for email message attachments.  Default is false. (optional)
      * @return SwagHtmlSsrfDetectionResult
      * @throws Swagger.ApiException if fails to make API call
      */
@@ -42,7 +43,9 @@ public class SwagTextInputApi {
             (String) params.get('value'),
             query, form,
             new Map<String, Object>(),
-            new Map<String, Object>(),
+            new Map<String, Object>{
+                'allowCidScheme' => (Boolean) params.get('allowCidScheme')
+            },
             new List<String>{ 'application/json' },
             new List<String>{ 'application/json' },
             new List<String> { 'Apikey' },

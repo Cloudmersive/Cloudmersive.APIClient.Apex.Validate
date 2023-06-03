@@ -16,7 +16,7 @@ Method | HTTP request | Description
 
 <a name="textInputCheckHtmlSsrf"></a>
 # **textInputCheckHtmlSsrf**
-> SwagHtmlSsrfDetectionResult textInputCheckHtmlSsrf(value)
+> SwagHtmlSsrfDetectionResult textInputCheckHtmlSsrf(value, allowCidScheme)
 
 Protect html input from Server-side Request Forgery (SSRF) attacks
 
@@ -32,7 +32,8 @@ ApiKeyAuth Apikey = (ApiKeyAuth) client.getAuthentication('Apikey');
 Apikey.setApiKey('YOUR API KEY');
 
 Map<String, Object> params = new Map<String, Object>{
-    'value' => 'value_example'
+    'value' => 'value_example',
+    'allowCidScheme' => true
 };
 
 try {
@@ -49,6 +50,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **value** | **String**| User-facing HTML input. |
+ **allowCidScheme** | **Boolean**| Optional: Set to true to allow cid: scheme URLs for email message attachments.  Default is false. | [optional]
 
 ### Return type
 

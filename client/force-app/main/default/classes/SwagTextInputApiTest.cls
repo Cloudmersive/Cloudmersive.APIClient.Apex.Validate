@@ -13,7 +13,8 @@ private class SwagTextInputApiTest {
         Test.setMock(HttpCalloutMock.class, new SwaggerResponseMock(res));
 
         Map<String, Object> params = new Map<String, Object>{
-            'value' => 'value_example'
+            'value' => 'value_example',
+            'allowCidScheme' => true
         };
 
         SwagClient client;
